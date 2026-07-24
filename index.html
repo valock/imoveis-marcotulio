@@ -9,11 +9,11 @@
   <meta name="author" content="Marco Túlio - Corretor de Imóveis">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
-  <link rel="canonical" href="https://imoveis-marcotulio.netlify.app/">
+  <link rel="canonical" href="https://imoveis.marcotulio.pro/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://imoveis-marcotulio.netlify.app/">
+  <meta property="og:url" content="https://imoveis.marcotulio.pro/">
   <meta property="og:title" content="Marco Túlio | Corretor de Imóveis em Uberlândia - Financiamento Caixa 2026">
   <meta property="og:description" content="Encontre o imóvel perfeito em Uberlândia com Marco Túlio. 15+ anos de experiência. Simulação gratuita de financiamento Caixa e Minha Casa Minha Vida.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=630&fit=crop">
@@ -38,8 +38,11 @@
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "name": "Marco Túlio - Corretor de Imóveis",
+    "alternateName": "Marco Túlio Andrade Freitas",
+    "identifier": "CRECI/MG nº 7469 (Torrano Negócios Imobiliários)",
+    "taxID": "51.647.689/0001-81",
     "description": "Corretor de imóveis em Uberlândia com mais de 15 anos de experiência. Especialista em financiamento Caixa, Minha Casa Minha Vida, compra, venda e avaliação de imóveis.",
-    "url": "https://imoveis-marcotulio.netlify.app/",
+    "url": "https://imoveis.marcotulio.pro/",
     "telephone": "+55-34-99677-8075",
     "email": "marcotulioandra@gmail.com",
     "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&h=630&fit=crop",
@@ -147,7 +150,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Marco Túlio Imóveis Uberlândia",
-    "url": "https://imoveis-marcotulio.netlify.app/",
+    "url": "https://imoveis.marcotulio.pro/",
     "description": "Site oficial do corretor Marco Túlio. Imóveis em Uberlândia, financiamento Caixa, Minha Casa Minha Vida 2026.",
     "publisher": {
       "@type": "Organization",
@@ -158,26 +161,29 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gold: #C8A55C;
-      --gold-light: #E8D5A3;
-      --gold-dark: #9E7E3A;
-      --navy: #0B1D33;
-      --navy-light: #132D4F;
-      --navy-mid: #1A3A5C;
-      --white: #FAFAF8;
-      --off-white: #F2F0EB;
-      --gray: #8A9AAE;
-      --gray-light: #C5CDD8;
-      --text: #2C3E50;
-      --text-light: #6B7C93;
-      --green-whatsapp: #25D366;
-      --shadow: 0 4px 30px rgba(11,29,51,0.08);
-      --shadow-lg: 0 12px 50px rgba(11,29,51,0.12);
-      --radius: 12px;
-      --radius-sm: 8px;
+      /* Paleta alinhada ao marcotulio.pro */
+      --gold: #FF5A2C;
+      --gold-light: #FFD9CC;
+      --gold-dark: #C8390F;
+      --navy: #1A56DB;
+      --navy-light: #11399E;
+      --navy-mid: #163f9e;
+      --tinta: #0F1B2D;
+      --white: #FFFFFF;
+      --off-white: #F7F9FC;
+      --gray: #C7D4EC;
+      --gray-light: #41506A;
+      --text: #0F1B2D;
+      --text-light: #41506A;
+      --green-whatsapp: #0E7A33;
+      --green-whatsapp-dark: #0A5526;
+      --shadow: 0 6px 24px rgba(26,86,219,0.10);
+      --shadow-lg: 0 12px 44px rgba(26,86,219,0.18);
+      --radius: 16px;
+      --radius-sm: 10px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -185,7 +191,9 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
       color: var(--text);
       background: var(--white);
       overflow-x: hidden;
@@ -193,8 +201,14 @@
     }
 
     h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      color: var(--navy);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--tinta);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
     }
 
     .container {
@@ -208,15 +222,16 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
-      background: rgba(11,29,51,0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(200,165,92,0.15);
-      transition: all 0.3s ease;
+      background: rgba(247,249,252,0.85);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border-bottom: 1px solid transparent;
+      transition: all 0.25s ease;
     }
     nav.scrolled {
-      background: rgba(11,29,51,0.98);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+      background: rgba(247,249,252,0.96);
+      border-bottom-color: rgba(15,27,45,0.08);
+      box-shadow: 0 2px 20px rgba(15,27,45,0.06);
     }
     .nav-inner {
       display: flex;
@@ -234,25 +249,25 @@
     }
     .logo-icon {
       width: 42px; height: 42px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
-      color: var(--navy);
-      font-weight: 700;
-      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-weight: 800;
+      font-family: 'Bricolage Grotesque', sans-serif;
     }
     .logo-text {
-      color: var(--white);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      color: var(--tinta);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
     .logo-text span {
-      color: var(--gold);
+      color: var(--navy);
     }
     .nav-links {
       display: flex;
@@ -261,25 +276,29 @@
       align-items: center;
     }
     .nav-links a {
-      color: var(--gray-light);
+      color: var(--text-light);
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 1rem;
+      font-weight: 600;
       transition: color 0.2s;
-      letter-spacing: 0.3px;
+      padding: 8px 2px;
     }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--navy); }
     .nav-cta {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy) !important;
-      padding: 10px 24px;
+      background: var(--green-whatsapp);
+      color: var(--white) !important;
+      padding: 13px 26px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
       border-radius: 50px;
-      font-weight: 600 !important;
-      transition: transform 0.2s, box-shadow 0.2s !important;
+      font-weight: 700 !important;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s !important;
     }
     .nav-cta:hover {
+      background: var(--green-whatsapp-dark);
       transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(200,165,92,0.4);
+      box-shadow: 0 4px 20px rgba(14,122,51,0.35);
     }
 
     .hamburger {
@@ -289,11 +308,15 @@
       cursor: pointer;
       background: none;
       border: none;
-      padding: 8px;
+      padding: 12px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
     }
     .hamburger span {
       width: 24px; height: 2px;
-      background: var(--gold);
+      background: var(--navy);
       border-radius: 2px;
       transition: all 0.3s;
     }
@@ -312,17 +335,17 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: 
-        radial-gradient(ellipse at 20% 50%, rgba(200,165,92,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(26,58,92,0.5) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(200,165,92,0.05) 0%, transparent 40%);
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(255,90,44,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(17,57,158,0.6) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(255,255,255,0.06) 0%, transparent 40%);
     }
     .hero::after {
       content: '';
       position: absolute;
       top: -50%; right: -20%;
       width: 800px; height: 800px;
-      border: 1px solid rgba(200,165,92,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 50%;
       animation: float 20s ease-in-out infinite;
     }
@@ -353,21 +376,21 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(200,165,92,0.1);
-      border: 1px solid rgba(200,165,92,0.2);
-      padding: 8px 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 9px 20px;
       border-radius: 50px;
-      color: var(--gold);
-      font-size: 0.82rem;
+      color: var(--white);
+      font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
       margin-bottom: 28px;
     }
     .hero-badge::before {
       content: '';
       width: 8px; height: 8px;
-      background: var(--gold);
+      background: var(--gold-light);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -376,24 +399,21 @@
       50% { opacity: 0.4; }
     }
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-size: clamp(2.6rem, 5.6vw, 4.1rem);
       color: var(--white);
-      line-height: 1.15;
+      line-height: 1.1;
       margin-bottom: 24px;
-      font-weight: 600;
+      font-weight: 800;
     }
     .hero h1 .highlight {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--gold-light);
     }
     .hero-sub {
-      font-size: 1.1rem;
-      color: var(--gray);
-      line-height: 1.7;
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.65;
       margin-bottom: 40px;
-      max-width: 500px;
+      max-width: 520px;
     }
     .hero-buttons {
       display: flex;
@@ -403,43 +423,47 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 16px 32px;
+      min-height: 52px;
+      padding: 15px 32px;
       border-radius: 50px;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 1.02rem;
+      font-weight: 700;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       cursor: pointer;
       border: none;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Hanken Grotesk', sans-serif;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy);
-      box-shadow: 0 4px 25px rgba(200,165,92,0.3);
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 4px 25px rgba(26,86,219,0.3);
     }
     .btn-primary:hover {
+      background: var(--navy-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 35px rgba(200,165,92,0.45);
+      box-shadow: 0 8px 35px rgba(26,86,219,0.4);
     }
     .btn-outline {
       background: transparent;
       color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.2);
+      border: 1.5px solid rgba(255,255,255,0.35);
     }
     .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold);
+      border-color: var(--white);
+      background: rgba(255,255,255,0.1);
     }
     .btn-whatsapp {
       background: var(--green-whatsapp);
       color: #fff;
-      box-shadow: 0 4px 25px rgba(37,211,102,0.3);
+      box-shadow: 0 4px 25px rgba(14,122,51,0.35);
     }
     .btn-whatsapp:hover {
+      background: var(--green-whatsapp-dark);
       transform: translateY(-2px);
-      box-shadow: 0 8px 35px rgba(37,211,102,0.45);
+      box-shadow: 0 8px 35px rgba(14,122,51,0.45);
     }
 
     .hero-right {
@@ -472,26 +496,26 @@
     .stat-item {
       text-align: center;
       padding: 20px;
-      background: rgba(200,165,92,0.06);
+      background: rgba(255,90,44,0.08);
       border-radius: 16px;
-      border: 1px solid rgba(200,165,92,0.1);
+      border: 1px solid rgba(255,90,44,0.15);
       transition: transform 0.3s;
     }
     .stat-item:hover { transform: translateY(-4px); }
     .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--gold);
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--gold-light);
       line-height: 1;
       margin-bottom: 6px;
     }
     .stat-label {
-      color: var(--gray);
-      font-size: 0.8rem;
-      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.88rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
 
     /* ========== SEARCH BAR ========== */
@@ -519,10 +543,10 @@
     }
     .search-group label {
       display: block;
-      font-size: 0.72rem;
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       color: var(--text-light);
       margin-bottom: 6px;
     }
@@ -530,13 +554,14 @@
     .search-group input {
       width: 100%;
       border: none;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       color: var(--navy);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 600;
       background: transparent;
       outline: none;
-      padding: 4px 0;
+      padding: 8px 0;
+      min-height: 44px;
     }
     .search-divider {
       width: 1px;
@@ -544,21 +569,23 @@
       background: var(--off-white);
     }
     .search-btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy);
+      background: var(--navy);
+      color: var(--white);
       border: none;
-      padding: 14px 32px;
+      min-height: 52px;
+      padding: 14px 34px;
       border-radius: 50px;
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s;
-      font-family: 'DM Sans', sans-serif;
+      transition: all 0.25s;
+      font-family: 'Hanken Grotesk', sans-serif;
       white-space: nowrap;
     }
     .search-btn:hover {
+      background: var(--navy-light);
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(200,165,92,0.4);
+      box-shadow: 0 8px 30px rgba(26,86,219,0.35);
     }
 
     /* ========== SECTIONS ========== */
@@ -569,24 +596,24 @@
     }
     .section-tag {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       color: var(--gold-dark);
       margin-bottom: 16px;
     }
     .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      line-height: 1.2;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      line-height: 1.15;
       margin-bottom: 16px;
     }
     .section-desc {
       color: var(--text-light);
-      font-size: 1.05rem;
-      max-width: 600px;
+      font-size: 1.2rem;
+      max-width: 620px;
       margin: 0 auto;
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     /* ========== SERVICES ========== */
@@ -620,11 +647,11 @@
     .service-card:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-lg);
-      border-color: rgba(200,165,92,0.1);
+      border-color: rgba(255,90,44,0.15);
     }
     .service-icon {
       width: 56px; height: 56px;
-      background: linear-gradient(135deg, rgba(200,165,92,0.12), rgba(200,165,92,0.05));
+      background: linear-gradient(135deg, rgba(255,90,44,0.14), rgba(255,90,44,0.05));
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -633,13 +660,13 @@
       margin-bottom: 24px;
     }
     .service-card h3 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-bottom: 12px;
     }
     .service-card p {
       color: var(--text-light);
-      line-height: 1.7;
-      font-size: 0.95rem;
+      line-height: 1.65;
+      font-size: 1.05rem;
     }
 
     /* ========== DIFFERENTIALS ========== */
@@ -661,17 +688,17 @@
       align-items: center;
       justify-content: center;
       font-size: 1.8rem;
-      box-shadow: 0 8px 30px rgba(11,29,51,0.15);
+      box-shadow: 0 8px 30px rgba(26,86,219,0.2);
       transition: transform 0.3s;
     }
     .diff-item:hover .diff-icon { transform: scale(1.08) rotate(3deg); }
     .diff-item h4 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 10px;
     }
     .diff-item p {
       color: var(--text-light);
-      font-size: 0.9rem;
+      font-size: 1rem;
       line-height: 1.6;
     }
 
@@ -701,13 +728,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 30% 40%, rgba(200,165,92,0.15), transparent 60%);
+      background: radial-gradient(circle at 30% 40%, rgba(255,90,44,0.2), transparent 60%);
     }
     .about-initials {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 6rem;
-      font-weight: 700;
-      color: rgba(200,165,92,0.2);
+      font-weight: 800;
+      color: rgba(255,255,255,0.25);
       letter-spacing: 8px;
       z-index: 1;
     }
@@ -733,25 +760,25 @@
       font-size: 1.3rem;
     }
     .about-float-text .af-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
       color: var(--navy);
     }
     .about-float-text .af-label {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       color: var(--text-light);
     }
     .about-content .section-tag { text-align: left; }
     .about-content h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 20px;
     }
     .about-content p {
       color: var(--text-light);
-      line-height: 1.8;
+      line-height: 1.75;
       margin-bottom: 16px;
-      font-size: 0.98rem;
+      font-size: 1.08rem;
     }
     .about-list {
       list-style: none;
@@ -763,12 +790,13 @@
       gap: 12px;
       padding: 10px 0;
       color: var(--text);
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.05rem;
     }
     .about-list li::before {
       content: '✓';
       width: 28px; height: 28px;
-      background: rgba(200,165,92,0.12);
+      background: rgba(255,90,44,0.14);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -781,7 +809,7 @@
 
     /* ========== FINANCING ========== */
     .financing {
-      background: var(--navy);
+      background: var(--tinta);
       position: relative;
       overflow: hidden;
     }
@@ -790,8 +818,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse at 10% 90%, rgba(200,165,92,0.08), transparent 50%),
-        radial-gradient(ellipse at 90% 10%, rgba(200,165,92,0.05), transparent 50%);
+        radial-gradient(ellipse at 10% 90%, rgba(255,90,44,0.08), transparent 50%),
+        radial-gradient(ellipse at 90% 10%, rgba(26,86,219,0.25), transparent 50%);
     }
     .financing .section-tag { color: var(--gold); }
     .financing .section-title { color: var(--white); }
@@ -812,26 +840,26 @@
       transition: all 0.3s;
     }
     .fin-step:hover {
-      background: rgba(200,165,92,0.08);
-      border-color: rgba(200,165,92,0.2);
+      background: rgba(255,90,44,0.08);
+      border-color: rgba(255,90,44,0.25);
       transform: translateY(-4px);
     }
     .fin-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 800;
       color: var(--gold);
       margin-bottom: 16px;
       line-height: 1;
     }
     .fin-step h4 {
       color: var(--white);
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       margin-bottom: 10px;
     }
     .fin-step p {
       color: var(--gray);
-      font-size: 0.88rem;
+      font-size: 0.98rem;
       line-height: 1.6;
     }
     .fin-cta {
@@ -861,14 +889,14 @@
     }
     .test-stars {
       color: var(--gold);
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 16px;
       letter-spacing: 2px;
     }
     .test-text {
       color: var(--text);
-      line-height: 1.7;
-      font-size: 0.95rem;
+      line-height: 1.65;
+      font-size: 1.05rem;
       margin-bottom: 20px;
       font-style: italic;
     }
@@ -884,7 +912,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--navy);
+      color: var(--white);
       font-weight: 700;
       font-size: 0.9rem;
     }
@@ -893,7 +921,7 @@
       color: var(--navy);
     }
     .test-role {
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       color: var(--text-light);
     }
 
@@ -909,18 +937,18 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(200,165,92,0.1), transparent 70%);
+      background: radial-gradient(circle at 50% 50%, rgba(255,90,44,0.14), transparent 70%);
     }
     .cta-section h2 {
       color: var(--white);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
       margin-bottom: 16px;
       position: relative;
     }
     .cta-section p {
-      color: var(--gray);
+      color: rgba(255,255,255,0.85);
       margin-bottom: 36px;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       position: relative;
     }
     .cta-buttons {
@@ -933,7 +961,7 @@
 
     /* ========== FOOTER ========== */
     footer {
-      background: #060F1A;
+      background: var(--tinta);
       padding: 64px 0 32px;
       color: var(--gray);
     }
@@ -943,17 +971,29 @@
       gap: 48px;
       margin-bottom: 48px;
     }
+    .footer-brand .logo-text { color: var(--white); }
+    .footer-brand .logo-text span { color: #6E97F0; }
     .footer-brand p {
-      font-size: 0.9rem;
+      font-size: 1rem;
       line-height: 1.7;
       margin-top: 16px;
     }
+    .footer-note {
+      margin-top: 18px;
+      font-size: 0.92rem;
+    }
+    .footer-note a {
+      color: var(--gold-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .footer-note a:hover { text-decoration: underline; }
     footer h4 {
       color: var(--white);
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin-bottom: 20px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 700;
     }
     .footer-links {
       list-style: none;
@@ -962,35 +1002,35 @@
     .footer-links a {
       color: var(--gray);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.96rem;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--gold); }
+    .footer-links a:hover { color: var(--gold-light); }
     .footer-contact-item {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 14px;
-      font-size: 0.88rem;
+      font-size: 0.96rem;
     }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255,255,255,0.1);
       padding-top: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       flex-wrap: wrap;
       gap: 12px;
     }
     .footer-bottom a {
-      color: var(--gold);
+      color: var(--gold-light);
       text-decoration: none;
     }
     .creci {
-      background: rgba(200,165,92,0.08);
-      border: 1px solid rgba(200,165,92,0.15);
-      padding: 6px 16px;
+      background: rgba(255,90,44,0.12);
+      border: 1px solid rgba(255,90,44,0.25);
+      padding: 7px 18px;
       border-radius: 50px;
       color: var(--gold);
       font-weight: 600;
@@ -1019,7 +1059,7 @@
     .property-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-lg);
-      border-color: rgba(200,165,92,0.2);
+      border-color: rgba(255,90,44,0.25);
     }
     .property-card-img {
       width: 100%;
@@ -1040,10 +1080,10 @@
       top: 16px;
       left: 16px;
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--navy);
+      color: var(--white);
       padding: 6px 14px;
       border-radius: 50px;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -1052,13 +1092,13 @@
       padding: 24px;
     }
     .property-card-body h3 {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       margin-bottom: 8px;
       line-height: 1.3;
     }
     .property-card-body .property-location {
       color: var(--text-light);
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -1072,7 +1112,7 @@
     }
     .property-card-features span {
       color: var(--text-light);
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       display: flex;
       align-items: center;
       gap: 4px;
@@ -1083,7 +1123,7 @@
       gap: 6px;
       color: var(--gold-dark);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.98rem;
       margin-top: 16px;
       transition: gap 0.3s;
     }
@@ -1106,20 +1146,21 @@
       bottom: 24px;
       right: 24px;
       z-index: 999;
-      width: 60px; height: 60px;
+      width: 64px; height: 64px;
       background: var(--green-whatsapp);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 25px rgba(37,211,102,0.4);
+      box-shadow: 0 4px 25px rgba(14,122,51,0.4);
       transition: all 0.3s;
       text-decoration: none;
       animation: bounceIn 0.6s ease-out 1s both;
     }
     .whatsapp-float:hover {
+      background: var(--green-whatsapp-dark);
       transform: scale(1.1);
-      box-shadow: 0 6px 35px rgba(37,211,102,0.5);
+      box-shadow: 0 6px 35px rgba(14,122,51,0.5);
     }
     .whatsapp-float svg { width: 32px; height: 32px; fill: #fff; }
     @keyframes bounceIn {
@@ -1147,7 +1188,7 @@
     .blog-card:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-lg);
-      border-color: rgba(200,165,92,0.15);
+      border-color: rgba(255,90,44,0.2);
     }
     .blog-card-img {
       width: 100%;
@@ -1166,29 +1207,29 @@
       align-items: center;
       gap: 12px;
       margin-bottom: 14px;
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       color: var(--text-light);
     }
     .blog-card-tag {
-      background: linear-gradient(135deg, rgba(200,165,92,0.15), rgba(200,165,92,0.05));
+      background: #FFEDE5;
       color: var(--gold-dark);
       padding: 4px 12px;
       border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.72rem;
+      font-weight: 700;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .blog-card-body h3 {
-      font-size: 1.2rem;
-      line-height: 1.35;
+      font-size: 1.3rem;
+      line-height: 1.3;
       margin-bottom: 12px;
       color: var(--navy);
     }
     .blog-card-body p {
       color: var(--text-light);
-      font-size: 0.92rem;
-      line-height: 1.7;
+      font-size: 1rem;
+      line-height: 1.65;
       margin-bottom: 20px;
       flex: 1;
     }
@@ -1197,8 +1238,8 @@
       align-items: center;
       gap: 6px;
       color: var(--gold-dark);
-      font-weight: 600;
-      font-size: 0.88rem;
+      font-weight: 700;
+      font-size: 0.95rem;
       text-decoration: none;
       transition: gap 0.3s;
     }
@@ -1206,8 +1247,8 @@
 
     /* ========== BREADCRUMB-STYLE TRUST BAR ========== */
     .trust-bar {
-      background: var(--navy);
-      border-bottom: 1px solid rgba(200,165,92,0.1);
+      background: var(--tinta);
+      border-bottom: 1px solid rgba(255,90,44,0.15);
       padding: 12px 0;
       text-align: center;
       overflow: hidden;
@@ -1226,12 +1267,63 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      color: var(--gray);
-      font-size: 0.8rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.88rem;
       font-weight: 500;
       white-space: nowrap;
     }
-    .trust-item span { color: var(--gold); font-size: 1rem; }
+    .trust-item span { color: var(--gold-light); font-size: 1.05rem; }
+
+    /* ========== FAQ ========== */
+    .faq { background: var(--white); }
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border: 1px solid var(--off-white);
+      background: var(--off-white);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item[open] { border-color: rgba(26,86,219,0.25); }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 26px;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: var(--tinta);
+      min-height: 32px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary .faq-icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--white);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      transition: transform 0.25s;
+    }
+    .faq-item[open] summary .faq-icon { transform: rotate(45deg); }
+    .faq-item-body {
+      padding: 0 26px 24px;
+      color: var(--text-light);
+      font-size: 1.02rem;
+      line-height: 1.7;
+    }
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 968px) {
@@ -1257,11 +1349,14 @@
         flex-direction: column;
         position: absolute;
         top: 100%; left: 0; right: 0;
-        background: var(--navy);
-        padding: 24px;
-        gap: 20px;
-        border-top: 1px solid rgba(200,165,92,0.1);
+        background: var(--white);
+        padding: 12px 24px 24px;
+        gap: 4px;
+        border-top: 1px solid var(--off-white);
+        box-shadow: 0 12px 30px rgba(15,27,45,0.1);
       }
+      .nav-links.open a { padding: 14px 4px; font-size: 1.1rem; }
+      .nav-links.open .nav-cta { justify-content: center; margin-top: 8px; }
       .search-bar { flex-direction: column; padding: 20px; }
       .search-divider { display: none; }
       .search-group { min-width: 100%; }
@@ -1291,12 +1386,10 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#imoveis">Imóveis</a></li>
         <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#diferenciais">Diferenciais</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#financiamento">Financiamento</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#blog">Blog</a></li>
-        <li><a href="https://wa.me/5534996778075?text=Olá Marco! Vim pelo site e gostaria de mais informações." class="nav-cta" target="_blank">Fale Comigo</a></li>
+        <li><a href="https://wa.me/5534996778075?text=Olá Marco! Vim pelo site e gostaria de mais informações." class="nav-cta" target="_blank" rel="noopener">Fale Comigo</a></li>
       </ul>
       <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1323,7 +1416,7 @@
         <h1>Encontre o <span class="highlight">Imóvel Perfeito</span> Para Sua Família</h1>
         <p class="hero-sub">Com mais de 15 anos de experiência no mercado imobiliário, ajudo você a encontrar, negociar e financiar o imóvel dos seus sonhos com transparência e dedicação.</p>
         <div class="hero-buttons">
-          <a href="https://wa.me/5534996778075?text=Olá Marco! Quero uma simulação gratuita de financiamento." class="btn btn-whatsapp" target="_blank">
+          <a href="https://wa.me/5534996778075?text=Olá Marco! Quero uma simulação gratuita de financiamento." class="btn btn-whatsapp" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Simulação Gratuita
           </a>
@@ -1567,7 +1660,7 @@
             <li>Conhecimento profundo do mercado de Uberlândia</li>
             <li>Atendimento humanizado e sem scripts</li>
           </ul>
-          <a href="https://wa.me/5534996778075?text=Olá Marco! Vim pelo site e quero saber mais." class="btn btn-primary" target="_blank">
+          <a href="https://wa.me/5534996778075?text=Olá Marco! Vim pelo site e quero saber mais." class="btn btn-primary" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Fale Comigo
           </a>
@@ -1607,7 +1700,7 @@
         </div>
       </div>
       <div class="fin-cta">
-        <a href="https://wa.me/5534996778075?text=Olá Marco! Quero simular meu financiamento imobiliário." class="btn btn-primary" target="_blank">
+        <a href="https://wa.me/5534996778075?text=Olá Marco! Quero simular meu financiamento imobiliário." class="btn btn-primary" target="_blank" rel="noopener">
           Simular Meu Financiamento →
         </a>
       </div>
@@ -1678,7 +1771,7 @@
             </div>
             <h3 itemprop="headline">Novas Regras do Financiamento Caixa 2026: O Que Mudou e Como Aproveitar</h3>
             <p itemprop="description">A Caixa Econômica Federal anunciou mudanças significativas nas regras de financiamento imobiliário para 2026. As novas faixas de renda do Minha Casa Minha Vida agora contemplam famílias com renda de até R$ 8.000, ampliando o acesso ao programa. Além disso, as taxas de juros foram reduzidas para 6,5% ao ano na faixa 1, beneficiando milhares de brasileiros que buscam o primeiro imóvel. A novidade mais aguardada é a possibilidade de usar o FGTS Futuro como parte da entrada, facilitando ainda mais a aprovação do crédito.</p>
-            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero saber mais sobre as novas regras da Caixa 2026." class="blog-card-link" target="_blank">Fale com o especialista →</a>
+            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero saber mais sobre as novas regras da Caixa 2026." class="blog-card-link" target="_blank" rel="noopener">Fale com o especialista →</a>
           </div>
         </article>
 
@@ -1691,7 +1784,7 @@
             </div>
             <h3 itemprop="headline">FGTS Futuro: Como Usar Seus Depósitos Futuros Para Comprar Imóvel em 2026</h3>
             <p itemprop="description">O FGTS Futuro permite que trabalhadores utilizem depósitos futuros do fundo como garantia no financiamento imobiliário. Com a regulamentação atualizada pela Caixa em 2026, agora é possível comprometer até 8% dos depósitos futuros do FGTS para complementar a renda na hora de financiar. Isso significa que quem antes não conseguia aprovação de crédito agora pode realizar o sonho da casa própria. A medida é especialmente vantajosa para jovens compradores e famílias de renda média.</p>
-            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero entender como usar o FGTS Futuro no financiamento." class="blog-card-link" target="_blank">Simule seu financiamento →</a>
+            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero entender como usar o FGTS Futuro no financiamento." class="blog-card-link" target="_blank" rel="noopener">Simule seu financiamento →</a>
           </div>
         </article>
 
@@ -1704,7 +1797,7 @@
             </div>
             <h3 itemprop="headline">Minha Casa Minha Vida 2026: Novas Faixas de Renda e Subsídios Ampliados</h3>
             <p itemprop="description">O programa Minha Casa Minha Vida recebeu atualizações importantes em 2026. A Faixa 1 agora abrange famílias com renda de até R$ 2.850, com subsídios que podem chegar a 95% do valor do imóvel. A Faixa 2 foi ampliada para rendas de até R$ 4.700, e a Faixa 3 agora vai até R$ 8.000. Em Uberlândia, diversas unidades já estão disponíveis nos bairros em expansão como Granja Marileusa e região sul da cidade. O prazo máximo de financiamento foi mantido em 360 meses (30 anos).</p>
-            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero saber se me enquadro no Minha Casa Minha Vida 2026." class="blog-card-link" target="_blank">Verifique seu enquadramento →</a>
+            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero saber se me enquadro no Minha Casa Minha Vida 2026." class="blog-card-link" target="_blank" rel="noopener">Verifique seu enquadramento →</a>
           </div>
         </article>
 
@@ -1717,7 +1810,7 @@
             </div>
             <h3 itemprop="headline">Mercado Imobiliário de Uberlândia em Alta: Melhores Bairros Para Investir em 2026</h3>
             <p itemprop="description">Uberlândia segue como uma das cidades mais promissoras do Triângulo Mineiro para investimento imobiliário. Em 2026, bairros como Granja Marileusa, Jardim Karaíba e Santa Mônica lideram em valorização. A cidade registrou alta de 12% nos preços de imóveis residenciais no último ano, impulsionada pelo crescimento econômico e melhoria na infraestrutura. Para investidores, terrenos na região sul e leste oferecem retorno projetado de até 18% em 24 meses.</p>
-            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero investir em imóveis em Uberlândia." class="blog-card-link" target="_blank">Consultoria gratuita →</a>
+            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero investir em imóveis em Uberlândia." class="blog-card-link" target="_blank" rel="noopener">Consultoria gratuita →</a>
           </div>
         </article>
 
@@ -1730,7 +1823,7 @@
             </div>
             <h3 itemprop="headline">Caixa Reduz Taxas de Juros Para Financiamento Imobiliário: Veja os Novos Valores</h3>
             <p itemprop="description">A Caixa Econômica Federal reduziu as taxas de juros do financiamento imobiliário em março de 2026. Para imóveis de até R$ 350 mil, a taxa efetiva caiu para TR + 6,5% ao ano. Financiamentos pelo programa SBPE (poupança) também tiveram redução, com taxas a partir de TR + 8,49% ao ano. A medida visa aquecer o mercado imobiliário e facilitar o acesso à moradia. Em Uberlândia, a redução impacta diretamente a parcela mensal, que pode cair até R$ 200 dependendo do valor financiado.</p>
-            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero aproveitar as novas taxas de juros da Caixa." class="blog-card-link" target="_blank">Simule com as novas taxas →</a>
+            <a href="https://wa.me/5534996778075?text=Olá Marco! Quero aproveitar as novas taxas de juros da Caixa." class="blog-card-link" target="_blank" rel="noopener">Simule com as novas taxas →</a>
           </div>
         </article>
 
@@ -1743,10 +1836,46 @@
             </div>
             <h3 itemprop="headline">Guia Completo: Documentos Necessários Para Financiar Imóvel Pela Caixa em 2026</h3>
             <p itemprop="description">Para financiar um imóvel pela Caixa em 2026, você precisa reunir documentos pessoais (RG, CPF, comprovante de estado civil), comprovantes de renda (holerites ou declaração de IR), comprovante de residência e extrato do FGTS. Para autônomos, a Caixa agora aceita extrato bancário dos últimos 6 meses como comprovação alternativa de renda. A assessoria documental completa de Marco Túlio garante que nenhum documento falte e agiliza a aprovação.</p>
-            <a href="https://wa.me/5534996778075?text=Olá Marco! Preciso de ajuda com a documentação para financiamento." class="blog-card-link" target="_blank">Assessoria documental →</a>
+            <a href="https://wa.me/5534996778075?text=Olá Marco! Preciso de ajuda com a documentação para financiamento." class="blog-card-link" target="_blank" rel="noopener">Assessoria documental →</a>
           </div>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Dúvidas</div>
+        <h2 class="section-title">Perguntas <span style="color:var(--navy)">Frequentes</span></h2>
+        <p class="section-desc">As dúvidas mais comuns sobre financiamento e compra de imóvel em Uberlândia, direto ao ponto.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Quais são as novas regras do financiamento Caixa em 2026?<span class="faq-icon">+</span></summary>
+          <div class="faq-item-body">Em 2026, a Caixa Econômica Federal atualizou regras de financiamento incluindo novos limites de renda para Minha Casa Minha Vida, ajuste nas taxas de juros e flexibilização do uso do FGTS. Posso te orientar sobre todas as mudanças — chama no WhatsApp.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Como financiar um imóvel em Uberlândia?<span class="faq-icon">+</span></summary>
+          <div class="faq-item-body">Você vai precisar de documentação pessoal, comprovante de renda e análise de crédito. Ofereço simulação gratuita e acompanhamento completo do processo de financiamento pela Caixa Econômica Federal.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Qual o melhor bairro para comprar imóvel em Uberlândia?<span class="faq-icon">+</span></summary>
+          <div class="faq-item-body">Uberlândia possui excelentes bairros como Santa Mônica, Jardim Karaíba, Granja Marileusa, Morada da Colina, Saraiva e Altamira. Cada um tem características únicas, e conheço profundamente a cidade para recomendar o melhor bairro para seu perfil.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Como usar o FGTS para comprar imóvel em 2026?<span class="faq-icon">+</span></summary>
+          <div class="faq-item-body">O FGTS pode ser utilizado como entrada, amortização ou pagamento de parcelas do financiamento imobiliário. Em 2026, novas regras facilitam o uso do FGTS Futuro. Fale comigo para simular seu financiamento com FGTS gratuitamente.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Quanto custa um imóvel em Uberlândia em 2026?<span class="faq-icon">+</span></summary>
+          <div class="faq-item-body">Os preços variam de R$ 200 mil a mais de R$ 1,5 milhão dependendo do bairro e tipo de imóvel. Casas no Jardim Karaíba e Granja Marileusa tendem a ser mais valorizadas. Apartamentos no Santa Mônica oferecem excelente custo-benefício.</div>
+        </details>
+      </div>
+      <div class="fin-cta">
+        <a href="https://wa.me/5534996778075?text=Olá Marco! Tenho uma dúvida sobre financiamento imobiliário." class="btn btn-primary" target="_blank" rel="noopener">Tirar Uma Dúvida Agora →</a>
       </div>
     </div>
   </section>
@@ -1757,7 +1886,7 @@
       <h2>Pronto Para Encontrar Seu Imóvel?</h2>
       <p>Faça agora uma simulação gratuita de financiamento e descubra quanto você pode investir.</p>
       <div class="cta-buttons">
-        <a href="https://wa.me/5534996778075?text=Olá Marco! Quero encontrar meu imóvel ideal em Uberlândia." class="btn btn-whatsapp" target="_blank">
+        <a href="https://wa.me/5534996778075?text=Olá Marco! Quero encontrar meu imóvel ideal em Uberlândia." class="btn btn-whatsapp" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Chamar no WhatsApp
         </a>
@@ -1778,6 +1907,7 @@
             <div class="logo-text">Marco <span>Túlio</span></div>
           </a>
           <p>Corretor de imóveis em Uberlândia com mais de 15 anos de experiência. Compra, venda e financiamento imobiliário com atendimento personalizado e transparente.</p>
+          <p class="footer-note">Conheça também o hub completo: <a href="https://www.marcotulio.pro" target="_blank" rel="noopener">marcotulio.pro</a></p>
         </div>
         <div>
           <h4>Navegação</h4>
@@ -1788,6 +1918,7 @@
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#financiamento">Financiamento</a></li>
             <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">Dúvidas</a></li>
             <li><a href="#blog">Blog</a></li>
           </ul>
         </div>
@@ -1807,17 +1938,18 @@
           <div class="footer-contact-item">📱 (34) 99677-8075</div>
           <div class="footer-contact-item">✉️ marcotulioandra@gmail.com</div>
           <div class="footer-contact-item">🏢 Torrano Negócios Imobiliários</div>
+          <div class="footer-contact-item">🧾 CNPJ 51.647.689/0001-81</div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Marco Túlio — Corretor de Imóveis. Todos os direitos reservados.</span>
-        <span class="creci">CRECI-MG 00000</span>
+        <span>&copy; 2026 Marco Túlio Andrade Freitas · Corretor parceiro da Torrano Negócios Imobiliários LTDA · CNPJ 51.647.689/0001-81</span>
+        <span class="creci" title="CRECI da Torrano Negócios Imobiliários — CRECI próprio em processo de emissão">CRECI/MG nº 7469 (Torrano)</span>
       </div>
     </div>
   </footer>
 
   <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/5534996778075?text=Olá Marco! Vim pelo site e gostaria de informações." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <a href="https://wa.me/5534996778075?text=Olá Marco! Vim pelo site e gostaria de informações." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 

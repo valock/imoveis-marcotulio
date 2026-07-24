@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://imoveis-marcotulio.netlify.app/sitemap.xml
+Sitemap: https://imoveis.marcotulio.pro/sitemap.xml
