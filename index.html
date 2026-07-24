@@ -324,7 +324,6 @@
     /* ========== HERO ========== */
     .hero {
       position: relative;
-      min-height: 100vh;
       display: flex;
       align-items: center;
       background: var(--navy);
@@ -340,29 +339,15 @@
         radial-gradient(ellipse at 80% 20%, rgba(17,57,158,0.6) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 80%, rgba(255,255,255,0.06) 0%, transparent 40%);
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: -50%; right: -20%;
-      width: 800px; height: 800px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 50%;
-      animation: float 20s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-30px) rotate(5deg); }
-    }
-
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 110px 24px 56px;
+      padding: 76px 24px 40px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
       align-items: center;
     }
     .hero-left {
@@ -385,7 +370,7 @@
       font-weight: 600;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
     .hero-badge::before {
       content: '';
@@ -478,24 +463,24 @@
       backdrop-filter: blur(30px);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 24px;
-      padding: 40px;
+      padding: 28px;
       width: 100%;
-      max-width: 440px;
+      max-width: 400px;
     }
     .hero-stats h3 {
       color: var(--white);
-      font-size: 1.2rem;
-      margin-bottom: 32px;
+      font-size: 1.15rem;
+      margin-bottom: 20px;
       text-align: center;
     }
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 16px;
     }
     .stat-item {
       text-align: center;
-      padding: 20px;
+      padding: 16px;
       background: rgba(255,90,44,0.08);
       border-radius: 16px;
       border: 1px solid rgba(255,90,44,0.15);
@@ -1162,6 +1147,50 @@
       gap: 8px;
     }
 
+    /* ========== MEUS IMÓVEIS (CAPTAÇÃO PRÓPRIA) / LANÇAMENTOS ========== */
+    .own-empty {
+      max-width: 640px;
+      margin: 0 auto;
+      grid-column: 1 / -1;
+      text-align: center;
+      background: var(--off-white);
+      border: 1.5px dashed var(--gray-light, #C7D4EC);
+      border-radius: var(--radius);
+      padding: 48px 32px;
+    }
+    .own-empty-icon {
+      width: 56px; height: 56px;
+      margin: 0 auto 20px;
+      background: rgba(26,86,219,0.08);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+    .own-empty h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    .own-empty p { color: var(--text-light); font-size: 1rem; line-height: 1.6; margin-bottom: 24px; }
+    .property-card.own-card .property-card-badge { background: var(--navy); }
+
+    .launches { background: var(--tinta); }
+    .launches .section-tag { color: var(--gold); }
+    .launches .section-title { color: var(--white); }
+    .launches .section-desc { color: var(--gray); }
+    .launch-empty {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,90,44,0.35);
+    }
+    .launch-empty .own-empty-icon { background: rgba(255,90,44,0.14); }
+    .launch-empty h3 { color: var(--white); }
+    .launch-empty p { color: var(--gray); }
+    .property-card.launch-card {
+      border: 2px solid var(--gold) !important;
+      box-shadow: 0 12px 40px rgba(255,90,44,0.18) !important;
+    }
+    .property-card.launch-card .property-card-badge {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    }
+
     /* ========== FLOATING WHATSAPP ========== */
     .whatsapp-float {
       position: fixed;
@@ -1349,8 +1378,8 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 968px) {
-      .hero-content { grid-template-columns: 1fr; text-align: center; padding-top: 96px; }
-      .hero-sub { margin: 0 auto 32px; }
+      .hero-content { grid-template-columns: 1fr; text-align: center; padding-top: 68px; gap: 28px; }
+      .hero-sub { margin: 0 auto 24px; }
       .hero-buttons { justify-content: center; }
       .hero-right { order: -1; }
       .hero-stats { max-width: 380px; }
@@ -1577,6 +1606,44 @@
         <a href="https://www.chave7.com.br" class="btn btn-primary" target="_blank" rel="noopener">
           Ver Todos os Imóveis no Chave7 →
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEUS IMÓVEIS (CAPTAÇÃO PRÓPRIA) -->
+  <section class="own-properties" id="captacao">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Captação Própria</div>
+        <h2 class="section-title">Imóveis com Captação Exclusiva</h2>
+        <p class="section-desc">Imóveis captados diretamente por mim junto aos proprietários — negociação direta, sem intermediários.</p>
+      </div>
+      <div class="properties-grid" id="ownPropertiesGrid">
+        <div class="own-empty">
+          <div class="own-empty-icon">🏡</div>
+          <h3>Em breve, novidades por aqui</h3>
+          <p>Estou preparando este espaço para publicar imóveis de captação exclusiva. Se você tem um imóvel para vender ou alugar, fale comigo.</p>
+          <a href="https://wa.me/5534996778075?text=Olá Marco! Tenho um imóvel para vender ou alugar e gostaria de saber mais sobre a captação exclusiva." class="btn btn-primary" target="_blank" rel="noopener">Quero Anunciar Meu Imóvel →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANÇAMENTOS -->
+  <section class="launches" id="lancamentos">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Lançamentos</div>
+        <h2 class="section-title">Lançamentos e Pré-Lançamentos</h2>
+        <p class="section-desc">Empreendimentos na planta em Uberlândia, com condições especiais para quem chega primeiro.</p>
+      </div>
+      <div class="properties-grid" id="launchPropertiesGrid">
+        <div class="own-empty launch-empty">
+          <div class="own-empty-icon">🏗️</div>
+          <h3>Novos lançamentos em breve</h3>
+          <p>Estou fechando parcerias com construtoras para trazer lançamentos exclusivos para cá. Quer ser avisado em primeira mão?</p>
+          <a href="https://wa.me/5534996778075?text=Olá Marco! Quero ser avisado sobre os próximos lançamentos em Uberlândia." class="btn btn-whatsapp" target="_blank" rel="noopener">Quero Ser Avisado →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1936,6 +2003,8 @@
           <h4>Navegação</h4>
           <ul class="footer-links">
             <li><a href="#imoveis">Imóveis</a></li>
+            <li><a href="#captacao">Captação Própria</a></li>
+            <li><a href="#lancamentos">Lançamentos</a></li>
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#diferenciais">Diferenciais</a></li>
             <li><a href="#sobre">Sobre</a></li>
@@ -2066,6 +2135,41 @@
     if (propertiesGrid && groupsCount > 1) {
       setInterval(rotatePropertySet, 7000);
     }
+
+    // Meus Imóveis (Captação Própria) e Lançamentos.
+    // Enquanto os arrays abaixo estiverem vazios, as seções mostram o aviso "em breve".
+    // Para publicar um imóvel, adicione um objeto no array correspondente, por exemplo:
+    // { badge: 'Captação Exclusiva', img: 'https://...jpg', title: 'Casa em ...',
+    //   bairro: 'Bairro, Uberlândia', features: ['🛏️ 3 Quartos', '🚗 2 Vagas', '📐 180m²'],
+    //   link: 'https://wa.me/5534996778075?text=...' }
+    const ownProperties = [];
+    const launchProperties = [];
+
+    function ownPropertyCardHTML(p, extraClass) {
+      return `
+        <a href="${p.link || 'https://wa.me/5534996778075'}" class="property-card ${extraClass}" target="_blank" rel="noopener">
+          <div class="property-card-img-wrapper">
+            <img src="${p.img}" alt="${p.title} em Uberlândia" class="property-card-img" loading="lazy">
+            <div class="property-card-badge">${p.badge}</div>
+          </div>
+          <div class="property-card-body">
+            <h3>${p.title}</h3>
+            <div class="property-location">📍 ${p.bairro}</div>
+            <div class="property-card-features">
+              ${p.features.map(f => `<span>${f}</span>`).join('')}
+            </div>
+            <div class="property-card-link">Falar sobre este imóvel →</div>
+          </div>
+        </a>`;
+    }
+
+    function renderOwnGrid(gridId, pool, extraClass) {
+      if (!pool.length) return; // mantém o aviso "em breve" já presente no HTML
+      const grid = document.getElementById(gridId);
+      if (grid) grid.innerHTML = pool.map(p => ownPropertyCardHTML(p, extraClass)).join('');
+    }
+    renderOwnGrid('ownPropertiesGrid', ownProperties, 'own-card');
+    renderOwnGrid('launchPropertiesGrid', launchProperties, 'launch-card');
   </script>
 </body>
 </html>
