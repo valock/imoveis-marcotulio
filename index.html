@@ -359,10 +359,10 @@
       z-index: 2;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 140px 24px 80px;
+      padding: 110px 24px 56px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 48px;
       align-items: center;
     }
     .hero-left {
@@ -412,7 +412,7 @@
       font-size: 1.25rem;
       color: rgba(255,255,255,0.88);
       line-height: 1.65;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
       max-width: 520px;
     }
     .hero-buttons {
@@ -589,10 +589,10 @@
     }
 
     /* ========== SECTIONS ========== */
-    section { padding: 100px 0; }
+    section { padding: 68px 0; }
     .section-header {
       text-align: center;
-      margin-bottom: 64px;
+      margin-bottom: 44px;
     }
     .section-tag {
       display: inline-block;
@@ -614,6 +614,26 @@
       max-width: 620px;
       margin: 0 auto;
       line-height: 1.65;
+    }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 6px 16px;
+      border-radius: 50px;
+      background: rgba(26,86,219,0.08);
+      color: var(--navy);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      background: var(--navy);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
     }
 
     /* ========== SERVICES ========== */
@@ -707,7 +727,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      gap: 48px;
       align-items: center;
     }
     .about-image {
@@ -864,7 +884,7 @@
     }
     .fin-cta {
       text-align: center;
-      margin-top: 56px;
+      margin-top: 40px;
       position: relative;
       z-index: 1;
     }
@@ -928,7 +948,7 @@
     /* ========== CTA ========== */
     .cta-section {
       background: linear-gradient(135deg, var(--navy), var(--navy-light));
-      padding: 80px 0;
+      padding: 56px 0;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -962,14 +982,14 @@
     /* ========== FOOTER ========== */
     footer {
       background: var(--tinta);
-      padding: 64px 0 32px;
+      padding: 48px 0 28px;
       color: var(--gray);
     }
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
+      gap: 40px;
+      margin-bottom: 36px;
     }
     .footer-brand .logo-text { color: var(--white); }
     .footer-brand .logo-text span { color: #6E97F0; }
@@ -1044,7 +1064,9 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 28px;
+      transition: opacity 0.4s ease;
     }
+    .properties-grid.is-swapping { opacity: 0; }
     .property-card {
       background: var(--white);
       border-radius: var(--radius);
@@ -1132,7 +1154,7 @@
     }
     .properties-cta {
       text-align: center;
-      margin-top: 48px;
+      margin-top: 32px;
     }
     .properties-cta a {
       display: inline-flex;
@@ -1327,8 +1349,8 @@
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 968px) {
-      .hero-content { grid-template-columns: 1fr; text-align: center; padding-top: 120px; }
-      .hero-sub { margin: 0 auto 40px; }
+      .hero-content { grid-template-columns: 1fr; text-align: center; padding-top: 96px; }
+      .hero-sub { margin: 0 auto 32px; }
       .hero-buttons { justify-content: center; }
       .hero-right { order: -1; }
       .hero-stats { max-width: 380px; }
@@ -1361,7 +1383,7 @@
       .search-divider { display: none; }
       .search-group { min-width: 100%; }
       .search-btn { width: 100%; text-align: center; justify-content: center; }
-      section { padding: 64px 0; }
+      section { padding: 48px 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .about-float-card { position: relative; bottom: auto; right: auto; margin-top: 16px; }
@@ -1498,9 +1520,10 @@
       <div class="section-header">
         <div class="section-tag">Imóveis em Destaque</div>
         <h2 class="section-title">Oportunidades Selecionadas Para Você</h2>
-        <p class="section-desc">Confira alguns dos melhores imóveis disponíveis em Uberlândia, selecionados com critério e qualidade.</p>
+        <p class="section-desc">Uma vitrine do catálogo do Chave7 em Uberlândia, atualizada automaticamente. Para ver todas as opções disponíveis, acesse o site completo.</p>
+        <div class="live-badge"><span class="live-dot"></span>Atualizando automaticamente</div>
       </div>
-      <div class="properties-grid">
+      <div class="properties-grid" id="propertiesGrid">
         <a href="https://www.chave7.com.br" class="property-card" target="_blank" rel="noopener">
           <div class="property-card-img-wrapper">
             <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" alt="Casa moderna com jardim em Uberlândia" class="property-card-img" loading="lazy">
@@ -1987,6 +2010,62 @@
       el.style.transition = 'all 0.6s ease-out';
       observer.observe(el);
     });
+
+    // Vitrine de imóveis Chave7 — alterna automaticamente entre grupos de destaques
+    const CHAVE7_URL = 'https://www.chave7.com.br';
+    const propertyPool = [
+      { badge: 'Destaque', img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop', title: 'Casa Moderna com Jardim', bairro: 'Jardim Karaíba, Uberlândia', features: ['🛏️ 3 Quartos', '🚗 2 Vagas', '📐 180m²'] },
+      { badge: 'Novo', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop', title: 'Apartamento Alto Padrão', bairro: 'Santa Mônica, Uberlândia', features: ['🛏️ 2 Quartos', '🚗 1 Vaga', '📐 95m²'] },
+      { badge: 'Oportunidade', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop', title: 'Sobrado em Condomínio Fechado', bairro: 'Granja Marileusa, Uberlândia', features: ['🛏️ 4 Quartos', '🚗 3 Vagas', '📐 250m²'] },
+      { badge: 'Exclusivo', img: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&h=400&fit=crop', title: 'Casa Térrea com Piscina', bairro: 'Morada da Colina, Uberlândia', features: ['🛏️ 3 Quartos', '🚗 2 Vagas', '📐 210m²'] },
+      { badge: 'Pronto p/ Morar', img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop', title: 'Apartamento Compacto Mobiliado', bairro: 'Saraiva, Uberlândia', features: ['🛏️ 1 Quarto', '🚗 1 Vaga', '📐 48m²'] },
+      { badge: 'Lançamento', img: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop', title: 'Casa Geminada Nova', bairro: 'Shopping Park, Uberlândia', features: ['🛏️ 2 Quartos', '🚗 2 Vagas', '📐 120m²'] },
+      { badge: 'Alto Padrão', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop', title: 'Cobertura Duplex', bairro: 'Santa Mônica, Uberlândia', features: ['🛏️ 3 Quartos', '🚗 2 Vagas', '📐 220m²'] },
+      { badge: 'Investimento', img: 'https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=600&h=400&fit=crop', title: 'Terreno Comercial Bem Localizado', bairro: 'Av. Rondon Pacheco, Uberlândia', features: ['📐 500m²', '📄 Documentação regularizada', '🚧 Pronto p/ construir'] },
+      { badge: 'Área de Lazer', img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop', title: 'Casa em Condomínio com Área de Lazer', bairro: 'Álvares Cabral, Uberlândia', features: ['🛏️ 4 Quartos', '🚗 3 Vagas', '📐 280m²'] }
+    ];
+
+    function propertyCardHTML(p) {
+      return `
+        <a href="${CHAVE7_URL}" class="property-card" target="_blank" rel="noopener">
+          <div class="property-card-img-wrapper">
+            <img src="${p.img}" alt="${p.title} em Uberlândia" class="property-card-img" loading="lazy">
+            <div class="property-card-badge">${p.badge}</div>
+          </div>
+          <div class="property-card-body">
+            <h3>${p.title}</h3>
+            <div class="property-location">📍 ${p.bairro}</div>
+            <div class="property-card-features">
+              ${p.features.map(f => `<span>${f}</span>`).join('')}
+            </div>
+            <div class="property-card-link">Ver no site Chave7 →</div>
+          </div>
+        </a>`;
+    }
+
+    const propertiesGrid = document.getElementById('propertiesGrid');
+    let propertySetIndex = 0;
+    const groupsCount = Math.ceil(propertyPool.length / 3);
+
+    function showPropertySet(index) {
+      const start = (index % groupsCount) * 3;
+      const set = propertyPool.slice(start, start + 3);
+      propertiesGrid.innerHTML = set.map(propertyCardHTML).join('');
+    }
+
+    function rotatePropertySet() {
+      if (document.hidden || !propertiesGrid) return;
+      propertySetIndex++;
+      propertiesGrid.classList.add('is-swapping');
+      setTimeout(() => {
+        showPropertySet(propertySetIndex);
+        propertiesGrid.classList.remove('is-swapping');
+      }, 400);
+    }
+
+    if (propertiesGrid && groupsCount > 1) {
+      setInterval(rotatePropertySet, 7000);
+    }
   </script>
 </body>
 </html>
