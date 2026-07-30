@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marco Túlio | Corretor de Imóveis em Uberlândia - Financiamento Caixa e Minha Casa Minha Vida</title>
-  <meta name="description" content="Marco Túlio - Corretor de imóveis em Uberlândia, MG. Corretor parceiro da Torrano Negócios Imobiliários, CRECI/MG 7469. Especialista em financiamento Caixa, Minha Casa Minha Vida e uso do FGTS. Simulação gratuita pelo WhatsApp.">
+  <title>Imóveis em Uberlândia | Casas, Apartamentos e Lançamentos - Marco Túlio</title>
+  <meta name="description" content="Imóveis à venda em Uberlândia, MG: casas, apartamentos e lançamentos de construtoras. Imóveis de captação própria e catálogo do portal parceiro Chave7, com financiamento Caixa, Minha Casa Minha Vida e FGTS resolvidos por Marco Túlio, corretor parceiro da Torrano (CRECI/MG 7469).">
   <meta name="keywords" content="corretor de imóveis uberlândia, imóveis uberlândia, financiamento caixa uberlândia, minha casa minha vida 2026, comprar casa uberlândia, apartamento uberlândia, financiamento imobiliário, FGTS imóvel, simulação financiamento, Marco Túlio corretor, Torrano Negócios Imobiliários">
   <meta name="author" content="Marco Túlio Andrade Freitas - Corretor de Imóveis">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -16,15 +16,15 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://imoveis.marcotulio.pro/">
-  <meta property="og:title" content="Marco Túlio | Corretor de Imóveis em Uberlândia - Financiamento Caixa">
-  <meta property="og:description" content="Corretor parceiro da Torrano Negócios Imobiliários em Uberlândia. Financiamento Caixa, Minha Casa Minha Vida e FGTS sem juridiquês.">
+  <meta property="og:title" content="Imóveis em Uberlândia | Casas, Apartamentos e Lançamentos">
+  <meta property="og:description" content="Imóveis à venda em Uberlândia: captação própria, catálogo Chave7 e lançamentos de construtoras, com financiamento Caixa e MCMV resolvidos.">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Marco Túlio Imóveis">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Marco Túlio | Corretor de Imóveis em Uberlândia">
-  <meta name="twitter:description" content="Financiamento Caixa, Minha Casa Minha Vida e FGTS sem juridiquês, em Uberlândia.">
+  <meta name="twitter:title" content="Imóveis em Uberlândia | Marco Túlio">
+  <meta name="twitter:description" content="Casas, apartamentos e lançamentos em Uberlândia, com financiamento Caixa e MCMV resolvidos.">
 
   <!-- Geo Tags -->
   <meta name="geo.region" content="BR-MG">
@@ -552,137 +552,7 @@
       line-height: 1.45;
     }
 
-    /* ========== CAPÍTULO 01 — DOSSIÊ / AUTORIDADE ========== */
-    .corretor-grid {
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .retrato {
-      aspect-ratio: 1;
-      border-radius: var(--r-lg);
-      background: linear-gradient(135deg, var(--azul), var(--azul-profundo));
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .retrato::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 32% 38%, rgba(255,90,44,.28), transparent 62%);
-    }
-    .retrato span {
-      position: relative;
-      font-family: var(--fdisp);
-      font-size: 3.6rem;
-      font-weight: 800;
-      color: rgba(255,255,255,.32);
-      letter-spacing: .1em;
-    }
-    .corretor-intro { font-size: 1.05rem; color: var(--tinta-suave); margin-bottom: 22px; }
-    .corretor-intro strong { color: var(--tinta); }
-
-    /* Dossiê: registro, não cartão. Sem sombra, sem hover — lê-se como documento. */
-    .dossie { margin-bottom: 30px; }
-    .dossie > div {
-      display: grid;
-      grid-template-columns: minmax(132px, .8fr) 2.2fr;
-      gap: 6px 24px;
-      padding: 13px 0;
-      border-top: 1px solid var(--nevoa);
-    }
-    .dossie > div:last-child { border-bottom: 1px solid var(--nevoa); }
-    .dossie dt {
-      font-size: .76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      color: var(--tinta-suave);
-      padding-top: 3px;
-    }
-    .dossie dd { font-size: 1rem; }
-    .dossie dd a { color: var(--azul); font-weight: 600; text-decoration: none; }
-    .dossie dd a:hover { text-decoration: underline; }
-    .dossie .obs {
-      display: block;
-      font-size: .85rem;
-      color: var(--tinta-suave);
-      margin-top: 2px;
-    }
-
-    /* Competências: 6 linhas com régua coral — substitui 10 cards redundantes */
-    .comp { list-style: none; }
-    .comp li {
-      position: relative;
-      padding: 14px 0 14px 32px;
-      border-bottom: 1px solid var(--nevoa);
-      font-size: 1rem;
-      color: var(--tinta-suave);
-    }
-    .comp li:first-child { border-top: 1px solid var(--nevoa); }
-    .comp li::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 24px;
-      width: 15px; height: 2px;
-      background: var(--coral);
-    }
-    .comp b { font-family: var(--fdisp); color: var(--tinta); font-weight: 700; }
-
-    /* Faixa de números — compacta, sem virar painel de vitrine */
-    .marcos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 4px 28px;
-      margin-top: 34px;
-      padding-top: 22px;
-      border-top: 1px solid var(--nevoa);
-    }
-    .marcos div { padding: 6px 0; }
-    .marcos .n {
-      font-family: var(--fdisp);
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: var(--azul);
-      line-height: 1.05;
-      letter-spacing: -.03em;
-    }
-    .marcos .l { font-size: .88rem; color: var(--tinta-suave); }
-
-    /* Depoimentos como faixa de apoio à autoridade, não seção própria */
-    .vozes {
-      margin-top: 40px;
-      padding-top: 30px;
-      border-top: 1px solid var(--nevoa);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 26px;
-    }
-    .vozes h3 {
-      grid-column: 1 / -1;
-      font-size: .8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--tinta-suave);
-      font-family: var(--fbody);
-    }
-    .voz p {
-      font-size: .97rem;
-      line-height: 1.55;
-      color: var(--tinta);
-      margin-bottom: 10px;
-    }
-    .voz cite {
-      font-style: normal;
-      font-size: .87rem;
-      color: var(--tinta-suave);
-    }
-    .voz cite b { color: var(--tinta); font-weight: 600; }
-
-    /* ========== CAPÍTULO 02 — FINANCIAMENTO (pico visual) ========== */
+    /* ========== FINANCIAMENTO (superfície escura de apoio) ========== */
     .fin-wrap {
       display: grid;
       grid-template-columns: 1.25fr .85fr;
@@ -735,7 +605,7 @@
     }
     .checklist .btn { width: 100%; }
 
-    /* ========== CAPÍTULO 03 — IMÓVEIS (abas) ========== */
+    /* ========== IMÓVEIS (abas, cards e estados vazios) ========== */
     .abas {
       display: flex;
       gap: 6px;
@@ -765,18 +635,11 @@
       border-bottom-color: var(--azul);
     }
     .painel[hidden] { display: none; }
-    .nota-estoque {
-      background: var(--azul-claro);
-      border-radius: var(--r-md);
-      padding: 18px 20px;
-      font-size: 1rem;
-      color: var(--tinta);
-      margin-bottom: 24px;
-    }
-    .nota-estoque b { font-family: var(--fdisp); }
+    /* auto-fill (não auto-fit): com 1 ou 2 imóveis o card mantém largura
+       de card em vez de esticar pela seção inteira. */
     .grid-imoveis {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
       gap: 22px;
     }
     /* Card do portal parceiro — externo e rotulado como tal */
@@ -820,16 +683,17 @@
     }
     .vazio h3 { font-size: 1.18rem; margin-bottom: 8px; }
     .vazio p { font-size: 1rem; color: var(--tinta-suave); margin-bottom: 20px; }
-    /* Lançamentos: tratamento visual deliberadamente distinto */
-    .painel-lancamento .vazio {
-      background: var(--tinta);
-      border-color: rgba(255,90,44,.4);
+    /* Lançamentos: superfície coral própria — distinta dos imóveis prontos
+       sem colar duas manchas escuras seguidas na página. */
+    .lancamentos { background: var(--coral-fundo); }
+    .lancamentos .eyebrow .tag { color: var(--coral-profundo); }
+    .lancamentos .vazio {
+      background: var(--superficie);
       border-style: solid;
       border-width: 1px 1px 1px 4px;
+      border-color: rgba(255,90,44,.28);
       border-left-color: var(--coral);
     }
-    .painel-lancamento .vazio h3 { color: #fff; }
-    .painel-lancamento .vazio p { color: rgba(255,255,255,.72); }
 
     /* Cards de imóvel publicado (usados quando os arrays têm conteúdo) */
     .imovel {
@@ -857,7 +721,15 @@
       margin-bottom: 10px;
     }
     .imovel h3 { font-size: 1.12rem; margin-bottom: 6px; }
-    .imovel .local { font-size: .92rem; color: var(--tinta-suave); margin-bottom: 14px; }
+    .imovel .local { font-size: .92rem; color: var(--tinta-suave); margin-bottom: 10px; }
+    .imovel .preco {
+      font-family: var(--fdisp);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--azul);
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
     .imovel .feats {
       display: flex; flex-wrap: wrap; gap: 12px;
       padding-top: 12px; margin-top: auto;
@@ -909,7 +781,55 @@
       color: var(--azul);
     }
 
+    /* ========== AUTORIDADE — ponte para o site oficial ========== */
+    .autoridade { border-top: 1px solid var(--nevoa); }
+    .autoridade-grid {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 28px;
+      align-items: start;
+      max-width: 74ch;
+    }
+    .autoridade-selo {
+      width: 92px; height: 92px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--azul), var(--azul-profundo));
+      display: grid;
+      place-items: center;
+    }
+    .autoridade-selo span {
+      font-family: var(--fdisp);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: rgba(255,255,255,.42);
+      letter-spacing: .08em;
+    }
+    .autoridade h2 { font-size: clamp(1.5rem, 2.2vw, 1.95rem); margin-bottom: 10px; }
+    .autoridade-txt { font-size: 1.03rem; color: var(--tinta-suave); margin-bottom: 18px; }
+    .autoridade-fatos { list-style: none; margin-bottom: 12px; }
+    .autoridade-fatos li {
+      padding: 10px 0;
+      border-top: 1px solid var(--nevoa);
+      font-size: .97rem;
+    }
+    .autoridade-fatos li:last-child { border-bottom: 1px solid var(--nevoa); }
+    .autoridade-fatos span {
+      display: inline-block;
+      min-width: 118px;
+      font-size: .76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--tinta-suave);
+    }
+    .autoridade-obs { font-size: .87rem; color: var(--tinta-suave); margin-bottom: 22px; }
+    @media (max-width: 640px) {
+      .autoridade-grid { grid-template-columns: 1fr; gap: 18px; }
+      .autoridade-fatos span { min-width: 0; display: block; margin-bottom: 2px; }
+    }
+
     /* ========== FAQ ========== */
+    .faq-sec { background: var(--fundo); }
     .faq-lista { max-width: 78ch; }
     .faq-item {
       border-bottom: 1px solid var(--nevoa);
@@ -950,7 +870,7 @@
     .faq-fecho a:hover { text-decoration: underline; }
 
     /* ========== BLOG ========== */
-    .blog { background: var(--fundo); }
+    .blog { background: var(--superficie); border-top: 1px solid var(--nevoa); }
     .blog-lista {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1132,8 +1052,6 @@
     @media (max-width: 980px) {
       .hero-grid { grid-template-columns: 1fr; gap: 32px; }
       .hero-sub, .cred { max-width: none; }
-      .corretor-grid { grid-template-columns: 1fr; gap: 30px; }
-      .retrato { max-width: 260px; }
       .fin-wrap { grid-template-columns: 1fr; gap: 28px; }
       .checklist { position: static; }
       .fechamento-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -1156,12 +1074,8 @@
       .nav-links a { padding: 14px 2px; font-size: 1.08rem; }
       .nav-links .nav-cta { justify-content: center; margin-top: 8px; }
       .hamburger { display: flex; }
-      .dossie > div { grid-template-columns: 1fr; gap: 2px; }
       .foot-top { grid-template-columns: 1fr; gap: 26px; }
       /* Monograma vira avatar: não vale 340px de altura sem foto real */
-      .retrato { width: 92px; max-width: 92px; border-radius: 50%; }
-      .retrato span { font-size: 1.6rem; }
-      .corretor-grid { gap: 20px; }
       /* Barra de ação fixa substitui o botão único */
       .zap-float { display: none; }
       .action-bar {
@@ -1196,10 +1110,11 @@
         <span class="logo-text">Marco <span>Túlio</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#corretor">O corretor</a></li>
-        <li><a href="#financiamento">Financiamento</a></li>
         <li><a href="#imoveis">Imóveis</a></li>
+        <li><a href="#lancamentos">Lançamentos</a></li>
+        <li><a href="#financiamento">Financiamento</a></li>
         <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="https://www.marcotulio.pro" target="_blank" rel="noopener">Sobre mim ↗</a></li>
         <li><a class="nav-cta" data-zap="Gostaria de mais informações." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Fale comigo</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
@@ -1212,19 +1127,19 @@
   <header class="hero" id="inicio">
     <div class="hero-grid">
       <div>
-        <h1>Financiamento <em>Caixa e Minha Casa Minha Vida</em>, sem juridiquês, em Uberlândia</h1>
-        <p class="hero-sub">Sou corretor há mais de 15 anos e cuido do processo inteiro com você: da simulação à assinatura, explicando cada etapa em português claro.</p>
+        <h1>Imóveis em <em>Uberlândia</em>, com financiamento resolvido</h1>
+        <p class="hero-sub">Prontos para morar, de captação própria e lançamentos de construtora. Eu busco o imóvel e cuido do financiamento Caixa, MCMV e FGTS de ponta a ponta.</p>
         <ul class="cred">
           <li>Corretor parceiro da <strong>Torrano Negócios Imobiliários</strong> — CRECI/MG 7469</li>
           <li>Uberlândia e região, MG</li>
-          <li>Foco em Caixa, MCMV e uso do FGTS</li>
+          <li><a href="https://www.marcotulio.pro" target="_blank" rel="noopener" style="color:#FFD9CC;font-weight:600">Conheça meu trabalho em marcotulio.pro ↗</a></li>
         </ul>
         <div class="hero-acoes">
           <a class="btn btn-zap" data-zap="Quero uma simulação gratuita de financiamento." href="https://wa.me/5534996778075" target="_blank" rel="noopener">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Simulação gratuita
           </a>
-          <a class="btn btn-linha-clara" href="#financiamento">Como funciona</a>
+          <a class="btn btn-linha-clara" href="#imoveis">Ver imóveis</a>
         </div>
       </div>
 
@@ -1260,79 +1175,71 @@
     </div>
   </header>
 
-  <!-- CAPÍTULO 01 — quem responde por você -->
-  <section class="chapter" id="corretor">
+  <!-- CAPÍTULO 01 — IMÓVEIS: o centro de gravidade do site.
+       Os cards são gerados a partir do array IMOVEIS no script do fim da
+       página. Cada card sai com microdados schema.org para SEO. -->
+  <section class="chapter" id="imoveis">
     <div class="container">
       <div class="head">
-        <div class="eyebrow"><span class="num">01</span><span class="tag">Quem responde por você</span></div>
-        <h2>Marco Túlio Andrade Freitas</h2>
-        <p>Antes de falar de imóvel, é justo você saber com quem está falando — e poder conferir.</p>
+        <div class="eyebrow"><span class="num">01</span><span class="tag">Imóveis à venda</span></div>
+        <h2>Imóveis prontos para morar em Uberlândia</h2>
+        <p>Imóveis de captação própria, negociados direto comigo, e o catálogo completo do portal parceiro Chave7.</p>
       </div>
 
-      <div class="corretor-grid">
-        <div class="retrato"><span>MT</span></div>
+      <div class="abas" role="tablist" aria-label="Frentes de imóveis">
+        <button role="tab" id="aba-meus" aria-controls="painel-meus" aria-selected="true">Meus imóveis</button>
+        <button role="tab" id="aba-portal" aria-controls="painel-portal" aria-selected="false" tabindex="-1">Catálogo Chave7</button>
+      </div>
 
-        <div>
-          <p class="corretor-intro">Corretor de imóveis em Uberlândia com mais de 15 anos de experiência em vendas e negociação. Atuo como corretor parceiro da <strong>Torrano Negócios Imobiliários</strong> e tenho trânsito com as principais imobiliárias da cidade. Minha missão é simplificar a compra e a venda: atendimento direto, transparente e sem script, do primeiro contato à entrega das chaves.</p>
-
-          <dl class="dossie">
-            <div>
-              <dt>Registro profissional</dt>
-              <dd>Corretor parceiro da <strong>Torrano Negócios Imobiliários LTDA</strong> — CRECI/MG 7469
-                <span class="obs">O CRECI acima é o da imobiliária parceira. Meu CRECI próprio está em processo de emissão.</span>
-              </dd>
-            </div>
-            <div><dt>CNPJ</dt><dd>51.647.689/0001-81</dd></div>
-            <div><dt>Praça</dt><dd>Uberlândia e região — Minas Gerais</dd></div>
-            <div><dt>Especialidade</dt><dd>Financiamento Caixa, Minha Casa Minha Vida e uso do FGTS</dd></div>
-            <div><dt>Rede de apoio</dt><dd>Parceiros em crédito, contabilidade e documentação</dd></div>
-            <div>
-              <dt>Contato direto</dt>
-              <dd><a href="tel:+5534996778075">(34) 99677-8075</a> · <a href="mailto:marcotulioandra@gmail.com">marcotulioandra@gmail.com</a></dd>
-            </div>
-          </dl>
-
-          <!-- 6 linhas no lugar dos 10 cards que repetiam a mesma promessa -->
-          <ul class="comp">
-            <li><b>Compra.</b> Busco casas, apartamentos, terrenos e comerciais alinhados ao seu perfil e orçamento.</li>
-            <li><b>Venda e avaliação.</b> Preço justo com base em mercado, divulgação e negociação conduzidas por mim.</li>
-            <li><b>Financiamento.</b> Simulação, orientação sobre MCMV e FGTS e acompanhamento da aprovação de crédito.</li>
-            <li><b>Documentação.</b> Análise de contrato, escritura e registro, com apoio jurídico e contábil da rede.</li>
-            <li><b>Mercado de Uberlândia.</b> Leitura de bairro, infraestrutura e tendência de valorização.</li>
-            <li><b>Atendimento direto.</b> Você fala comigo, não com um call center.</li>
-          </ul>
-
-          <div class="marcos">
-            <div><div class="n">15+</div><div class="l">anos de experiência</div></div>
-            <div><div class="n">500+</div><div class="l">imóveis negociados</div></div>
-            <div><div class="n">3 mil+</div><div class="l">contatos ativos</div></div>
+      <div class="painel" id="painel-meus" role="tabpanel" aria-labelledby="aba-meus" tabindex="0">
+        <div class="grid-imoveis" id="gridMeus">
+          <div class="vazio">
+            <h3>Nenhum imóvel publicado ainda</h3>
+            <p>Aqui entram os imóveis que eu capto direto com o proprietário. Prefiro deixar o espaço vazio a preencher com foto de banco de imagens.</p>
+            <a class="btn btn-azul" data-zap="Tenho um imóvel para vender e quero saber sobre a captação." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Quero anunciar meu imóvel</a>
           </div>
+        </div>
+      </div>
 
-          <div class="vozes">
-            <h3>O que dizem os clientes</h3>
-            <div class="voz">
-              <p>“Atendimento direto, sem enrolação, e cuidou de toda a parte burocrática do financiamento.”</p>
-              <cite><b>Renata S.</b> — apartamento no Santa Mônica</cite>
+      <div class="painel" id="painel-portal" role="tabpanel" aria-labelledby="aba-portal" tabindex="0" hidden>
+        <div class="grid-imoveis">
+          <a class="parceiro" href="https://www.chave7.com.br" target="_blank" rel="noopener">
+            <div class="parceiro-txt">
+              <span class="externo">Site externo ↗</span>
+              <h3>Catálogo completo no portal Chave7</h3>
+              <p>Casas, apartamentos, terrenos e comerciais em Uberlândia, com busca por bairro e faixa de preço.</p>
             </div>
-            <div class="voz">
-              <p>“Vendi minha casa em menos de 60 dias, com a negociação conduzida com profissionalismo.”</p>
-              <cite><b>Carlos A.</b> — casa no Jardim Karaíba</cite>
-            </div>
-            <div class="voz">
-              <p>“Não sabia por onde começar e ele simplificou tudo até o crédito sair.”</p>
-              <cite><b>Juliana L.</b> — Minha Casa Minha Vida</cite>
-            </div>
-          </div>
+            <span class="btn btn-linha btn-sm">Abrir o Chave7</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CAPÍTULO 02 — o pico visual da página: o diferencial real -->
+  <!-- LANÇAMENTOS — seção própria, com tratamento visual deliberadamente
+       distinto dos imóveis prontos (superfície escura, selo coral). -->
+  <section class="chapter lancamentos" id="lancamentos">
+    <div class="container">
+      <div class="head">
+        <div class="eyebrow"><span class="num">02</span><span class="tag">Lançamentos</span></div>
+        <h2>Lançamentos de grandes construtoras</h2>
+        <p>Empreendimentos na planta, com tabela de lançamento e condição de quem chega primeiro.</p>
+      </div>
+      <div class="grid-imoveis" id="gridLancamentos">
+        <div class="vazio">
+          <h3>Lançamentos em negociação</h3>
+          <p>Estou fechando parcerias com construtoras para trazer empreendimentos na planta. Quer ser avisado em primeira mão quando abrir?</p>
+          <a class="btn btn-zap" data-zap="Quero entrar na lista de avisos dos próximos lançamentos em Uberlândia." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Entrar na lista de avisos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPÍTULO 03 — financiamento: o que sustenta a venda do imóvel -->
   <section class="chapter escura" id="financiamento">
     <div class="container">
       <div class="head">
-        <div class="eyebrow"><span class="num">02</span><span class="tag">Como o financiamento funciona</span></div>
+        <div class="eyebrow"><span class="num">03</span><span class="tag">Como o financiamento funciona</span></div>
         <h2>Quatro etapas, e eu vou com você em todas</h2>
         <p>As regras da Caixa mudam e variam por perfil. Em vez de decorar tabela, o caminho seguro é simular o seu caso antes de decidir qualquer coisa.</p>
       </div>
@@ -1384,57 +1291,6 @@
     </div>
   </section>
 
-  <!-- CAPÍTULO 03 — imóveis, com o estoque tratado com honestidade -->
-  <section class="chapter" id="imoveis">
-    <div class="container">
-      <div class="head">
-        <div class="eyebrow"><span class="num">03</span><span class="tag">Imóveis</span></div>
-        <h2>O que eu posso buscar para você</h2>
-        <p>Três frentes, cada uma com uma regra clara de onde o imóvel vem.</p>
-      </div>
-
-      <div class="abas" role="tablist" aria-label="Frentes de imóveis">
-        <button role="tab" id="aba-portal" aria-controls="painel-portal" aria-selected="true">Catálogo parceiro</button>
-        <button role="tab" id="aba-captacao" aria-controls="painel-captacao" aria-selected="false" tabindex="-1">Captação própria</button>
-        <button role="tab" id="aba-lancamento" aria-controls="painel-lancamento" aria-selected="false" tabindex="-1">Lançamentos</button>
-      </div>
-
-      <div class="painel" id="painel-portal" role="tabpanel" aria-labelledby="aba-portal" tabindex="0">
-        <p class="nota-estoque"><b>Não publico imóvel que eu não possa mostrar.</b> O catálogo amplo fica no portal parceiro Chave7. Me diga o que você procura e eu busco na minha rede — inclusive o que ainda não está anunciado.</p>
-        <div class="grid-imoveis">
-          <a class="parceiro" href="https://www.chave7.com.br" target="_blank" rel="noopener">
-            <div class="parceiro-txt">
-              <span class="externo">Site externo ↗</span>
-              <h3>Catálogo completo no portal Chave7</h3>
-              <p>Casas, apartamentos, terrenos e comerciais em Uberlândia, com busca por bairro e faixa de preço.</p>
-            </div>
-            <span class="btn btn-linha btn-sm">Abrir o Chave7</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="painel painel-captacao" id="painel-captacao" role="tabpanel" aria-labelledby="aba-captacao" tabindex="0" hidden>
-        <div class="grid-imoveis" id="gridCaptacao">
-          <div class="vazio">
-            <h3>Nenhuma captação publicada ainda</h3>
-            <p>Aqui entram os imóveis que eu capto direto com o proprietário — negociação sem intermediário. Ainda não há nenhum publicado, e eu prefiro deixar o espaço vazio a encher de foto de banco de imagens.</p>
-            <a class="btn btn-azul" data-zap="Tenho um imóvel para vender ou alugar e quero saber sobre a captação exclusiva." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Quero anunciar meu imóvel</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="painel painel-lancamento" id="painel-lancamento" role="tabpanel" aria-labelledby="aba-lancamento" tabindex="0" hidden>
-        <div class="grid-imoveis" id="gridLancamento">
-          <div class="vazio">
-            <h3>Lançamentos em negociação</h3>
-            <p>Estou fechando parcerias com construtoras para trazer empreendimentos na planta com condição de quem chega primeiro. Quer ser avisado em primeira mão quando abrir?</p>
-            <a class="btn btn-zap" data-zap="Quero entrar na lista de avisos dos próximos lançamentos em Uberlândia." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Entrar na lista de avisos</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- VENDER / INVESTIR — porta estável, fora de qualquer estado vazio -->
   <section class="block vender" id="vender">
     <div class="container">
@@ -1459,8 +1315,29 @@
     </div>
   </section>
 
+  <!-- AUTORIDADE — faixa enxuta. A prova de autoridade completa mora no
+       site oficial marcotulio.pro; aqui só o essencial + a ponte. -->
+  <section class="block autoridade" id="corretor">
+    <div class="container">
+      <div class="autoridade-grid">
+        <div class="autoridade-selo"><span>MT</span></div>
+        <div>
+          <h2>Marco Túlio Andrade Freitas</h2>
+          <p class="autoridade-txt">Corretor de imóveis em Uberlândia há mais de 15 anos, corretor parceiro da <strong>Torrano Negócios Imobiliários</strong> — CRECI/MG 7469. Atendimento direto, sem script, do primeiro contato à entrega das chaves.</p>
+          <ul class="autoridade-fatos">
+            <li><span>CNPJ</span> 51.647.689/0001-81</li>
+            <li><span>Praça</span> Uberlândia e região, MG</li>
+            <li><span>Especialidade</span> Caixa, MCMV e uso do FGTS</li>
+          </ul>
+          <p class="autoridade-obs">O CRECI acima é o da imobiliária parceira. Meu CRECI próprio está em processo de emissão.</p>
+          <a class="btn btn-azul" href="https://www.marcotulio.pro" target="_blank" rel="noopener">Ver meu trabalho completo em marcotulio.pro ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
-  <section class="block" id="faq">
+  <section class="block faq-sec" id="faq">
     <div class="container">
       <div class="head">
         <div class="eyebrow"><span class="tag">Dúvidas frequentes</span></div>
@@ -1612,18 +1489,18 @@
         <div>
           <h4>Nesta página</h4>
           <ul>
-            <li><a href="#corretor">O corretor</a></li>
+            <li><a href="#imoveis">Imóveis à venda</a></li>
+            <li><a href="#lancamentos">Lançamentos</a></li>
             <li><a href="#financiamento">Financiamento</a></li>
-            <li><a href="#imoveis">Imóveis</a></li>
             <li><a href="#vender">Vender ou investir</a></li>
             <li><a href="#faq">Dúvidas</a></li>
             <li><a href="#blog">Mercado</a></li>
           </ul>
         </div>
         <div>
-          <h4>Também meu</h4>
+          <h4>Site oficial</h4>
           <ul>
-            <li><a href="https://www.marcotulio.pro" target="_blank" rel="noopener">marcotulio.pro ↗</a></li>
+            <li><a href="https://www.marcotulio.pro" target="_blank" rel="noopener"><strong>marcotulio.pro</strong> ↗</a></li>
             <li><a href="https://www.chave7.com.br" target="_blank" rel="noopener">Catálogo Chave7 ↗</a></li>
             <li><a data-zap="Gostaria de falar com você." href="https://wa.me/5534996778075" target="_blank" rel="noopener">WhatsApp direto</a></li>
           </ul>
@@ -1714,35 +1591,78 @@
         });
       });
 
-      /* ===== PUBLICAR IMÓVEIS =====
-         Preencha os arrays abaixo para publicar de verdade. Enquanto ficarem
-         vazios, as abas mostram o estado vazio honesto que já está no HTML.
+      /* ================= PUBLICAR IMÓVEIS =================
+         ESTE É O ÚNICO LUGAR QUE VOCÊ PRECISA EDITAR PARA ANUNCIAR.
 
-         Exemplo de item:
-         { selo: 'Captação exclusiva', img: 'URL da foto', titulo: 'Casa com 3 quartos',
-           local: 'Santa Mônica, Uberlândia', feats: ['3 quartos', '2 vagas', '180 m²'],
-           zap: 'Quero saber mais sobre a casa no Santa Mônica.' }                      */
-      var captacao = [];
-      var lancamentos = [];
+         Adicione objetos nos arrays abaixo. Os cards aparecem na página E o
+         schema.org de cada imóvel é gerado automaticamente (é isso que faz o
+         Google entender o anúncio e mostrar o imóvel na busca).
+         Enquanto os arrays estiverem vazios, o site mostra o aviso honesto.
+
+         Campos: preco e img são opcionais; o resto vale preencher sempre.
+
+         Exemplo:
+         {
+           selo:   'Captação exclusiva',
+           titulo: 'Casa 3 quartos com quintal',
+           local:  'Santa Mônica, Uberlândia',
+           preco:  480000,
+           img:    'https://.../foto.jpg',
+           quartos: 3, vagas: 2, area: 180,
+           desc:   'Casa térrea reformada, a 5 minutos da UFU.'
+         }                                                                     */
+      var MEUS_IMOVEIS = [];
+      var LANCAMENTOS = [];
+
+      var BRL = function (v) {
+        try {
+          return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+        } catch (e) { return 'R$ ' + v; }
+      };
 
       function cardImovel(p, classe) {
         var a = document.createElement('a');
         a.className = 'imovel' + (classe ? ' ' + classe : '');
-        a.href = zapUrl(p.zap || ('Quero saber mais sobre: ' + p.titulo + '.'));
+        a.href = zapUrl('Quero saber mais sobre: ' + p.titulo + ' — ' + p.local + '.');
         a.target = '_blank';
         a.rel = 'noopener';
-        var img = p.img ? '<img src="' + p.img + '" alt="' + p.titulo + ' — ' + p.local + '" loading="lazy">' : '';
-        a.innerHTML = img +
-          '<div class="imovel-body">' +
-            '<span class="selo"></span>' +
-            '<h3></h3><div class="local"></div>' +
-            '<div class="feats">' + (p.feats || []).map(function () { return '<span></span>'; }).join('') + '</div>' +
-          '</div>';
-        /* textContent para não injetar HTML a partir dos dados */
-        a.querySelector('.selo').textContent = p.selo || 'Disponível';
-        a.querySelector('h3').textContent = p.titulo;
-        a.querySelector('.local').textContent = '📍 ' + p.local;
-        a.querySelectorAll('.feats span').forEach(function (s, i) { s.textContent = p.feats[i]; });
+
+        var feats = [];
+        if (p.quartos) { feats.push(p.quartos + (p.quartos > 1 ? ' quartos' : ' quarto')); }
+        if (p.vagas) { feats.push(p.vagas + (p.vagas > 1 ? ' vagas' : ' vaga')); }
+        if (p.area) { feats.push(p.area + ' m²'); }
+
+        if (p.img) {
+          var im = document.createElement('img');
+          im.src = p.img;
+          im.alt = p.titulo + ' — ' + p.local;
+          im.loading = 'lazy';
+          a.appendChild(im);
+        }
+        var body = document.createElement('div');
+        body.className = 'imovel-body';
+        function add(tag, cls, txt) {
+          var el = document.createElement(tag);
+          if (cls) { el.className = cls; }
+          el.textContent = txt;
+          body.appendChild(el);
+          return el;
+        }
+        add('span', 'selo', p.selo || 'Disponível');
+        add('h3', '', p.titulo);
+        add('div', 'local', '📍 ' + p.local);
+        if (p.preco) { add('div', 'preco', BRL(p.preco)); }
+        if (feats.length) {
+          var f = document.createElement('div');
+          f.className = 'feats';
+          feats.forEach(function (t) {
+            var s = document.createElement('span');
+            s.textContent = t;
+            f.appendChild(s);
+          });
+          body.appendChild(f);
+        }
+        a.appendChild(body);
         return a;
       }
 
@@ -1753,11 +1673,57 @@
         grid.innerHTML = '';
         lista.forEach(function (p) { grid.appendChild(cardImovel(p, classe)); });
       }
-      render('gridCaptacao', captacao, '');
-      render('gridLancamento', lancamentos, 'lancamento');
+      render('gridMeus', MEUS_IMOVEIS, '');
+      render('gridLancamentos', LANCAMENTOS, 'lancamento');
+
+      /* SEO: publica um ItemList com cada imóvel como Accommodation/Offer.
+         Sem imóvel cadastrado nada é emitido — schema vazio é pior que nenhum. */
+      (function schemaImoveis() {
+        var todos = MEUS_IMOVEIS.concat(LANCAMENTOS);
+        if (!todos.length) { return; }
+        var itens = todos.map(function (p, i) {
+          var acc = {
+            '@type': 'Accommodation',
+            'name': p.titulo,
+            'address': {
+              '@type': 'PostalAddress',
+              'addressLocality': 'Uberlândia',
+              'addressRegion': 'MG',
+              'addressCountry': 'BR',
+              'streetAddress': p.local
+            }
+          };
+          if (p.desc) { acc.description = p.desc; }
+          if (p.img) { acc.image = p.img; }
+          if (p.quartos) { acc.numberOfRooms = p.quartos; }
+          if (p.area) {
+            acc.floorSize = { '@type': 'QuantitativeValue', 'value': p.area, 'unitCode': 'MTK' };
+          }
+          if (p.preco) {
+            acc.offers = {
+              '@type': 'Offer',
+              'price': p.preco,
+              'priceCurrency': 'BRL',
+              'availability': 'https://schema.org/InStock',
+              'seller': { '@type': 'RealEstateAgent', 'name': 'Marco Túlio - Corretor de Imóveis' }
+            };
+          }
+          return { '@type': 'ListItem', 'position': i + 1, 'item': acc };
+        });
+        var s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          'name': 'Imóveis à venda em Uberlândia',
+          'numberOfItems': itens.length,
+          'itemListElement': itens
+        });
+        document.head.appendChild(s);
+      })();
 
       /* Marca no nav a seção em que o visitante está */
-      var alvos = ['corretor', 'financiamento', 'imoveis', 'faq']
+      var alvos = ['imoveis', 'lancamentos', 'financiamento', 'faq']
         .map(function (id) { return document.getElementById(id); })
         .filter(Boolean);
       if ('IntersectionObserver' in window) {
