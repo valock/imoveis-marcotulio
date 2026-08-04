@@ -921,6 +921,18 @@
     }
     .imovel.lancamento { border-color: var(--coral); border-width: 2px; }
     .imovel.lancamento .selo { background: var(--coral-profundo); }
+    /* Teaser de pré-lançamento: destaque sem prometer preço que não existe.
+       Declarado DEPOIS de .lancamento porque o card teaser tem as duas
+       classes e a especificidade é idêntica — quem vem por último ganha. */
+    .imovel.teaser { border-color: var(--azul); border-width: 2px; box-shadow: var(--lift-h); }
+    .imovel.teaser .selo { background: var(--azul); }
+    .imovel .em-breve {
+      font-family: var(--fdisp);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 12px;
+    }
 
     /* ========== VENDER / INVESTIR — porta de entrada estável ========== */
     .vender { background: var(--fundo); }
@@ -965,6 +977,34 @@
     }
 
     .secao-tom { background: var(--fundo); }
+
+    /* ========== SIMULADOR EMBUTIDO ========== */
+    .sim-wrap {
+      border: 1px solid var(--nevoa);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--superficie);
+      box-shadow: var(--lift);
+      /* 762px é a altura intrínseca do app em telas largas (medida) */
+      height: 790px;
+    }
+    .sim-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .sim-nota {
+      margin-top: 14px;
+      font-size: .9rem;
+      color: var(--tinta-suave);
+    }
+    .sim-nota a { color: var(--azul); font-weight: 700; text-decoration: none; }
+    .sim-nota a:hover { text-decoration: underline; }
+    @media (max-width: 560px) {
+      /* em 390px de largura o app pede 886px de altura */
+      .sim-wrap { height: 925px; }
+    }
 
     /* ========== AUTORIDADE — ponte para o site oficial ========== */
     .autoridade { border-top: 1px solid var(--nevoa); }
@@ -1349,6 +1389,7 @@
         <li><a href="#imoveis">Imóveis</a></li>
         <li><a href="#lancamentos">Lançamentos</a></li>
         <li><a href="#financiamento">Financiamento</a></li>
+        <li><a href="#simulador">Simulador</a></li>
         <li><a href="#faq">Dúvidas</a></li>
         <li><a href="https://www.marcotulio.pro" target="_blank" rel="noopener">Sobre mim ↗</a></li>
         <li><a class="nav-cta" data-zap="Gostaria de mais informações." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Fale comigo</a></li>
@@ -1582,6 +1623,31 @@
     </div>
   </section>
 
+  <!-- SIMULADOR — o app de simulador.marcotulio.pro embutido.
+       Alturas medidas: o conteúdo pede 762px em telas largas e 886px em
+       390px de largura; abaixo disso ele cria scroll interno. loading=lazy
+       para não custar nada até a pessoa chegar aqui. -->
+  <section class="block secao-tom" id="simulador">
+    <div class="container">
+      <div class="head">
+        <div class="eyebrow"><span class="tag">Simulador</span></div>
+        <h2>Descubra em 1 minuto quanto você financia</h2>
+        <p>Quatro perguntas e você vê o valor do financiamento, o subsídio da Caixa e a parcela. De graça, sem cadastro.</p>
+      </div>
+      <div class="sim-wrap">
+        <iframe
+          src="https://simulador.marcotulio.pro/"
+          title="Simulador Minha Casa Minha Vida — Uberlândia"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <p class="sim-nota">
+        Não abriu aqui? <a href="https://simulador.marcotulio.pro/" target="_blank" rel="noopener">Abrir o simulador em nova aba ↗</a>
+        · Valores aproximados; a análise definitiva é da Caixa Econômica Federal.
+      </p>
+    </div>
+  </section>
+
   <!-- VENDER / INVESTIR — porta estável, fora de qualquer estado vazio -->
   <section class="block vender" id="vender">
     <div class="container">
@@ -1786,6 +1852,7 @@
             <li><a href="#imoveis">Imóveis à venda</a></li>
             <li><a href="#lancamentos">Lançamentos</a></li>
             <li><a href="#financiamento">Financiamento</a></li>
+            <li><a href="#simulador">Simulador</a></li>
             <li><a href="#vender">Vender ou investir</a></li>
             <li><a href="#faq">Dúvidas</a></li>
             <li><a href="#blog">Mercado</a></li>
@@ -1910,6 +1977,14 @@
          }                                                                     */
       var MEUS_IMOVEIS = [];
       var LANCAMENTOS = [
+        /* TEASER: pré-lançamento. Sem preço de propósito — plantas, metragens
+           e valores ainda não são públicos. 'teaser:true' muda o visual e o CTA. */
+        { selo:'Em breve', teaser:true, tipo:'Apartamento', construtora:'VIC Engenharia',
+          titulo:'Gran Vic', local:'EcoPark (Zona Sul) — Rua Fauna',
+          quartos:2,
+          img:'https://marcotulio.pro/blog/images/gran-vic-uberlandia-capa.webp',
+          link:'https://marcotulio.pro/blog/gran-vic-uberlandia.html',
+          desc:'Primeiro lançamento da VIC em Uberlândia: 3 torres, 352 apartamentos de 2 quartos com sacada. Valores e plantas saem em breve.' },
         /* Empreendimentos com guia publicado no marcotulio.pro. As fotos e os
            dados vêm de lá (fonte única), e o card leva ao guia completo. */
         { selo:'Lançamento', tipo:'Apartamento', construtora:'Vitta',
@@ -2012,7 +2087,7 @@
 
       function cardImovel(p, classe) {
         var a = document.createElement('a');
-        a.className = 'imovel' + (classe ? ' ' + classe : '');
+        a.className = 'imovel' + (classe ? ' ' + classe : '') + (p.teaser ? ' teaser' : '');
         /* Com 'link' o card leva ao guia completo (no marcotulio.pro);
            sem 'link', vai direto para o WhatsApp. */
         a.href = p.link || zapUrl('Quero saber mais sobre: ' + p.titulo + ' — ' + p.local + '.');
@@ -2048,6 +2123,9 @@
         add('h3', '', p.titulo);
         if (p.construtora) { add('div', 'construtora', p.construtora); }
         add('div', 'local', '📍 ' + p.local);
+        if (p.teaser && !p.preco) {
+          add('div', 'em-breve', 'Valores e plantas em breve');
+        }
         if (p.preco) {
           var pr = add('div', 'preco', BRL(p.preco));
           if (p.precoDe) {
@@ -2066,7 +2144,9 @@
           });
           body.appendChild(f);
         }
-        if (p.link) { add('div', 'ver-guia', 'Ver o guia completo →'); }
+        if (p.link) {
+          add('div', 'ver-guia', p.teaser ? 'Entrar na lista de prioridade →' : 'Ver o guia completo →');
+        }
         a.appendChild(body);
         return a;
       }
@@ -2261,7 +2341,7 @@
       })();
 
       /* Marca no nav a seção em que o visitante está */
-      var alvos = ['imoveis', 'lancamentos', 'financiamento', 'faq']
+      var alvos = ['imoveis', 'lancamentos', 'financiamento', 'simulador', 'faq']
         .map(function (id) { return document.getElementById(id); })
         .filter(Boolean);
       if ('IntersectionObserver' in window) {
