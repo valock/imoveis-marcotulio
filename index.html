@@ -9,9 +9,9 @@
   <meta name="author" content="Marco Túlio Andrade Freitas - Corretor de Imóveis">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
-  <meta name="theme-color" content="#1A56DB">
+  <meta name="theme-color" content="#B51A00">
   <link rel="canonical" href="https://imoveis.marcotulio.pro/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231A56DB'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='bold' fill='%23fff' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B51A00'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='30' font-weight='bold' fill='%23fff' text-anchor='middle'%3EMT%3C/text%3E%3C/svg%3E">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -158,35 +158,36 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* --- Marca: mesmos hexadecimais do marcotulio.pro --- */
-      --azul: #1A56DB;
-      --azul-profundo: #11399E;
-      --azul-claro: #EAF1FE;
-      --coral: #FF5A2C;
-      --coral-claro: #FFD9CC;
-      --coral-profundo: #C8390F;
-      --coral-fundo: #FFEDE5;
-      --tinta: #0F1B2D;
-      --tinta-suave: #41506A;
-      --nevoa: #D9E1EE;
-      --fundo: #F7F9FC;
+      /* --- Paleta alinhada ao site da Torrano (torrano.com.br) --- */
+      --tijolo: #B51A00;          /* primária da Torrano */
+      --tijolo-escuro: #8E1400;
+      --tijolo-claro: #FBEAE6;
+      --ambar: #F99C00;           /* acento secundário: lançamentos */
+      --ambar-claro: #FFE2B8;
+      --ambar-escuro: #A85E00;    /* âmbar legível sobre claro */
+      --ambar-fundo: #FFF4E3;
+      --ardosia: #0F172B;         /* texto escuro (slate-900 da Torrano) */
+      --ardosia-media: #334155;
+      --nevoa: #E2E8F0;
+      --blush: #F6EBE8;           /* superfície blush das seções */
+      --nuvem: #F8FAFC;
       --superficie: #FFFFFF;
-      --zap: #0E7A33;
+      --zap: #0E7A33;             /* verde escurecido: contraste AA com texto */
       --zap-escuro: #0A5526;
 
-      --fdisp: 'Bricolage Grotesque', sans-serif;
-      --fbody: 'Hanken Grotesk', sans-serif;
+      --fdisp: 'Geist', sans-serif;
+      --fbody: 'Geist', sans-serif;
 
       --r-sm: 10px;
       --r-md: 16px;
       --r-lg: 24px;
       --r-pill: 999px;
       --ease: cubic-bezier(.16,1,.3,1);
-      --lift: 0 6px 24px rgba(26,86,219,.10);
-      --lift-h: 0 12px 44px rgba(26,86,219,.18);
+      --lift: 0 6px 24px rgba(181,26,0,.10);
+      --lift-h: 0 12px 44px rgba(181,26,0,.18);
 
       --maxw: 1140px;
       --nav-h: 68px;
@@ -207,7 +208,7 @@
       font-family: var(--fbody);
       font-size: 17px;
       line-height: 1.6;
-      color: var(--tinta);
+      color: var(--ardosia);
       background: var(--superficie);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -216,9 +217,9 @@
     h1, h2, h3, h4 {
       font-family: var(--fdisp);
       font-weight: 800;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
       line-height: 1.1;
-      color: var(--tinta);
+      color: var(--ardosia);
       text-wrap: balance;
     }
 
@@ -226,7 +227,7 @@
     img { max-width: 100%; display: block; }
 
     :focus-visible {
-      outline: 3px solid var(--coral);
+      outline: 3px solid var(--ambar);
       outline-offset: 2px;
       border-radius: 4px;
     }
@@ -248,7 +249,7 @@
 
     .skip {
       position: absolute; left: -9999px; top: 0;
-      background: var(--azul); color: #fff;
+      background: var(--tijolo); color: #fff;
       padding: 10px 16px; border-radius: var(--r-sm); z-index: 2000;
     }
     .skip:focus { left: 8px; top: 8px; }
@@ -272,14 +273,14 @@
     }
     .btn-zap { background: var(--zap); color: #fff; }
     .btn-zap:hover { background: var(--zap-escuro); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(14,122,51,.3); }
-    .btn-azul { background: var(--azul); color: #fff; }
-    .btn-azul:hover { background: var(--azul-profundo); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(26,86,219,.3); }
+    .btn-tijolo { background: var(--tijolo); color: #fff; }
+    .btn-tijolo:hover { background: var(--tijolo-escuro); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(181,26,0,.3); }
     .btn-linha {
       background: transparent;
-      color: var(--azul-profundo);
+      color: var(--tijolo-escuro);
       border: 1.5px solid var(--nevoa);
     }
-    .btn-linha:hover { border-color: var(--azul); background: var(--azul-claro); }
+    .btn-linha:hover { border-color: var(--tijolo); background: var(--tijolo-claro); }
     .btn-linha-clara {
       background: transparent; color: #fff;
       border: 1.5px solid rgba(255,255,255,.38);
@@ -323,7 +324,7 @@
     }
     .logo-icon {
       width: 38px; height: 38px;
-      background: var(--azul);
+      background: var(--tijolo);
       border-radius: var(--r-sm);
       display: grid;
       place-items: center;
@@ -338,10 +339,10 @@
       font-size: 1.2rem;
       font-weight: 800;
       letter-spacing: -.03em;
-      color: var(--tinta);
+      color: var(--ardosia);
       white-space: nowrap;
     }
-    .logo-text span { color: var(--azul); }
+    .logo-text span { color: var(--tijolo); }
     .nav-links {
       display: flex;
       align-items: center;
@@ -352,11 +353,11 @@
       text-decoration: none;
       font-size: .98rem;
       font-weight: 600;
-      color: var(--tinta-suave);
+      color: var(--ardosia-media);
       transition: color .2s;
       padding: 6px 2px;
     }
-    .nav-links a:hover, .nav-links a[aria-current="true"] { color: var(--azul); }
+    .nav-links a:hover, .nav-links a[aria-current="true"] { color: var(--tijolo); }
     .nav-links .nav-cta {
       background: var(--zap);
       color: #fff;
@@ -381,7 +382,7 @@
     }
     .hamburger span {
       width: 24px; height: 2px;
-      background: var(--azul);
+      background: var(--tijolo);
       border-radius: 2px;
       transition: transform .3s, opacity .3s;
     }
@@ -409,7 +410,9 @@
       font-family: var(--fdisp);
       font-size: 1.05rem;
       font-weight: 800;
-      color: var(--coral);
+      /* tijolo (e não âmbar): âmbar sobre claro dava só 1,9:1 de contraste.
+         É também a cor do rótulo de seção no site da Torrano. */
+      color: var(--tijolo);
       letter-spacing: -.02em;
     }
     .eyebrow .tag {
@@ -417,7 +420,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .12em;
-      color: var(--tinta-suave);
+      color: var(--ardosia-media);
     }
     .head h2 {
       font-size: clamp(1.7rem, 2.7vw, 2.4rem);
@@ -425,71 +428,106 @@
     }
     .head p {
       font-size: 1.05rem;
-      color: var(--tinta-suave);
+      color: var(--ardosia-media);
     }
     /* Variantes em superfície escura */
-    .escura { background: var(--tinta); color: rgba(255,255,255,.82); }
+    .escura { background: var(--ardosia); color: rgba(255,255,255,.82); }
     .escura h2, .escura h3, .escura h4 { color: #fff; }
     .escura .head p { color: rgba(255,255,255,.75); }
     .escura .eyebrow .tag { color: rgba(255,255,255,.6); }
-    .escura .eyebrow .num { color: var(--coral-claro); }
+    .escura .eyebrow .num { color: var(--ambar-claro); }
 
-    /* ========== HERO ========== */
+    /* ========== HERO ==========
+       Fundo: crepúsculo urbano desenhado em SVG (não é foto, então não
+       finge ser Uberlândia). Para usar uma foto real, defina --hero-foto. */
     .hero {
       position: relative;
-      background: var(--azul);
+      isolation: isolate;
       color: #fff;
       overflow: hidden;
-      padding: calc(var(--nav-h) + 44px) 0 var(--pad-block);
+      padding: calc(var(--nav-h) + 52px) 0 96px;
+      background: linear-gradient(180deg, #101B33 0%, #222C4A 30%, #5E2A24 58%, #A31700 82%, #B51A00 100%);
     }
-    .hero::before {
+    .hero-fundo {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: var(--hero-foto, none);
+      background-size: cover;
+      background-position: center 62%;
+    }
+    /* Ken Burns lento: dá vida sem competir com a leitura */
+    .hero-fundo { animation: respira 26s ease-in-out infinite alternate; }
+    @keyframes respira {
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
+    }
+    .hero-fundo .skyline {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      width: 100%; height: 34%;
+      min-height: 140px;
+      opacity: .8;
+    }
+    /* Véu para o texto ficar legível sobre qualquer fundo */
+    .hero::after {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: -1;
       background:
-        radial-gradient(ellipse at 18% 40%, rgba(255,90,44,.16) 0%, transparent 58%),
-        radial-gradient(ellipse at 88% 12%, rgba(17,57,158,.65) 0%, transparent 52%);
+        radial-gradient(ellipse at 20% 28%, rgba(181,26,0,.34) 0%, transparent 62%),
+        linear-gradient(180deg, rgba(9,14,28,.62) 0%, rgba(9,14,28,.30) 42%, rgba(9,14,28,.55) 100%);
       pointer-events: none;
     }
-    .hero-grid {
+    .hero-inner {
       position: relative;
-      z-index: 2;
       max-width: var(--maxw);
       margin: 0 auto;
       padding: 0 24px;
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 44px;
+    }
+    .hero-local {
+      display: inline-flex;
       align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--ambar-claro);
+      margin-bottom: 14px;
+    }
+    .hero-local::before {
+      content: '';
+      width: 22px; height: 2px;
+      background: var(--ambar);
     }
     .hero h1 {
-      font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+      font-size: clamp(2.15rem, 5vw, 3.9rem);
       color: #fff;
+      max-width: 20ch;
       margin-bottom: 16px;
+      text-shadow: 0 2px 24px rgba(0,0,0,.35);
     }
-    .hero h1 em { font-style: normal; color: var(--coral-claro); }
+    .hero h1 em { font-style: normal; color: var(--ambar-claro); }
     .hero-sub {
-      font-size: 1.12rem;
+      font-size: 1.1rem;
       line-height: 1.55;
-      color: rgba(255,255,255,.9);
-      max-width: 46ch;
+      color: rgba(255,255,255,.92);
+      max-width: 52ch;
+      text-shadow: 0 1px 12px rgba(0,0,0,.3);
     }
-    /* Credenciais VERIFICÁVEIS no primeiro viewport — substitui a trust bar
-       de selos não verificáveis e o card de números do hero. */
     .cred {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px 22px;
-      margin: 22px 0 26px;
-      padding: 16px 0;
-      border-top: 1px solid rgba(255,255,255,.2);
-      border-bottom: 1px solid rgba(255,255,255,.2);
+      gap: 6px 22px;
+      margin: 20px 0 0;
+      padding: 15px 0 0;
+      border-top: 1px solid rgba(255,255,255,.24);
     }
-    /* Marcador posicionado, não flex: o texto precisa fluir como frase */
     .cred li {
       position: relative;
       padding-left: 15px;
-      font-size: .94rem;
+      font-size: .92rem;
       color: rgba(255,255,255,.9);
     }
     .cred li::before {
@@ -498,59 +536,150 @@
       left: 0; top: .58em;
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: var(--coral-claro);
+      background: var(--ambar);
     }
-    .hero-acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cred a { color: var(--ambar-claro); font-weight: 600; text-decoration: none; }
+    .cred a:hover { text-decoration: underline; }
 
-    /* Formulário de intenção — substitui a busca falsa.
-       Leva o que a pessoa escreveu para dentro da conversa. */
-    .lead {
+    /* ===== BUSCA — card branco que invade o fim do hero =====
+       Diferente da Torrano, ela mora DENTRO do primeiro viewport e os
+       filtros mexem no catálogo de verdade. */
+    /* Fora do <header> para não ser cortada pelo overflow:hidden do hero.
+       Sobe por margem negativa e invade o fim do hero, como no card da Torrano. */
+    .busca-wrap {
+      position: relative;
+      z-index: 5;
+      max-width: var(--maxw);
+      margin: -58px auto 0;
+      padding: 0 24px;
+    }
+    .busca {
       background: var(--superficie);
-      color: var(--tinta);
       border-radius: var(--r-lg);
-      padding: 26px;
-      box-shadow: 0 24px 60px rgba(8,20,50,.28);
+      box-shadow: 0 20px 50px rgba(9,14,28,.28);
+      padding: 18px;
+      color: var(--ardosia);
     }
-    .lead-title {
-      font-family: var(--fdisp);
-      font-weight: 800;
-      font-size: 1.22rem;
-      letter-spacing: -.02em;
-      line-height: 1.15;
-      margin-bottom: 4px;
+    .chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      scrollbar-width: none;
     }
-    .lead-sub { font-size: .92rem; color: var(--tinta-suave); margin-bottom: 18px; }
-    .campo { margin-bottom: 14px; }
-    .campo label {
-      display: block;
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--tinta-suave);
-      margin-bottom: 6px;
-    }
-    .campo input, .campo select {
-      width: 100%;
-      min-height: 50px;
+    .chips::-webkit-scrollbar { display: none; }
+    .chip {
+      flex: none;
       background: var(--superficie);
-      border: 1px solid var(--nevoa);
-      border-radius: var(--r-md);
-      padding: 13px 14px;
+      border: 1.5px solid var(--nevoa);
+      border-radius: var(--r-pill);
+      padding: 10px 18px;
+      min-height: 44px;
+      font-family: var(--fbody);
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--ardosia-media);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color .18s var(--ease), color .18s var(--ease), background .18s var(--ease);
+    }
+    .chip:hover { border-color: var(--tijolo); color: var(--tijolo); }
+    .chip.is-on {
+      border-color: var(--tijolo);
+      color: var(--tijolo);
+      background: var(--tijolo-claro);
+    }
+    .busca-filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      overflow: hidden;
+      border: 1.5px solid var(--nevoa);
+      border-radius: var(--r-pill);
+      padding: 0 16px;
+      min-height: 48px;
+      cursor: pointer;
+      transition: border-color .18s var(--ease);
+    }
+    .pill:focus-within { border-color: var(--tijolo); box-shadow: 0 0 0 3px rgba(181,26,0,.16); }
+    .pill-lbl {
+      font-size: .76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--ardosia-media);
+      white-space: nowrap;
+    }
+    .pill select {
+      min-width: 0;
+      flex: 1;
+      border: none;
+      background: none;
+      font-family: var(--fbody);
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--ardosia);
+      cursor: pointer;
+      padding: 12px 0;
+      min-height: 44px;
+    }
+    .pill select:focus { outline: none; }
+    .busca-linha {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--nuvem);
+      border: 1.5px solid var(--nevoa);
+      border-radius: var(--r-pill);
+      padding: 4px 4px 4px 16px;
+    }
+    .busca-linha:focus-within { border-color: var(--tijolo); box-shadow: 0 0 0 3px rgba(181,26,0,.16); }
+    .busca-ico { color: var(--ardosia-media); display: flex; flex: none; }
+    .busca-linha input {
+      flex: 1;
+      min-width: 0;
+      min-height: 48px;
+      border: none;
+      background: none;
       font-family: var(--fbody);
       font-size: 1rem;
-      color: var(--tinta);
+      color: var(--ardosia);
     }
-    .campo input:focus, .campo select:focus {
-      outline: none;
-      border-color: var(--azul);
-      box-shadow: 0 0 0 3px rgba(26,86,219,.18);
+    .busca-linha input:focus { outline: none; }
+    .busca-btn {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--tijolo);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-pill);
+      min-height: 48px;
+      padding: 0 22px;
+      font-family: var(--fbody);
+      font-size: .98rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .18s var(--ease);
     }
-    .lead .btn { width: 100%; margin-top: 4px; }
-    .lead-note {
-      font-size: .82rem;
-      color: var(--tinta-suave);
-      margin-top: 12px;
-      line-height: 1.45;
+    .busca-btn:hover { background: var(--tijolo-escuro); }
+    .busca-status {
+      margin: 12px 4px 0;
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--ardosia-media);
     }
+    .busca-status b { color: var(--tijolo); }
 
     /* ========== FINANCIAMENTO (superfície escura de apoio) ========== */
     .fin-wrap {
@@ -572,7 +701,7 @@
       font-family: var(--fdisp);
       font-size: 1.5rem;
       font-weight: 800;
-      color: var(--coral-claro);
+      color: var(--ambar-claro);
       line-height: 1.2;
     }
     .passos h4 { font-size: 1.08rem; margin-bottom: 4px; }
@@ -580,15 +709,15 @@
     /* Card claro dentro do escuro: o único elemento acionável ganha sombra */
     .checklist {
       background: var(--superficie);
-      color: var(--tinta);
+      color: var(--ardosia);
       border-radius: var(--r-lg);
       padding: 28px;
       position: sticky;
       top: calc(var(--nav-h) + 20px);
     }
     /* O card é claro dentro da seção escura: reverte a herança de .escura */
-    .escura .checklist h3, .checklist h3 { color: var(--tinta); font-size: 1.15rem; margin-bottom: 6px; }
-    .checklist > p { font-size: .92rem; color: var(--tinta-suave); margin-bottom: 16px; }
+    .escura .checklist h3, .checklist h3 { color: var(--ardosia); font-size: 1.15rem; margin-bottom: 6px; }
+    .checklist > p { font-size: .92rem; color: var(--ardosia-media); margin-bottom: 16px; }
     .checklist ul { list-style: none; margin-bottom: 20px; }
     .checklist li {
       position: relative;
@@ -599,7 +728,7 @@
     .checklist li::before {
       content: '✓';
       position: absolute; left: 0; top: 9px;
-      color: var(--coral-profundo);
+      color: var(--ambar-escuro);
       font-weight: 700;
       font-size: .9rem;
     }
@@ -623,18 +752,24 @@
       font-family: var(--fbody);
       font-size: 1rem;
       font-weight: 700;
-      color: var(--tinta-suave);
+      color: var(--ardosia-media);
       padding: 14px 16px;
       min-height: 52px;
       white-space: nowrap;
       transition: color .18s, border-color .18s;
     }
-    .abas button:hover { color: var(--azul); }
+    .abas button:hover { color: var(--tijolo); }
     .abas button[aria-selected="true"] {
-      color: var(--azul);
-      border-bottom-color: var(--azul);
+      color: var(--tijolo);
+      border-bottom-color: var(--tijolo);
     }
     .painel[hidden] { display: none; }
+    .sem-resultado {
+      grid-column: 1 / -1;
+      padding: 22px 0;
+      color: var(--ardosia-media);
+      font-size: 1rem;
+    }
     /* auto-fill (não auto-fit): com 1 ou 2 imóveis o card mantém largura
        de card em vez de esticar pela seção inteira. */
     .grid-imoveis {
@@ -657,10 +792,10 @@
       box-shadow: var(--lift);
       transition: box-shadow .18s var(--ease), transform .18s var(--ease), border-color .18s;
     }
-    .parceiro:hover { box-shadow: var(--lift-h); transform: translateY(-2px); border-color: rgba(26,86,219,.3); }
+    .parceiro:hover { box-shadow: var(--lift-h); transform: translateY(-2px); border-color: rgba(181,26,0,.3); }
     .parceiro-txt { max-width: 52ch; }
     .parceiro h3 { font-size: 1.2rem; margin-bottom: 6px; }
-    .parceiro p { font-size: .96rem; color: var(--tinta-suave); }
+    .parceiro p { font-size: .96rem; color: var(--ardosia-media); }
     .externo {
       display: inline-flex;
       align-items: center;
@@ -669,7 +804,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .08em;
-      color: var(--tinta-suave);
+      color: var(--ardosia-media);
       margin-bottom: 8px;
     }
     /* Estado vazio honesto — enquanto não há imóvel real publicado */
@@ -678,21 +813,21 @@
       border: 1.5px dashed var(--nevoa);
       border-radius: var(--r-lg);
       padding: 40px 28px;
-      background: var(--fundo);
+      background: var(--blush);
       max-width: 62ch;
     }
     .vazio h3 { font-size: 1.18rem; margin-bottom: 8px; }
-    .vazio p { font-size: 1rem; color: var(--tinta-suave); margin-bottom: 20px; }
-    /* Lançamentos: superfície coral própria — distinta dos imóveis prontos
+    .vazio p { font-size: 1rem; color: var(--ardosia-media); margin-bottom: 20px; }
+    /* Lançamentos: superfície âmbar própria — distinta dos imóveis prontos
        sem colar duas manchas escuras seguidas na página. */
-    .lancamentos { background: var(--coral-fundo); }
-    .lancamentos .eyebrow .tag { color: var(--coral-profundo); }
+    .lancamentos { background: var(--ambar-fundo); }
+    .lancamentos .eyebrow .tag { color: var(--ambar-escuro); }
     .lancamentos .vazio {
       background: var(--superficie);
       border-style: solid;
       border-width: 1px 1px 1px 4px;
-      border-color: rgba(255,90,44,.28);
-      border-left-color: var(--coral);
+      border-color: rgba(249,156,0,.28);
+      border-left-color: var(--ambar);
     }
 
     /* Cards de imóvel publicado (usados quando os arrays têm conteúdo) */
@@ -710,7 +845,7 @@
     .imovel-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
     .imovel .selo {
       align-self: flex-start;
-      background: var(--azul);
+      background: var(--tijolo);
       color: #fff;
       font-size: .72rem;
       font-weight: 700;
@@ -721,12 +856,12 @@
       margin-bottom: 10px;
     }
     .imovel h3 { font-size: 1.12rem; margin-bottom: 6px; }
-    .imovel .local { font-size: .92rem; color: var(--tinta-suave); margin-bottom: 10px; }
+    .imovel .local { font-size: .92rem; color: var(--ardosia-media); margin-bottom: 10px; }
     .imovel .preco {
       font-family: var(--fdisp);
       font-size: 1.3rem;
       font-weight: 800;
-      color: var(--azul);
+      color: var(--tijolo);
       letter-spacing: -.02em;
       margin-bottom: 12px;
     }
@@ -734,13 +869,13 @@
       display: flex; flex-wrap: wrap; gap: 12px;
       padding-top: 12px; margin-top: auto;
       border-top: 1px solid var(--nevoa);
-      font-size: .88rem; color: var(--tinta-suave);
+      font-size: .88rem; color: var(--ardosia-media);
     }
-    .imovel.lancamento { border-color: var(--coral); border-width: 2px; }
-    .imovel.lancamento .selo { background: var(--coral-profundo); }
+    .imovel.lancamento { border-color: var(--ambar); border-width: 2px; }
+    .imovel.lancamento .selo { background: var(--ambar-escuro); }
 
     /* ========== VENDER / INVESTIR — porta de entrada estável ========== */
-    .vender { background: var(--fundo); }
+    .vender { background: var(--blush); }
     .vender-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -759,27 +894,29 @@
       box-shadow: var(--lift);
       transition: box-shadow .18s var(--ease), transform .18s var(--ease), border-color .18s;
     }
-    .caminho:hover { box-shadow: var(--lift-h); transform: translateY(-3px); border-color: rgba(26,86,219,.3); }
+    .caminho:hover { box-shadow: var(--lift-h); transform: translateY(-3px); border-color: rgba(181,26,0,.3); }
     .caminho .rotulo {
       font-size: .74rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: var(--coral-profundo);
-      background: var(--coral-fundo);
+      color: var(--ambar-escuro);
+      background: var(--ambar-fundo);
       align-self: flex-start;
       padding: 4px 11px;
       border-radius: var(--r-pill);
     }
     .caminho h3 { font-size: 1.22rem; }
-    .caminho p { font-size: .97rem; color: var(--tinta-suave); }
+    .caminho p { font-size: .97rem; color: var(--ardosia-media); }
     .caminho .seta {
       margin-top: auto;
       padding-top: 14px;
       font-weight: 700;
       font-size: .97rem;
-      color: var(--azul);
+      color: var(--tijolo);
     }
+
+    .secao-blush { background: var(--blush); }
 
     /* ========== AUTORIDADE — ponte para o site oficial ========== */
     .autoridade { border-top: 1px solid var(--nevoa); }
@@ -793,7 +930,7 @@
     .autoridade-selo {
       width: 92px; height: 92px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--azul), var(--azul-profundo));
+      background: linear-gradient(135deg, var(--tijolo), var(--tijolo-escuro));
       display: grid;
       place-items: center;
     }
@@ -805,7 +942,7 @@
       letter-spacing: .08em;
     }
     .autoridade h2 { font-size: clamp(1.5rem, 2.2vw, 1.95rem); margin-bottom: 10px; }
-    .autoridade-txt { font-size: 1.03rem; color: var(--tinta-suave); margin-bottom: 18px; }
+    .autoridade-txt { font-size: 1.03rem; color: var(--ardosia-media); margin-bottom: 18px; }
     .autoridade-fatos { list-style: none; margin-bottom: 12px; }
     .autoridade-fatos li {
       padding: 10px 0;
@@ -820,16 +957,16 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .09em;
-      color: var(--tinta-suave);
+      color: var(--ardosia-media);
     }
-    .autoridade-obs { font-size: .87rem; color: var(--tinta-suave); margin-bottom: 22px; }
+    .autoridade-obs { font-size: .87rem; color: var(--ardosia-media); margin-bottom: 22px; }
     @media (max-width: 640px) {
       .autoridade-grid { grid-template-columns: 1fr; gap: 18px; }
       .autoridade-fatos span { min-width: 0; display: block; margin-bottom: 2px; }
     }
 
     /* ========== FAQ ========== */
-    .faq-sec { background: var(--fundo); }
+    .faq-sec { background: var(--blush); }
     .faq-lista { max-width: 78ch; }
     .faq-item {
       border-bottom: 1px solid var(--nevoa);
@@ -847,7 +984,7 @@
       font-family: var(--fdisp);
       font-weight: 700;
       font-size: 1.06rem;
-      color: var(--tinta);
+      color: var(--ardosia);
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after {
@@ -855,18 +992,18 @@
       flex: none;
       font-family: var(--fdisp);
       font-size: 1.4rem;
-      color: var(--azul);
+      color: var(--tijolo);
       transition: transform .2s var(--ease);
     }
     .faq-item[open] summary::after { transform: rotate(45deg); }
     .faq-item .resp {
       padding: 0 0 20px;
       font-size: 1rem;
-      color: var(--tinta-suave);
+      color: var(--ardosia-media);
       max-width: 68ch;
     }
-    .faq-fecho { margin-top: 26px; font-size: 1rem; color: var(--tinta-suave); }
-    .faq-fecho a { color: var(--azul); font-weight: 700; text-decoration: none; }
+    .faq-fecho { margin-top: 26px; font-size: 1rem; color: var(--ardosia-media); }
+    .faq-fecho a { color: var(--tijolo); font-weight: 700; text-decoration: none; }
     .faq-fecho a:hover { text-decoration: underline; }
 
     /* ========== BLOG ========== */
@@ -890,20 +1027,20 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .08em;
-      color: var(--coral-profundo);
-      background: var(--coral-fundo);
+      color: var(--ambar-escuro);
+      background: var(--ambar-fundo);
       padding: 4px 10px;
       border-radius: var(--r-pill);
       margin-bottom: 12px;
     }
     .post h3 { font-size: 1.08rem; line-height: 1.25; margin-bottom: 10px; }
-    .post > p { font-size: .95rem; color: var(--tinta-suave); margin-bottom: 14px; }
+    .post > p { font-size: .95rem; color: var(--ardosia-media); margin-bottom: 14px; }
     .post details { margin-bottom: 14px; }
     .post details summary {
       cursor: pointer;
       font-size: .9rem;
       font-weight: 700;
-      color: var(--azul);
+      color: var(--tijolo);
       list-style: none;
       padding: 8px 0;
       min-height: 40px;
@@ -913,7 +1050,7 @@
     .post details summary::-webkit-details-marker { display: none; }
     .post details p {
       font-size: .95rem;
-      color: var(--tinta-suave);
+      color: var(--ardosia-media);
       line-height: 1.6;
       padding-top: 4px;
     }
@@ -930,7 +1067,7 @@
     .post .zap-link:hover { text-decoration: underline; }
 
     /* ========== FECHAMENTO + FOOTER (uma única mancha escura) ========== */
-    .fechamento { background: var(--tinta); }
+    .fechamento { background: var(--ardosia); }
     .fechamento-grid {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
@@ -968,7 +1105,7 @@
     .contato-card li a:hover { text-decoration: underline; }
 
     footer {
-      background: var(--tinta);
+      background: var(--ardosia);
       color: rgba(255,255,255,.66);
       padding: 44px 0 28px;
       border-top: 1px solid rgba(255,255,255,.1);
@@ -987,7 +1124,7 @@
       letter-spacing: -.03em;
       margin-bottom: 12px;
     }
-    .foot-logo span { color: #6E97F0; }
+    .foot-logo span { color: #F0A868; }
     .foot-top p { font-size: .95rem; line-height: 1.6; max-width: 44ch; }
     .foot-top h4 {
       font-family: var(--fbody);
@@ -1021,9 +1158,9 @@
       color: rgba(255,255,255,.5);
     }
     .creci {
-      background: rgba(255,90,44,.12);
-      border: 1px solid rgba(255,90,44,.28);
-      color: var(--coral-claro);
+      background: rgba(249,156,0,.12);
+      border: 1px solid rgba(249,156,0,.28);
+      color: var(--ambar-claro);
       padding: 6px 15px;
       border-radius: var(--r-pill);
       font-size: .8rem;
@@ -1050,12 +1187,35 @@
 
     /* ========== RESPONSIVO ========== */
     @media (max-width: 980px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
       .hero-sub, .cred { max-width: none; }
       .fin-wrap { grid-template-columns: 1fr; gap: 28px; }
       .checklist { position: static; }
       .fechamento-grid { grid-template-columns: 1fr; gap: 30px; }
       .foot-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      /* Card de busca compacto: 3 filtros em 2 linhas, não em 3 */
+      .busca { padding: 14px; }
+      .busca-wrap { margin-top: -46px; }
+      .busca-filtros { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; }
+      .busca-filtros .pill:last-child { grid-column: 1 / -1; }
+      /* rótulo em cima, valor embaixo: cabe o texto inteiro sem truncar */
+      .pill {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 0;
+        padding: 6px 13px;
+        min-height: 54px;
+      }
+      .pill-lbl { font-size: .62rem; letter-spacing: .06em; }
+      .pill select { font-size: .92rem; padding: 0; min-height: 22px; width: 100%; }
+      .chip { padding: 9px 15px; font-size: .9rem; }
+      .busca-linha { padding: 4px 4px 4px 12px; }
+      .busca-btn { padding: 0 16px; }
+      .busca-btn span { display: none; }   /* só a lupa no celular */
+      .busca-status { font-size: .88rem; }
+      .hero { padding-bottom: 88px; }
     }
     @media (max-width: 768px) {
       .nav-links {
@@ -1094,7 +1254,7 @@
       body { padding-bottom: 84px; }
     }
     @media (max-width: 420px) {
-      .hero-acoes .btn, .fechamento-acoes .btn { width: 100%; }
+      .fechamento-acoes .btn { width: 100%; }
     }
   </style>
 </head>
@@ -1123,62 +1283,117 @@
     </div>
   </nav>
 
-  <!-- HERO — credencial verificável + formulário que carrega a resposta -->
+  <!-- HERO — melhoria sobre o header da Torrano:
+       lá a foto ocupa um viewport inteiro SEM texto (nem H1) e a busca fica
+       ABAIXO dela, obrigando a rolar uma tela antes de poder agir.
+       Aqui: fundo de cidade + mensagem + busca que FILTRA de verdade, tudo no
+       primeiro viewport. Troque --hero-foto por uma foto real de Uberlândia. -->
   <header class="hero" id="inicio">
-    <div class="hero-grid">
-      <div>
-        <h1>Imóveis em <em>Uberlândia</em>, com financiamento resolvido</h1>
-        <p class="hero-sub">Prontos para morar, de captação própria e lançamentos de construtora. Eu busco o imóvel e cuido do financiamento Caixa, MCMV e FGTS de ponta a ponta.</p>
-        <ul class="cred">
-          <li>Corretor parceiro da <strong>Torrano Negócios Imobiliários</strong> — CRECI/MG 7469</li>
-          <li>Uberlândia e região, MG</li>
-          <li><a href="https://www.marcotulio.pro" target="_blank" rel="noopener" style="color:#FFD9CC;font-weight:600">Conheça meu trabalho em marcotulio.pro ↗</a></li>
-        </ul>
-        <div class="hero-acoes">
-          <a class="btn btn-zap" data-zap="Quero uma simulação gratuita de financiamento." href="https://wa.me/5534996778075" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Simulação gratuita
-          </a>
-          <a class="btn btn-linha-clara" href="#imoveis">Ver imóveis</a>
-        </div>
+    <div class="hero-fundo" aria-hidden="true">
+      <svg class="skyline" viewBox="0 0 1440 320" preserveAspectRatio="none" focusable="false">
+        <g fill="#0B1220">
+          <rect x="40" y="176" width="66" height="144"/><rect x="118" y="212" width="44" height="108"/>
+          <rect x="176" y="140" width="54" height="180"/><rect x="242" y="196" width="72" height="124"/>
+          <rect x="328" y="112" width="48" height="208"/><rect x="388" y="168" width="60" height="152"/>
+          <rect x="462" y="204" width="40" height="116"/><rect x="516" y="128" width="70" height="192"/>
+          <rect x="600" y="184" width="52" height="136"/><rect x="666" y="96" width="58" height="224"/>
+          <rect x="738" y="156" width="46" height="164"/><rect x="798" y="200" width="64" height="120"/>
+          <rect x="876" y="132" width="50" height="188"/><rect x="940" y="180" width="72" height="140"/>
+          <rect x="1026" y="108" width="54" height="212"/><rect x="1094" y="172" width="48" height="148"/>
+          <rect x="1156" y="208" width="66" height="112"/><rect x="1236" y="148" width="56" height="172"/>
+          <rect x="1306" y="192" width="44" height="128"/><rect x="1364" y="164" width="60" height="156"/>
+        </g>
+        <g fill="#F99C00" opacity=".85">
+          <rect x="54" y="196" width="7" height="9"/><rect x="72" y="214" width="7" height="9"/>
+          <rect x="190" y="160" width="7" height="9"/><rect x="208" y="196" width="7" height="9"/>
+          <rect x="342" y="132" width="7" height="9"/><rect x="356" y="176" width="7" height="9"/>
+          <rect x="530" y="148" width="7" height="9"/><rect x="556" y="188" width="7" height="9"/>
+          <rect x="680" y="116" width="7" height="9"/><rect x="698" y="164" width="7" height="9"/>
+          <rect x="890" y="152" width="7" height="9"/><rect x="906" y="200" width="7" height="9"/>
+          <rect x="1040" y="128" width="7" height="9"/><rect x="1058" y="180" width="7" height="9"/>
+          <rect x="1250" y="168" width="7" height="9"/><rect x="1272" y="208" width="7" height="9"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-inner">
+      <p class="hero-local">Uberlândia e região · MG</p>
+      <h1>Encontre seu imóvel em <em>Uberlândia</em></h1>
+      <p class="hero-sub">Prontos para morar, captação própria e lançamentos de construtora — com o financiamento Caixa, MCMV e FGTS resolvido por mim, de ponta a ponta.</p>
+      <ul class="cred">
+        <li>Corretor parceiro da <strong>Torrano Negócios Imobiliários</strong> — CRECI/MG 7469</li>
+        <li><a href="https://www.marcotulio.pro" target="_blank" rel="noopener">Conheça meu trabalho em marcotulio.pro ↗</a></li>
+      </ul>
+    </div>
+
+  </header>
+
+    <!-- Busca real: filtra o catálogo publicado. Se nada casar, leva os
+       critérios escritos para o WhatsApp em vez de dar beco sem saída. -->
+  <div class="busca-wrap">
+    <form class="busca" id="buscaForm" role="search" aria-label="Buscar imóveis">
+      <div class="chips" id="chipsTipo" role="group" aria-label="Tipo de imóvel">
+        <button type="button" class="chip is-on" data-tipo="">Todos</button>
+        <button type="button" class="chip" data-tipo="Casa">Casa</button>
+        <button type="button" class="chip" data-tipo="Apartamento">Apartamento</button>
+        <button type="button" class="chip" data-tipo="Terreno">Terreno</button>
+        <button type="button" class="chip" data-tipo="Comercial">Comercial</button>
       </div>
 
-      <form class="lead" id="leadForm" novalidate>
-        <p class="lead-title">Me conte o seu caso</p>
-        <p class="lead-sub">Eu já respondo sabendo do que você precisa.</p>
-        <div class="campo">
-          <label for="ld-nome">Seu nome</label>
-          <input id="ld-nome" name="nome" type="text" autocomplete="name" required>
-        </div>
-        <div class="campo">
-          <label for="ld-obj">O que você precisa</label>
-          <select id="ld-obj" name="obj">
-            <option>comprar meu primeiro imóvel</option>
-            <option>usar meu FGTS na entrada</option>
-            <option>saber se aprovo financiamento</option>
-            <option>vender ou avaliar meu imóvel</option>
-            <option>investir em imóvel em Uberlândia</option>
+      <div class="busca-filtros">
+        <label class="pill">
+          <span class="pill-lbl">Quartos</span>
+          <select id="fQuartos">
+            <option value="">Todos</option>
+            <option value="1">1+</option><option value="2">2+</option>
+            <option value="3">3+</option><option value="4">4+</option>
           </select>
-        </div>
-        <div class="campo">
-          <label for="ld-regiao">Região de interesse <span style="font-weight:400">(opcional)</span></label>
-          <input id="ld-regiao" name="regiao" type="text" list="bairros" placeholder="Ex.: Santa Mônica">
-          <datalist id="bairros">
-            <option>Santa Mônica</option><option>Saraiva</option><option>Jardim Karaíba</option>
-            <option>Morada da Colina</option><option>Granja Marileusa</option>
-            <option>Altamira</option><option>Fundinho</option><option>Shopping Park</option>
-          </datalist>
-        </div>
-        <button class="btn btn-zap" type="submit">Falar no WhatsApp</button>
-        <p class="lead-note">Abre o WhatsApp com as suas respostas já escritas. Este site não armazena nada.</p>
-      </form>
-    </div>
-  </header>
+        </label>
+        <label class="pill">
+          <span class="pill-lbl">Valor até</span>
+          <select id="fValor">
+            <option value="">Qualquer valor</option>
+            <option value="250000">R$ 250 mil</option>
+            <option value="400000">R$ 400 mil</option>
+            <option value="600000">R$ 600 mil</option>
+            <option value="900000">R$ 900 mil</option>
+            <option value="1500000">R$ 1,5 mi</option>
+          </select>
+        </label>
+        <label class="pill">
+          <span class="pill-lbl">Ordenar</span>
+          <select id="fOrdem">
+            <option value="recentes">Mais recentes</option>
+            <option value="menor">Menor preço</option>
+            <option value="maior">Maior preço</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="busca-linha">
+        <span class="busca-ico" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </span>
+        <input id="fTexto" type="search" placeholder="Buscar por bairro ou nome do imóvel" aria-label="Buscar por bairro ou nome do imóvel" list="bairros">
+        <datalist id="bairros">
+          <option>Santa Mônica</option><option>Saraiva</option><option>Jardim Karaíba</option>
+          <option>Morada da Colina</option><option>Granja Marileusa</option>
+          <option>Altamira</option><option>Fundinho</option><option>Shopping Park</option>
+        </datalist>
+        <button class="busca-btn" type="submit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>Buscar</span>
+        </button>
+      </div>
+
+      <p class="busca-status" id="buscaStatus" aria-live="polite"></p>
+    </form>
+  </div>
 
   <!-- CAPÍTULO 01 — IMÓVEIS: o centro de gravidade do site.
        Os cards são gerados a partir do array IMOVEIS no script do fim da
        página. Cada card sai com microdados schema.org para SEO. -->
-  <section class="chapter" id="imoveis">
+  <section class="chapter secao-blush" id="imoveis">
     <div class="container">
       <div class="head">
         <div class="eyebrow"><span class="num">01</span><span class="tag">Imóveis à venda</span></div>
@@ -1196,7 +1411,7 @@
           <div class="vazio">
             <h3>Nenhum imóvel publicado ainda</h3>
             <p>Aqui entram os imóveis que eu capto direto com o proprietário. Prefiro deixar o espaço vazio a preencher com foto de banco de imagens.</p>
-            <a class="btn btn-azul" data-zap="Tenho um imóvel para vender e quero saber sobre a captação." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Quero anunciar meu imóvel</a>
+            <a class="btn btn-tijolo" data-zap="Tenho um imóvel para vender e quero saber sobre a captação." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Quero anunciar meu imóvel</a>
           </div>
         </div>
       </div>
@@ -1217,7 +1432,7 @@
   </section>
 
   <!-- LANÇAMENTOS — seção própria, com tratamento visual deliberadamente
-       distinto dos imóveis prontos (superfície escura, selo coral). -->
+       distinto dos imóveis prontos (superfície âmbar, selo âmbar). -->
   <section class="chapter lancamentos" id="lancamentos">
     <div class="container">
       <div class="head">
@@ -1330,7 +1545,7 @@
             <li><span>Especialidade</span> Caixa, MCMV e uso do FGTS</li>
           </ul>
           <p class="autoridade-obs">O CRECI acima é o da imobiliária parceira. Meu CRECI próprio está em processo de emissão.</p>
-          <a class="btn btn-azul" href="https://www.marcotulio.pro" target="_blank" rel="noopener">Ver meu trabalho completo em marcotulio.pro ↗</a>
+          <a class="btn btn-tijolo" href="https://www.marcotulio.pro" target="_blank" rel="noopener">Ver meu trabalho completo em marcotulio.pro ↗</a>
         </div>
       </div>
     </div>
@@ -1536,21 +1751,6 @@
         el.setAttribute('href', zapUrl(el.getAttribute('data-zap')));
       });
 
-      /* Formulário do hero: leva as respostas para dentro da conversa. */
-      var form = document.getElementById('leadForm');
-      if (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var nome = document.getElementById('ld-nome');
-          if (!nome.value.trim()) { nome.focus(); return; }
-          var obj = document.getElementById('ld-obj').value;
-          var regiao = document.getElementById('ld-regiao').value.trim();
-          var msg = 'Olá Marco! Sou ' + nome.value.trim() + ' e quero ' + obj + '.';
-          if (regiao) { msg += ' Região de interesse: ' + regiao + '.'; }
-          window.open(ZAP + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-        });
-      }
-
       /* Nav */
       var nav = document.getElementById('navbar');
       var links = document.getElementById('navLinks');
@@ -1600,10 +1800,12 @@
          Enquanto os arrays estiverem vazios, o site mostra o aviso honesto.
 
          Campos: preco e img são opcionais; o resto vale preencher sempre.
+         'tipo' alimenta os chips da busca (Casa / Apartamento / Terreno / Comercial).
 
          Exemplo:
          {
            selo:   'Captação exclusiva',
+           tipo:   'Casa',
            titulo: 'Casa 3 quartos com quintal',
            local:  'Santa Mônica, Uberlândia',
            preco:  480000,
@@ -1666,15 +1868,148 @@
         return a;
       }
 
+      /* render: carga inicial. Com lista vazia preserva o estado vazio
+         honesto que já está escrito no HTML. */
       function render(gridId, lista, classe) {
         if (!lista.length) { return; }
+        pintar(gridId, lista, classe);
+      }
+
+      /* pintar: sempre repinta, inclusive para zero resultados (filtro). */
+      function pintar(gridId, lista, classe) {
         var grid = document.getElementById(gridId);
         if (!grid) { return; }
         grid.innerHTML = '';
+        if (!lista.length) {
+          var aviso = document.createElement('p');
+          aviso.className = 'sem-resultado';
+          aviso.textContent = 'Nenhum imóvel desta lista casa com o filtro.';
+          grid.appendChild(aviso);
+          return;
+        }
         lista.forEach(function (p) { grid.appendChild(cardImovel(p, classe)); });
       }
       render('gridMeus', MEUS_IMOVEIS, '');
       render('gridLancamentos', LANCAMENTOS, 'lancamento');
+
+      /* ===== BUSCA DO HERO =====
+         Filtra o catálogo publicado de verdade. Se nada casar (inclusive com
+         o catálogo ainda vazio), leva os critérios escritos para o WhatsApp
+         em vez de mostrar "0 resultados" e encerrar a jornada. */
+      (function busca() {
+        var f = document.getElementById('buscaForm');
+        if (!f) { return; }
+        var status = document.getElementById('buscaStatus');
+        var elQuartos = document.getElementById('fQuartos');
+        var elValor = document.getElementById('fValor');
+        var elOrdem = document.getElementById('fOrdem');
+        var elTexto = document.getElementById('fTexto');
+        var chips = Array.prototype.slice.call(document.querySelectorAll('#chipsTipo .chip'));
+        var tipo = '';
+
+        /* Sem acento e sem caixa: quem digita "karaiba" no celular
+           precisa achar "Jardim Karaíba". */
+        function normal(t) {
+          return (t || '').toString().toLowerCase()
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function criterios() {
+          return {
+            tipo: tipo,
+            quartos: parseInt(elQuartos.value, 10) || 0,
+            valor: parseInt(elValor.value, 10) || 0,
+            texto: normal(elTexto.value.trim())
+          };
+        }
+
+        function filtrar(lista, c) {
+          var r = lista.filter(function (p) {
+            if (c.tipo && (p.tipo || '') !== c.tipo) { return false; }
+            if (c.quartos && (p.quartos || 0) < c.quartos) { return false; }
+            if (c.valor && (!p.preco || p.preco > c.valor)) { return false; }
+            if (c.texto) {
+              var alvo = normal((p.titulo || '') + ' ' + (p.local || '') + ' ' + (p.desc || '') + ' ' + (p.tipo || ''));
+              if (alvo.indexOf(c.texto) === -1) { return false; }
+            }
+            return true;
+          });
+          if (elOrdem.value === 'menor') {
+            r.sort(function (a, b) { return (a.preco || Infinity) - (b.preco || Infinity); });
+          } else if (elOrdem.value === 'maior') {
+            r.sort(function (a, b) { return (b.preco || 0) - (a.preco || 0); });
+          }
+          return r;
+        }
+
+        /* Duas leituras dos mesmos critérios:
+           - status usa separador (·) para não depender de gramática
+           - mensagem do WhatsApp precisa de frase corrida             */
+        function descreve(c, comSubstantivo) {
+          var partes = [];
+          if (c.tipo) { partes.push(c.tipo.toLowerCase()); }
+          else if (comSubstantivo) { partes.push('imóvel'); }
+          if (c.texto) { partes.push('em ' + elTexto.value.trim()); }
+          if (c.quartos) { partes.push(c.quartos + '+ quartos'); }
+          if (c.valor) { partes.push('até ' + BRL(c.valor)); }
+          if (!partes.length) { partes.push('imóvel'); }
+          return partes.join(comSubstantivo ? ', ' : ' · ');
+        }
+
+        function aplicar() {
+          var c = criterios();
+          var meus = filtrar(MEUS_IMOVEIS, c);
+          var lanc = filtrar(LANCAMENTOS, c);
+          var total = meus.length + lanc.length;
+          var temCatalogo = MEUS_IMOVEIS.length + LANCAMENTOS.length > 0;
+
+          if (temCatalogo) {
+            /* pintar (e não render) porque render ignora lista vazia — ao
+               filtrar até zero os cards antigos ficariam na tela. */
+            pintar('gridMeus', meus, '');
+            pintar('gridLancamentos', lanc, 'lancamento');
+          }
+
+          if (!temCatalogo) {
+            status.innerHTML = 'Ainda não há imóvel publicado no site. Diga o que procura e eu busco na minha rede — inclusive o que não está anunciado.';
+          } else if (total === 0) {
+            status.innerHTML = 'Nada publicado com <b>' + descreve(c, false) + '</b>. Posso buscar na minha rede — toque em Buscar.';
+          } else {
+            var plural = total > 1 ? 'imóveis' : 'imóvel';
+            var semFiltro = !c.tipo && !c.quartos && !c.valor && !c.texto;
+            status.innerHTML = semFiltro
+              ? '<b>' + total + '</b> ' + plural + ' publicado' + (total > 1 ? 's' : '') + ' no site.'
+              : '<b>' + total + '</b> ' + plural + ' · ' + descreve(c, false);
+          }
+          return total;
+        }
+
+        chips.forEach(function (ch) {
+          ch.addEventListener('click', function () {
+            chips.forEach(function (o) { o.classList.remove('is-on'); });
+            ch.classList.add('is-on');
+            tipo = ch.getAttribute('data-tipo') || '';
+            aplicar();
+          });
+        });
+        [elQuartos, elValor, elOrdem].forEach(function (el) {
+          el.addEventListener('change', aplicar);
+        });
+        elTexto.addEventListener('input', aplicar);
+
+        f.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var total = aplicar();
+          if (total > 0) {
+            document.getElementById('imoveis').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            /* Beco sem saída não: os critérios vão escritos para a conversa. */
+            window.open(zapUrl('Procuro ' + descreve(criterios(), true) + '. Você tem algo assim?'), '_blank', 'noopener');
+          }
+        });
+
+        aplicar();
+      })();
 
       /* SEO: publica um ItemList com cada imóvel como Accommodation/Offer.
          Sem imóvel cadastrado nada é emitido — schema vazio é pior que nenhum. */
