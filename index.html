@@ -792,6 +792,21 @@
       color: var(--tinta-suave);
       font-size: 1rem;
     }
+    /* Nota de procedência do recorte do catálogo parceiro */
+    .nota-fonte {
+      background: var(--azul-claro);
+      border-radius: var(--r-md);
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      font-size: .94rem;
+      line-height: 1.55;
+      color: var(--tinta-suave);
+      max-width: 88ch;
+    }
+    .nota-fonte strong { color: var(--tinta); }
+    .nota-fonte a { color: var(--azul); font-weight: 700; text-decoration: none; }
+    .nota-fonte a:hover { text-decoration: underline; }
+
     /* auto-fill (não auto-fit): com 1 ou 2 imóveis o card mantém largura
        de card em vez de esticar pela seção inteira. */
     .grid-imoveis {
@@ -1534,7 +1549,12 @@
       </div>
 
       <div class="painel" id="painel-portal" role="tabpanel" aria-labelledby="aba-portal" tabindex="0" hidden>
-        <div class="grid-imoveis">
+        <p class="nota-fonte">
+          Recorte do catálogo do portal parceiro <strong>Chave7</strong>, capturado em <time datetime="2026-08-04">04/08/2026</time>.
+          Valores e disponibilidade podem ter mudado desde então — eu confirmo cada um antes de qualquer visita.
+          <a href="https://www.chave7.com.br" target="_blank" rel="noopener">Ver o catálogo ao vivo no Chave7 ↗</a>
+        </p>
+        <div class="grid-imoveis" id="gridPortal">
           <a class="parceiro" href="https://www.chave7.com.br" target="_blank" rel="noopener">
             <div class="parceiro-txt">
               <span class="externo">Site externo ↗</span>
@@ -1975,6 +1995,172 @@
            quartos: 3, vagas: 2, area: 180,
            desc:   'Casa térrea reformada, a 5 minutos da UFU.'
          }                                                                     */
+      /* ===== RECORTE DO CATÁLOGO CHAVE7 (temporário) =====
+         151 imóveis capturados das páginas de busca do portal parceiro em
+         04/08/2026 (o robots.txt deles permite as páginas; a /api/ é
+         proibida e não foi usada). As fotos são servidas pelo S3 do Chave7,
+         com autorização deles, na versão de 512px.
+
+         ESTE BLOCO É PONTE. Quando a API-Key de integração chegar, ele sai e
+         entra a ingestão oficial via feed VRSync (GET /api/v1/ingest-file),
+         que traz dados sempre atuais e não quebra quando o layout deles muda.
+
+         Não entra no schema.org: são imóveis de terceiro, sem URL própria
+         neste site — marcá-los como estoque próprio seria incorreto. */
+      var CHAVE7 = [
+        { cod:8558, tipo:'Apartamento', bairro:'Laranjeiras', preco:170000, quartos:2, vagas:1, area:50, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/d92d64b8-5817-45e3-b9c9-ebcf67e51aa5/8049f6f7-f24c-4081-8598-3057f5a65963.jpeg' },
+        { cod:8575, tipo:'Casa', bairro:'Loteamento Residencial Pequis', preco:185600, quartos:2, vagas:1, area:71.09, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/acb3ad39-bf8c-409c-ad60-e5c3e20d65aa/95c7cb1c-1c67-41e8-9ac3-08f8d408782b.jpeg' },
+        { cod:8562, tipo:'Apartamento', bairro:'Jardim Patrícia', preco:195000, area:42, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/c86698e8-cac9-4ab5-8bb9-f2fa1fc1bd10/78986cac-e401-426d-9e56-68cc182fbca4.jpeg' },
+        { cod:8476, bairro:'Jardim Canaã', preco:202000, quartos:1, vagas:1, area:68, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/c2600474-55ea-448b-af22-d44ce2f1e816/a7f07062-d32d-42ae-bfc8-87e2c7163ec0.png' },
+        { cod:8577, tipo:'Apartamento', bairro:'Chácaras Tubalina e Quartel', preco:205000, quartos:2, vagas:1, area:49, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/c3f60a25-de6e-4148-be8e-66369367be21/d06d42cd-e740-4d02-a972-955bee7af441.jpeg' },
+        { cod:8574, tipo:'Casa', bairro:'Laranjeiras', preco:230000, quartos:2, vagas:3, area:80, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/6f599c70-8744-41fe-8a43-e3a3c357570c/4dbfcec6-8d85-45fa-bc08-55c4f9c330f7.jpeg' },
+        { cod:8561, tipo:'Casa', bairro:'Novo Mundo', preco:235000, quartos:2, vagas:1, area:152, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/9577cbe3-baac-4058-b5ba-2dcc91969caa/38041a23-fd5b-4fa0-91cb-ceb9bf9c22d7.jpeg' },
+        { cod:8585, tipo:'Apartamento', bairro:'Grand Ville', preco:240000, quartos:2, vagas:1, area:48, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/f3b3bcaf-ec4f-4243-a54c-abf89bf35894/fc032acf-948a-4e7d-b244-58b4ed126787.jpeg' },
+        { cod:8586, tipo:'Apartamento', bairro:'Presidente Roosevelt', preco:260000, quartos:2, vagas:2, area:46, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/1262589b-f6ff-4de8-bdbc-6550672e4c96/49e96fdd-173c-4eca-bf7b-6726d1d3a1d2.jpeg' },
+        { cod:8569, tipo:'Apartamento', bairro:'Segismundo Pereira', preco:265000, quartos:2, area:69, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/ca385772-1ffa-4c8c-a88e-0972e6a87f53/9bad33c9-275d-4cff-85db-14b8f91193e4.jpeg' },
+        { cod:8578, tipo:'Terreno', bairro:'Morada dos Pássaros', preco:280000, area:999, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/8842a254-37cc-4126-b664-d4d60dbaa405/9fd2f246-cdd1-49d7-b5ba-1125a14c5723.jpeg' },
+        { cod:8588, tipo:'Terreno', bairro:'Tibery', preco:360000, area:289, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/0b02cb98-99e2-4110-8b1b-5a9960a62d40/dfeeebf9-c47d-452f-bc90-0ea60955e107.jpeg' },
+        { cod:8560, tipo:'Casa', bairro:'Shopping Park', preco:368000, quartos:3, vagas:3, area:96, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/7b7db645-ef10-4635-b268-8fa56b2d57b5/1dbbfaef-06e7-49a0-81f1-a0151a1a4927.jpeg' },
+        { cod:8580, tipo:'Casa', bairro:'Jardim Ipanema', preco:380000, quartos:1, vagas:3, area:68, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/2d37029e-9943-4486-9f81-450dd310c188/cb580cdc-6a91-4be6-b0aa-6a02512957b9.jpeg' },
+        { cod:8563, tipo:'Apartamento', bairro:'Aclimação', preco:383000, quartos:1, vagas:1, area:52, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/d7fbd7ab-b15e-4fc3-8477-2d6a31fdef0b/89b5af0c-af8d-415b-856e-9440ddde3237.jpeg' },
+        { cod:3481, tipo:'Terreno', bairro:'Santa Mônica', preco:400000, area:360, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/Q2kRFP-Z-bnuMv14j8w6kRAzM1oyNCgc_MztQ8TQVUhYQ14bWObT0p3EckowN-hAVcBQhJ64pUzrTJTCASyjO8EqB6fh4X7QdtfuqwLoVVESpzBGZ4lgoeQ' },
+        { cod:8559, tipo:'Terreno', bairro:'Presidente Roosevelt', preco:411000, area:400, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/1962ff7f-aa6e-4729-ae90-7397a5682228/a56bea51-098b-4666-9f57-643137e6bf90.webp' },
+        { cod:8200, tipo:'Casa', bairro:'São Jorge', preco:450000, quartos:2, vagas:2, area:175, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/22574d72-4e0d-4bf0-b42a-333e85730323/488975e3-168c-44ad-ad1e-bc5da0013b58.png' },
+        { cod:5204, tipo:'Apartamento', bairro:'Novo Mundo', preco:498000, quartos:3, vagas:2, area:88, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/t5jEpzq-jnegmuv6PaxIwA6CHUzY8VWN-AmR-UAE6Jms-69BRjLiOlwmQKAG9sYDw9svcgRu3FXyrhZRTHXVwHSMuhyMke5xWQeys9Oz3xcTUcOvsuAJ2iI' },
+        { cod:6934, tipo:'Apartamento', bairro:'Novo Mundo', preco:498000, quartos:3, vagas:2, area:99, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/5i0cfWxyUfOLd0oXSwqX6gP7mytctIiU0qqzy1F5gptew9P-p5maeXOTFbYFSb3mzxzuQcuml5v3kpatXQRvxSWv5kJewJEv1g-Ut6ugWrUYb8g_n0AehEo' },
+        { cod:6935, tipo:'Apartamento', bairro:'Novo Mundo', preco:498000, quartos:3, vagas:2, area:89, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/3QYJeR-_kfSulnrxHKRBnibawmhMBCNF13FxUQZs27_E4kz9qCq8fOEWh06vdNdJXGAUH7YB6h09CJUCwiQf6shQrK4pGhO6JVHBUt4LI2Sm861427Lr8Xc' },
+        { cod:452, tipo:'Casa', bairro:'Aclimação', preco:500000, quartos:3, vagas:2, area:72, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/8t5R_dP7PGW_8zyaJ5oKvkBykrfqJiWDt4brE49Wn0MTXYwiW2NzVOzCQE06_kQBcQS3RM3L9d9Jkq3ONLrdHLSo8VtA-8FgcXs6gWRGL7j81FWjXCh9VYg' },
+        { cod:531, tipo:'Casa', bairro:'Jardim Brasília', preco:500000, quartos:3, vagas:2, area:240, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/g4KCX2XxkCCVYs8Fg1kD1ReJJWZeQRwcf5Gar79MrsIYrub-rxfVQvdxiUZc0yavfQ3zLJHZtM4hDJc9PfoRVS371QA1wkbvFOiqCm-TI9bTY9BVSGqsxQ' },
+        { cod:1922, tipo:'Terreno', bairro:'Santa Mônica', preco:500000, area:353.9, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/jfxuRcezoDN5BIw-GGpcfEk8o_w_GqRXOgtcnp-P8tr9pWAU6Aw9zQEwACN0zgzOwpZl0KoNR2nmVEanEdE1YlFb7jrI0knhB0giEDDIQVpI9WPHwp7Fpw' },
+        { cod:2369, tipo:'Casa', bairro:'Cidade Jardim', preco:500000, quartos:3, vagas:1, area:150, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/t986TmazOrYHsTrWy8dqo2dIDaVmBCtxAKie-WgWJeoKYWIsYJpu40R9texlI-jFOqLr0KxarTylFTKayq9zJU-0fa5CdRIzuBgGs86e5CFu-jR02uOt144' },
+        { cod:2820, tipo:'Casa', bairro:'Santa Mônica', preco:500000, quartos:2, vagas:2, area:84, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/RlMb65uphjuFxNOvvQt7ZQ6td4XWelx9eari7BqI1GMJo4PgtpnAARO9bByzKCykxP_0GcgSOCX-18weVweIdrfYQ8B8XI-zF1F1t89EzXh0FcjC7A2DaeS5' },
+        { cod:3459, tipo:'Terreno', bairro:'Santa Mônica', preco:500000, area:360, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/m-BaP6sKUcFT-P-_J0X9MNDVS5LjNvQpaDm09J1W45_ddHqnAbo2Sc8QbPNt5Pc0h5A7oVqoD6u6yI_wTre21BRYc9WFRXCw3UQMKTzQ1szpx6Q5QD-8Ky7-' },
+        { cod:4521, tipo:'Casa', bairro:'Jardim Europa', preco:500000, quartos:4, area:150, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/WIO-rJzj4nPLPLKj5rUicwLD2uXT0xfRbyy5H3uok4iQhf9UUa0OoWCCtlNj6dltN2feslFi-ElDBUPHcYC2Ux5G0SoP8wL_zfOQJGexCKkAUBIva6YYMgTl' },
+        { cod:4726, tipo:'Terreno', bairro:'Gávea Sul', preco:500000, area:804, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/WlQcNuJ9IBt-xWa_uYl6aAgQZhYXkMKpI6pVkVvIW6a8pV7aS4Bn8fpypD5ms3YMR62ViazJFtDKug6Y-Sc9UoQ1X4sIFDdQpjG5ZVYbYZe2UjeQEJyLF_M' },
+        { cod:5508, tipo:'Apartamento', bairro:'Gávea', preco:500000, quartos:1, vagas:1, area:55, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/rEluz48gQFD1aoAhV2MCX0gZ5bLMVACgl_72v9ky28wpJn422UYNSeLOT-0_KgiIvT7aihwFV61oBqVUCX2kxElfRP176ngFDeah0I27O0Fqwno2Keg-3A' },
+        { cod:5892, tipo:'Casa', bairro:'Gávea Sul', preco:500000, quartos:3, vagas:2, area:100, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/D6UXTZIUm7JS1eH_uArxWDGaPTj06iP9AfT_kY13p5puO7XiaRAgRyjRdrr69k70Kyt-NE3OFfDY6uKQgkBcsbQ4r910em7oVNKb4Y6DYk2N0bxcEbztvCY' },
+        { cod:6068, tipo:'Terreno', bairro:'Novo Mundo', preco:500000, area:500, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/UFvBvznNHB_NZINQKdT8KEc_8r_h6V8UA25xywVu6EHpustrJthfA5m9bZqo2g0-Brl5_dGsPwLEe3mGNu-Wob_56sAOxcoMkfJ9zj68sX-ASmvtFs49q70' },
+        { cod:6096, tipo:'Casa', bairro:'Mansour', preco:500000, quartos:3, vagas:2, area:177, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/rBBUBNmHz--sX1wH9tWclV7UbyBuEoM0_l-12fEE4-IGZtmSIwPCzzsqc0dYOt_zxHHASfvXFIBBRRZFiXW0K-el03VjvdHz0353lWL0fbOMiizW9oa0bSgB' },
+        { cod:6261, tipo:'Casa', bairro:'Gsp', preco:500000, quartos:3, vagas:2, area:94, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/L8ulXBUjfdQooPzKse3inutOMm9-C0l0b-K8H3nzOFPV2JCeGLFEWoJwojr1tzRNMtJykw0uhesMF9WsPi7W5TOuZeaMxgq2f4OYdplIObOf6hte7vSptBo' },
+        { cod:6494, tipo:'Terreno', bairro:'Santa Mônica', preco:500000, area:360, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/6O9e5-iRKMVAvfFuxkgl1TBUQTbFsjiZqF0nzAGV1PacCJDN6UyW8wYwIKNY_FRSEKHD1Al5CLmIrtR8F5PY1jGwUHN6MZ07l8vVC7BABms0ipwR3_ySYzPN' },
+        { cod:6541, tipo:'Apartamento', bairro:'Tibery', preco:500000, quartos:3, vagas:2, area:83, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/l8ytPAGnaYif8XZl7VGvkpyyfTuFrssS4ESnhMRu-RlPm96jlZAUFukembKpO02eDRmIXkgZ53K3B7rUtUAz25yYG2Y8305e-wtMqzBxw7OguLqdT_km_Cw' },
+        { cod:7213, tipo:'Casa', bairro:'Custódio Pereira', preco:500000, quartos:3, vagas:2, area:130, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/dThb8vKMS8-p6wSl30DkKC129t_v-YPxxdwIf7G6yfoGDZ_s3YRGR9NbjTopA10HN2RdY4YeLLqHMqMGcGSWjjEonrY5F8OIlaJunbZQOfKJZt-GLBmenTCR' },
+        { cod:7739, tipo:'Apartamento', bairro:'Saraiva', preco:500000, quartos:3, vagas:2, area:114, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/kCxN9r0Mi-CJ5SREyxYvO9kdwRkztuAwGkPU_x5C31Fc0VNSdtRi1FFZ1GDm4h7S8loa8mCB1VICX8gB_tIBJdjs0YI3WNqBFu_LOPn8f6U9cfDj7EMOvVA' },
+        { cod:7916, tipo:'Terreno', bairro:'Jardim Sul', preco:500000, area:360, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/S-MJFYG2FSsqhbSJE6cQ-A4vNYpj-9Hp2GpGu6rQAlmF6ged74uVl_C1COAWwF6fquph7t7CXFIHopT5K8T0W8U7WzuHpRZBN3ANzwe_B2-2uL3LNgGap7M' },
+        { cod:7917, tipo:'Terreno', bairro:'Jardim Sul', preco:500000, area:360, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/UoqHj_Bq6H1IKj6RBZQrupEwBOsrMsSSPC2h1oQyCeYLGZrheUc7Dt66STwHj5t_aZ1RGXgNYazOocCeezLXVICxrFOjUA-E7RhPmpkF0qy-fb4I_iS3jkQ' },
+        { cod:7938, tipo:'Casa', bairro:'Jardim das Palmeiras', preco:500000, quartos:3, vagas:3, area:161, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/70csF1oRbNysq5Cz9MvCM8pY1hrScxQRmyaIMHHVxuNcy90e1f4lO30ZJWxqySWa-bVB19kjVN865b5CR6AYmMviBYTQQPyjwYLmPa4Pp0r3h7nwYpRuUN4B' },
+        { cod:7952, tipo:'Terreno', bairro:'Novo Mundo', preco:500000, area:407, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/2GMdGnNbdiFShCkbs6nc1KojE6BoRJT1H1kuwLDGfe20DmiDlcrpGhWBSXg6prmY-nG1i9CLk9Fx0xepn0MLi5sNFdlyGlGJq78-TLNoWAG6frgoko2UwjCz' },
+        { cod:7977, tipo:'Terreno', bairro:'Quinta Alto Umuarama', preco:500000, area:421, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/JwIFcl0Lf3hJ9UAwJT7ldIGZRNmDne4c1R3KOoxi3OoDXy3MqT8Y1YSRXAkjV2EmMwGt_RIOPXwO2A0LmOrKEn9pkf1UErzAenzM4JH8us5DNNh2ipkV6AYK' },
+        { cod:8108, tipo:'Casa', bairro:'Laranjeiras', preco:500000, quartos:3, vagas:5, area:130, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/j2ciCFXIjMiacP6CdqRp33AeDSlkWl6tRNT_YcNYoafO5VDauOfbFfMT34zBE7c7mEQdLQoJtHTt0d9lE5wfrerNlMLqZ5Mb9cNg2CVwQWFs_v062GmrYg' },
+        { cod:8173, tipo:'Casa', bairro:'Laranjeiras', preco:500000, quartos:3, vagas:2, area:180, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/QnqSuNjAzUXtPXlHykZFqTRQhdU_iUrQCOwfxp53pyLUYVjeR4GAyCbMltsUcTStXX-RWBFJZH0kpMJhvYj1qOy8pfGYuc5nGA9dugiwwSDok5rJj45xXeM' },
+        { cod:8222, tipo:'Terreno', bairro:'Tibery', preco:500000, area:432, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/QLccJkkR-QxdyqbZWP7o5Iue91FmVn6ygVuXQ_7TsQPCQcsEFuv1WNQl8nPp_hmVka7GNGRg20Gwn0A4nJDK5dCkiTCY-BTz8FBFkp8yxU5BXjWuaMzd7TU' },
+        { cod:8267, tipo:'Terreno', bairro:'Granja Marileusa', preco:500000, area:452, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/QtpdhvBEdTJaY4Agijv_cC1mOHQDM_GkOEKlWGebdzY7Im7CYvZ5BkuHS2x4olSikvfwKGPX1RaUbnEkROaVs6RtDD4NoFsIesmBSlegxsNTqckBK78xQQ' },
+        { cod:8568, tipo:'Casa', bairro:'Marta Helena', preco:500000, quartos:2, vagas:1, area:66, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/cce2565c-00e0-407c-b152-8d7031f50d5d/b11f80cb-b3d1-4d17-a184-13e49643a7c3.jpeg' },
+        { cod:8565, tipo:'Casa', bairro:'Jardim Brasília', preco:530000, quartos:2, vagas:2, area:80, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/34a382a4-a696-483a-ab94-ac9252b49118/b0a4bf4f-7d39-4d02-9776-e29f61bf87e7.jpeg' },
+        { cod:8567, tipo:'Apartamento', bairro:'Presidente Roosevelt', preco:530000, quartos:3, vagas:2, area:76, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/dbd0e3e0-8d76-4a86-956e-94bb93055c3d/260b9aea-1e06-4b1d-8a0e-a8d00edecf2b.png' },
+        { cod:8573, tipo:'Casa', bairro:'Tibery', preco:550000, quartos:3, vagas:1, area:112, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/bbcd2758-8ade-4d2e-aed0-15c17c84341f/11e976fc-fea6-47df-ba82-666e5feb5bd0.jpeg' },
+        { cod:8584, tipo:'Casa', bairro:'Custódio Pereira', preco:600000, quartos:1, vagas:1, area:400, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/0350c132-3eb4-4219-99e4-284c6e3ef7b5/8d573247-0d8c-4829-9812-12929b6beade.jpeg' },
+        { cod:8583, tipo:'Casa', bairro:'Jardim Europa', preco:630000, quartos:2, vagas:2, area:170, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/1cf4574b-ab0b-4223-8beb-1093759be8b3/5cb0ad0d-b371-49a3-894c-7e41f87eb430.jpeg' },
+        { cod:8570, tipo:'Apartamento', bairro:'Tubalina', preco:727000, quartos:2, vagas:2, area:82, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/c26e3dad-d68a-4ba7-a594-fc7ab1d12207/71eefb8c-b763-46b0-a4dd-56cc3693b66b.jpeg' },
+        { cod:8579, bairro:'Morada Nova', preco:800000, area:163, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/6f6dd59c-2608-4e26-b1e2-c68134035c2c/f6bba9b0-9887-4c32-9a2c-4e81c2c581eb.jpeg' },
+        { cod:8582, tipo:'Apartamento', bairro:'Vigilato Pereira', preco:850000, quartos:1, vagas:2, area:154, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/083e6cde-522b-4f36-9af2-224d1a00f50b/a6c83590-ea4e-488a-81bb-c9812fc8a69e.jpeg' },
+        { cod:8566, tipo:'Comercial', bairro:'Morada Nova', preco:900000, area:280, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/daf54ef9-011f-418d-a3f2-b56651259496/a84f2679-194c-4c0e-a10e-6fba9842d2c5.jpeg' },
+        { cod:8571, bairro:'Tubalina', preco:900000, quartos:3, vagas:2, area:149, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/34494f0d-e4a0-48aa-bf68-fe741779a21e/0cc088e5-20a0-4492-b0bd-e385f6141581.jpeg' },
+        { cod:534, tipo:'Casa', bairro:'Vida Nova', preco:950000, quartos:3, vagas:2, area:160, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/uYFQMEPElvjzvlMCW5evMmIerc9dSuuC0L0CvRhoqQMr0kC3DfHPiX-2ABQQ_9QVdT5NWM7pq4TezplHFMtygItyBtptzJ1Hwmd0IDekt2w0dDSlfyGGZQ' },
+        { cod:569, tipo:'Casa', bairro:'Jardim Veneza', preco:950000, quartos:3, vagas:2, area:175, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/e8abBSyLLbdslpAP9UbtmrvpZYqnSCVYzqSsjUmqGjAbX08m4NamWaYDsRjFPXyqLZINBoRuQb83oNWJEWoS1SiBKeWjjQlyy_hbLQk7M6lPpE9Yjn24Ojc' },
+        { cod:887, tipo:'Apartamento', bairro:'Centro', preco:950000, quartos:4, vagas:3, area:208, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/ZnCQd5sNt2AJrPaWmsjIhfUuAdjZgz7_iDs7YS5UPF6dwIjlalPbYQWA4vK_D9GhYmC_emhhLUXLsy4kA-eJlj2x1fp7OWl7x7c4HQxg_l-EE3RQmIab1w' },
+        { cod:1624, tipo:'Apartamento', bairro:'Centro', preco:950000, quartos:3, vagas:2, area:180, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/G9kNap2vGqLywKOd9EzhXWzwng9KEhybsQBHzbfNNU2vjYzSiebaC7Fv8Fov1AJU1WIyWnhBAD9ejYMV4v33BQ9UwiCLcOvzurn-gMGuDGbsZ7v9BYDHEQ' },
+        { cod:2100, tipo:'Apartamento', bairro:'Brasil', preco:950000, quartos:4, vagas:6, area:375, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/_dVJ0zJCRDOxaCJ4ZbBsc96WxSCJ6LG7nll4Uur4feP3jTCFX6-84Vrt6YyoWE9PQroaBO7b8SM-OjIkOeL2ieP-DoZ5BIJl73Ra3Dq_Ug9CNaaHJeX5ggam' },
+        { cod:2136, tipo:'Casa', bairro:'Cazeca', preco:950000, quartos:3, vagas:3, area:195, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/566qh2xk9P9_pRjxGJgwhidrzLwWRvDYm7OChBUePJtYGJO41-kpuwAqeCNlsT-SfyruCkZ8zz8RwkTOtejbwH9l-SOg-zfgbKHd9YmUsBRymQKMnzy5rzc' },
+        { cod:2201, tipo:'Casa', bairro:'Alto Umuarama', preco:950000, quartos:5, vagas:3, area:237, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/H1XMrYOg7CTxcvIK9C8So8CZqKvm6-w8Gy5uaoCh-KtpmI3TUVptIZrGQStzGUolpmnCZkm0zii5OdM21nkmVnNUkM_xTNA533lUBsvBRJxxF7XjS6MhofI' },
+        { cod:2800, tipo:'Apartamento', bairro:'Saraiva', preco:950000, quartos:4, vagas:3, area:161, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/kzxo0Mo8aVms4O1hHOnbu_xAe4Me3kcKMRYdwORp8Wx9izWENpUulIeBCMEIUvC0lQdHPPP80SL_uOvx18EHy93GaphpMPbSs_9QdldvWgAX4EYqbsoZyXsh' },
+        { cod:3276, tipo:'Casa', bairro:'City Uberlândia', preco:950000, quartos:3, vagas:2, area:151, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/q8UOis9UinfPpcuhtDeZcMZeUnPR7bnv8IpSTeUWUGh1vyrkTH8jgvFCxumXugswEgW2aqnhrQVCtLHkPmRpTp1P2X9AL7GIA7yBD3_vb6h0hDDRMm1xOw' },
+        { cod:3333, tipo:'Casa', bairro:'Osvaldo Rezende', preco:950000, quartos:3, vagas:2, area:270, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/FJxJPtPYDT6OIFgeoznyWv-VVdXYXdJCePYg1RktYBM8OEu1ZVOM7N5QlAn63Y4h70AHHi-Q2KVNLGNTxXlkWYVRrUaNi929GL9dGrxkO-itpA6cYYs4Vw' },
+        { cod:3406, tipo:'Casa', bairro:'Novo Mundo', preco:950000, quartos:6, vagas:4, area:380, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/w11GcGMOsMGhMcABSg26iqdTcx6bY1WBuC8MgXTSQFDHpO9AhdlKotbOcIigPmebVnyHHan8LRnSA8_zDDcsnOsKyJyeBc3Id1JDbBcnVbrac4ZZ-6lfXXI' },
+        { cod:4156, tipo:'Casa', bairro:'Alto Umuarama', preco:950000, quartos:3, vagas:2, area:186, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/3lnvbo4jeIZ3TMi8vX8kVEWn7BERAwmEEOYqKJhEmCjh7jF110Jrttb0KsCXvIdeqHGACV7TlZOimrv6dt7t2tQ13O9j6aCS3QOxLLjVLrJu33MzPZmvHYRB' },
+        { cod:5317, tipo:'Casa', bairro:'Bosque dos Buritis', preco:950000, quartos:3, vagas:2, area:160, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/Tpqw_Fr5lLtJNcSIRPkqqdk5VajzTT53aJMUeUl0l55uxN9U9waz0XzQ-GwyXBFLNCT2QTVCXZGyKEguDwkNkRtSCIvaBaqcGpUwcFHn7dXkF8griKx7kvE' },
+        { cod:5538, tipo:'Casa', bairro:'Bosque dos Buritis', preco:950000, quartos:3, vagas:4, area:160, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/9J0OnR3v-nDdh9E2Llt2b8XHjw-2yGqNHZtfqzgJ39KB98cLrXSLjKVRNleMHLd0OLG9WmYRq7loqYEhbsMlMLMDdIBVPxHLCMdlSnZgLCUBsXCgm0ylMg' },
+        { cod:5820, tipo:'Casa', bairro:'Jardim América', preco:950000, quartos:3, vagas:3, area:215, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/-FDUb-6mMNq4Pyf0jPckF-lcWeJrEz441dNFAQDaRsaZHXnPoBJD0vJ80d5xr3MlO5G80YpRdQMFsRpR__Vl_2WZwo60fxvtfdj4eP4g5KKMX4FFI820kg' },
+        { cod:6395, tipo:'Casa', bairro:'Cazeca', preco:950000, quartos:3, vagas:3, area:220, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/vBOCOY7LTYgYXFw9FUnj0wYk8GlqM99or-dEy5g4y10rbMgCt0q7kOYZ4aGVFfKfvNqXNBfbCybdIPGku_mWtywsH71Ojfmt-24NCEYg0ISStuQf_jdR9Q' },
+        { cod:6435, tipo:'Casa', bairro:'Portal do Vale', preco:950000, quartos:3, vagas:3, area:150, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/GhsO9dYbrmFSK0zUAVVq7sASaPiDeVCnb1H_f7QF62_ERYQTGXSBwWk_caHpKHQzN2HFzeytHqy7XLwgL8tI2q7feYXh6F5Uj4ODLBX1Yp5Pm3hGYyLQVqk' },
+        { cod:6723, tipo:'Casa', bairro:'Alto Umuarama', preco:950000, quartos:3, vagas:3, area:220, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/KesN7LWoojX2W5HkOSlK83QntnpRIMm6PI50prqX8egHYH9rEWG2YEtTv9IRCr89nZeMV3Db7O6Z31M8Vrt0jloi6WXaKweP3bJKsj3QfqKIH4FwKD7toY0' },
+        { cod:6846, tipo:'Casa', bairro:'Santa Mônica', preco:950000, quartos:4, vagas:2, area:229, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/Q9aMJBjdIZPh15jJ9ibkIs9V7atiqo3z1hvTkluSzgXj2WpQWM6Y8WbVLxjdlcWxawc02sCaW3ylcyWlzaOrcQONHeGEP7kJxduh0PJ--hljU9t-AVHFpee3' },
+        { cod:6872, tipo:'Casa', bairro:'Novo Mundo', preco:950000, quartos:3, vagas:4, area:156, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/DCSNQ4Zsuq7yGH8NEPcIBKhcI7rpNLVsGtNBDGsE6MUD1LXCJOmce2AaL3KblGzkBySSx1OZqc99aEWqpzobysFc4TOZaSiwDsC8DlpF9dF0IEpyHK72cCfV' },
+        { cod:6939, tipo:'Casa', bairro:'Jardim Botânico', preco:950000, quartos:3, vagas:2, area:225, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/pUyXushXAAmr9gaHjUUVfdCTcDs-PwJQYMkl-iPJXCsKrAzNrOIoBYr3_kzm0TSG6D-eijsCyaabMEC08jLJ-ffJP00PR3NVVDP6RBdXiCKMk9B7Q8zNcGCs' },
+        { cod:7058, tipo:'Terreno', bairro:'Nova Uberlândia', preco:950000, area:443, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/gurwJitvlQ88on1wrJzLegUEDg84CaZB-toWIXUrAeTKArnZCfvWohygNsdf76VEsAcMdl19A5RMNfNcqkeKPi_Q2WEeFuOxNRQ7kVQZVsp46o6QFBIWi_q1' },
+        { cod:7518, tipo:'Casa', bairro:'Santa Mônica', preco:950000, quartos:3, vagas:2, area:150, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/q1BKhDPBviLwTibhQxnUEvsBqGhjSQA8UmD9LHcc2etvoaj-V4xE11bGv6DhvXmEQkNiATd1LAaP6rGpC-dffLYS9k6QopbXVaks5WcA-jkWCjCAg3FFKPs' },
+        { cod:7707, tipo:'Casa', bairro:'Santa Rosa', preco:950000, quartos:3, vagas:2, area:140, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/t32_ymVau4uBlMHaOwumqb4iiSnywLOL_JfxMOZdQcxkmCVCsED9XXPBXCaZ-d2SO964PriGmAn0nOurMDG2KZMFpBWyjB0tsVNWWCW6YpJJDfkJ8u3kOI8' },
+        { cod:7896, tipo:'Casa', bairro:'Alto Umuarama', preco:950000, quartos:3, vagas:4, area:172, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/GLYqp88w-jN4TfPsp_EBDf0x7wV9iTO0wPjADwm5BvexiOfy2J_bjKh2OzFN4p51XV3Ap0LykVoFh_Ou806flZfTryxNwaS8an7D9L6TgztpKkyvCi2T8E4' },
+        { cod:8076, tipo:'Casa', bairro:'Grand Ville', preco:950000, quartos:3, vagas:2, area:211, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/_xkS9lZnH6-3F210GVHv4riZpmOLBD6voMRllGpxWZrv9SvBt8Wt7RRHoGtwwWKi3dkn54GCcsTG2iay3SSrZS3jAgOo709se3osz7UR2asuRHF-mEB-wrXD' },
+        { cod:8299, tipo:'Casa', bairro:'Santa Maria', preco:950000, quartos:3, vagas:3, area:185, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/ufJ_gymnsMjTY_U5HqXo-UFXA45HqBr3NSXAUkHxOT_3HSqvJRhNolSXNpFOQCgncVLiqEzAZltyHdAp1Q35Xrnzq-kvprXEbq2R5NhXs4w2W4I2fkHMDAI' },
+        { cod:8312, tipo:'Casa', bairro:'Cidade Jardim', preco:950000, quartos:3, vagas:2, area:270, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/mDDTzwg5HS3Q0371PldF962cSynbIBpzEvYikBmUOL9pgiXHyGctf7Oc1R5RDtd0QaStvjCxvxhdAd0w8qre4pxTrqEvag3ndNvIC-CnTSU74i2B5xZ5_HE' },
+        { cod:8313, tipo:'Casa', bairro:'Custódio Pereira', preco:950000, quartos:3, vagas:2, area:200, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/gxIV-AozdCyKvGFBgiZT7JetL_usAMILqw1Fn9AxfBTGnuR9CJfG422WoghbmglGIUFWug2tackvmOTZLMIklSsIKmuT7vV9FbryYfs4g3hnZUciBjjXf1E' },
+        { cod:8343, tipo:'Casa', bairro:'Umuarama', preco:950000, quartos:3, vagas:2, area:230, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/Krqm7oA9zRaLOTzC48YpoadEwxDvemG2kC4I6sOYY5qvIF21yv2r5wlwVLR931eDRF9O3agdYO8Ej9TbNrs9-KO4Q8DKJNBkygiTnpiypc9KXWtxtIonJFc' },
+        { cod:3998, tipo:'Casa', bairro:'Pampulha', preco:972000, quartos:3, vagas:4, area:163, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/GCKwDbpOfPJrZ4fVhYTwTGLv4MWTfv6Jd1r5HsDZT5t1xBVKt5V6yIsR0nDHGRzHpbqA_vkt5lcWYnglUgOvBuBybsRHRbQSwBUrox_HeDb_TBlxV1a0qg' },
+        { cod:7564, tipo:'Apartamento', bairro:'Patrimônio', preco:975000, quartos:3, vagas:2, area:118.71, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/EXFLJuSCerFEjzbA3Fb-8XVAplG1ZmULiVfOMU9nxrwpqCNVbIqYc2C57iNt0bTVYbKTdBwNT7NuR9mTzu4Xh34y6Hi3LtzhvmpntU9Yolz5NsWN2FUXAQ' },
+        { cod:48, tipo:'Casa', bairro:'Jardim Patricia', preco:980000, quartos:3, vagas:2, area:165.65, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/phUuOb-KChZ14hy_325D9Hen2l0oU_Eo7ikzbUeXn0Eyvp-HuAilar3OGpVUs3ckL4BsIZnL3MhqHyE2W4WamlV1KmmMuaPkvuMkQIeojD31bVtkSVvDLLU' },
+        { cod:3772, tipo:'Casa', bairro:'Quinta Alto Umuarama', preco:980000, quartos:2, vagas:2, area:128, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/NDUOTUkXvM50kshKbQRefY9aFzq-uS2ramiUjFjr1CgIFWywzRcaaNV0alGuYQr8Gq22eKPglzs63-_liQ8ktisI16wt3pcsQ9yLzsUkeee48nIBzofIWdSo' },
+        { cod:4587, tipo:'Casa', bairro:'Cidade Jardim', preco:980000, quartos:3, vagas:4, area:176, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/7Sr7IXddqohg9Q2OeyGwAWY_13hjm8gvj3LH8V7J4ZAh9fT07K3RFQQjTHllmzJTcxQFQAA6ziW4xbOLg-keurPs0_9jC94_aqBLVu023Sftqnja62YCMQ' },
+        { cod:5195, tipo:'Apartamento', bairro:'Santa Mônica', preco:980000, quartos:2, vagas:2, area:90, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/TL0Wp5AjMaE_NjXy9zLV549Kd5JIrqEgCrMCHoUkRXCeFhthUhlhzrM3Fx8HD1Nvr3Wdn1qzVKTE1msOGW6xwoKtk_dYW42Ia2ux3J4DuzVCvd-YKn_hD46S' },
+        { cod:7264, tipo:'Casa', bairro:'Cidade Jardim', preco:980000, quartos:3, vagas:4, area:278, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/EoH4MkYssGL-nQ6H5rQYF4XAbKUNXdlJJsV7IePcWCN8xndpICviDRUFvYxZyOj5cpUr3t9fM7IPdrsMdFsK-OgbDHsp6gOnjWYO8Bf7HkbeuprP0t8QN5Q8' },
+        { cod:7457, tipo:'Casa', bairro:'Cidade Jardim', preco:980000, quartos:4, vagas:2, area:139, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/fT5KgZGgFiRcui5euNuH06aECEEGIVGqQnjseLJJCwMiRTQTtbIxdk2Akq2JjlXW9E_WK1wHXB7vk0AddIczTUdX8Zaw-54A317XOIZlHRHmvH7iVSQR4NI' },
+        { cod:7895, tipo:'Apartamento', bairro:'Santa Mônica', preco:980000, quartos:3, vagas:2, area:101, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/ZyW1QrymCm1axfbzeHw0D5xXP9tK17K0iPYaJrnDuA-2FlzYtvGPf2Aqyc3L-hSG56c-2c7sxCoZ-1LlGvAvGgeyAV5DGXG-zCEDx8KADXw5CSaZhW8SnA' },
+        { cod:8085, tipo:'Casa', bairro:'Luizote de Freitas', preco:980000, quartos:3, vagas:3, area:300, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/Yd_En32Ic5FNWd2XvvITh_8uAwt7OGv-hPYi0ahYs43iuQq1CS6tbE5hKH2ZNX9bIhVxEXGSBceJAkxuqcw2_vtnsKwwW981HjferskkLTQkqvKDIu3G1w' },
+        { cod:8491, tipo:'Casa', bairro:'Novo Mundo', preco:980000, vagas:4, area:180, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/0c550c5e-26c5-4dc9-bbfa-124d014d0337/59f4d570-baab-4f13-b067-8d054e9f0660.jpeg' },
+        { cod:2288, tipo:'Apartamento', bairro:'Brasil', preco:990000, quartos:4, vagas:1, area:198, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/GCuYSpMxYMUO6qbDrtU9LUxpyQHkACe7EUmBGoAu1-2vtmc06MGSJ2XZ_JinbqmbHMDfbVdGADXnEg3qqD1C7ZWTSR8TvLz9ryFvOVJSwrHHT1wOGJVzy0wX' },
+        { cod:7620, tipo:'Casa', bairro:'Cidade Jardim', preco:990000, quartos:4, vagas:4, area:212, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/1Hcvtlb486nupEAlfGPo27c1xtaXOj1nXSWHcxPAsAvOffoCgzYL8kPMSvMZesFmRA5fzA-LnP5mxpj2T3hkCwpDjQ-siV7DtZM-HaXap0QxH6bZy_keMIs' },
+        { cod:1422, tipo:'Casa', bairro:'Jardim Patricia', preco:998000, quartos:3, vagas:2, area:150, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/YEiFF2_u7piBe0TlEUU07Y6PKQX2hmn2lVg-RwhDWmY0A85GyfnVFlTQSAoaLnd4ZiIozw6NLgAGm1QBzHsF0LEMzSqEE_qecZO2jq1GVfVtnuHVACKyWOYB' },
+        { cod:49, tipo:'Casa', bairro:'Tibery', preco:1000000, quartos:3, vagas:4, area:270, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/uOHXyrV8gGFHHvfNz-ZxJ40GFDMF7Imb7tXf6xLLRiY-Qmv3amfh2ahZIgTwXSvjnVY8Iat-7U9qquVd3z1g-lILrGCQqIL2vtPnVGBE0c9-Aew4VU67eHI' },
+        { cod:277, tipo:'Apartamento', bairro:'Osvaldo Rezende', preco:1000000, quartos:3, vagas:3, area:170, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/WRqs9PgPTIKiFjbQw4XxjWbq-KubESGcYSsCLyJF7duKWqU-dDnv_LETzqV7iglNLFxjnPEyABg9HAN4UuyqyJdcii7nyrP8HNeNYvioAmXlYJDOnpa-Vw' },
+        { cod:317, tipo:'Casa', bairro:'Saraiva', preco:1000000, quartos:4, vagas:4, area:300, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/J-PJm3jzneDu9icgU4U8R9c8ooAvMtcE11tuvc9tMzi_ZQNOFzeW9YrEzU0ckcoxVOv80O1i21mEnETl3TaU0udtUsh271ucj801t0aMdIzhyeuHfnaLIA' },
+        { cod:3683, tipo:'Casa', bairro:'Aclimação', preco:1000000, quartos:3, vagas:2, area:142.62, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/WK4nyQ7PxeGvaX3-se8g6PuOyf7RwOIMMrHoPlO0jE7k6FZgNsm8q4I3DgXFZwhqSAjs1BY6WQMo7mGMgEtNo4XwViaf4wZxHZwSPYmhMpV8g3n5qAdfXwMT' },
+        { cod:4612, tipo:'Casa', bairro:'Jardim Botânico', preco:1000000, quartos:3, vagas:4, area:150, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/Hsfue1emr6bMDAjnMxyFj77uzwNLB1cIjZMHZsNuJbSQ58lgpWy89dPfIEkNXuTRxy8PNRqazdmHweH4UOuaxXRXqtHW7dMvti-Ky2VRa-6zsSY7E6sXwHA' },
+        { cod:4727, tipo:'Casa', bairro:'Brasil', preco:1000000, quartos:3, area:100, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/7Uz4q5PrsXeAXBFXNfOc3N3v_kYZ9MNn-RpHwEJWgxpjXuPEHqJYl8-kMTBArQgZhMkFrYucjKbZYsrnmHY9-1M_AmLajLvzjJEmRUbR1LitNd-AwAv_NQ' },
+        { cod:4890, tipo:'Casa', bairro:'Umuarama', preco:1000000, quartos:3, vagas:3, area:266, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/9ibkOlF4RgemnxZe9mLtWib0I9nn3MYEsT3hmKM2FEoVvcABKTVUIry9gsS4yxvj0Rz2Harv-Ofpe_4N5X1CU6Q18vv6uF1RhGRAgFiGSAFAwfGDy65q4h0' },
+        { cod:5422, tipo:'Terreno', bairro:'Cidade Jardim', preco:1000000, area:1000, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/9hiTzqX3HyrEEEMLW8tbuT3D6wTwnRiD-9ucWCRcT-WFoWI9MnrUNL43PbuW3CGUO-f5FdW-8_YiZ6OOh9VsL2L60GP9kcRpFi5zZrp_J1RtWR6Z61GZrw' },
+        { cod:5738, tipo:'Casa', bairro:'Cidade Jardim', preco:1000000, quartos:3, vagas:4, area:222, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/53GmXA13PoqjseGlfxONwAOFA9hrr1nQft6ljwDixzr50JIuk3fEx4ctUTEAGifn3Y6iLUJNT2UXQWlFuf1bBGT_esdxJlpWLLOSu_VuGjoPedw5iWUFoY8' },
+        { cod:6602, tipo:'Casa', bairro:'Quinta Alto Umuarama', preco:1000000, quartos:3, vagas:3, area:175, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/bxUwAMta-mVYaMEy_M5LiCgnusElWyH7JzxN9Nw0VgQtL2UO6z7XtZEnG1Bo_d49G6AHSm_IK-1eRT0y5WANHdjktQFUWc2YP7SM3EzDgI7qCpOA1MWGIATl' },
+        { cod:7253, tipo:'Casa', bairro:'Cidade Jardim', preco:1000000, quartos:4, vagas:2, area:220, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/rWMUhlZBYlm-zJ729BgTAqKXPiEhZBijBlX_izs6_JScW7YcNO273dYz8zvxckbgna4PN1IeebwT5rXRZWJnDzHkhES20f1EbhEra_61f7UJVulvRUrU0TPl' },
+        { cod:7552, tipo:'Terreno', bairro:'Santa Mônica', preco:1000000, area:720, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/LA7zrcIGhHJZocklzalxPpmp4cHEulWB9QKFRAHu1wS2QttwN7m_upvnWN5UxD--apsx1X5wTUDtd6IsZzs5KtiPhiFfvZOBNvvlR-157sdv7_p3Bx-e6v0' },
+        { cod:7584, tipo:'Casa', bairro:'Patrimônio', preco:1000000, quartos:2, vagas:2, area:145, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/XydDmrqIKGiMTlfBKJre1_XInQuNvBN81LjmokdbAoqliANA-WQBnybwjYncjmutpV2Mf46Lea3NIMGeJTXS9EfRb1VV2CTqu69gHerbLYivXLtadNNK0_g' },
+        { cod:7678, tipo:'Apartamento', bairro:'Jardim Karaíba', preco:1000000, quartos:2, vagas:2, area:102, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/arYlOqUlBWRvrbJJD34FUqRnrjhRO4J5ISVWSyTtotDa6_WRTfSLj3Fs00N7dyKw8s58-REXquXWBL1-2VqvdeS3Julnr4PWobTy-NyHu3SkE1wZgt9kHRU' },
+        { cod:7877, tipo:'Casa', bairro:'Cidade Jardim', preco:1000000, quartos:3, vagas:3, area:215, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/-RSMAHjndW4EJksYtXIEdWfpK63d6LCY9TGbkECF6IWmESBmT2MBCYNpQgdeptkNDjdYTcQYsbgj1oUh_tRNwD9v47eiUJmjDKrKUJpx-jLNaKuzvcOjhV0' },
+        { cod:8161, tipo:'Terreno', bairro:'Nossa Senhora Aparecida', preco:1000000, area:632, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/1-eKlg4pl_wji40Ou67mm3cRXjEiVMKyUV5IyqzXocExmQXOVxMzwSpvTH3fXfHkLYjxGP5-up596lzYMIFIXmfHvcGZy_2Kd_quvUDZKzNhxCT79u_ymw' },
+        { cod:8197, tipo:'Casa', bairro:'Laranjeiras', preco:1900000, quartos:3, vagas:4, area:185, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/Wa3yFwKC_E_fsa3b4cGoi-ahmi2BQq6JV5JjSj5A1WqfwWhOYL2nNgw6f40pByoqp9EHjZJ0LN7jXcQInCZzM5igdRS7QmRiBgnS0uunrN7TXtK1bC9KUl0' },
+        { cod:8564, tipo:'Casa', bairro:'Laranjeiras', preco:2100000, vagas:3, area:214, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/d3504156-6cfc-4ee4-8d95-1987faef2b6c/7b4fd4d1-e385-4b1a-9572-1345f7d7a26f.jpeg' },
+        { cod:8572, tipo:'Casa', bairro:'Nova Uberlândia', preco:2500000, quartos:3, vagas:2, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/d3a47f75-1409-4356-84cc-0de7ccda42ff/b1eb955e-76ca-4c5c-99ed-245c5259438a.jpeg' },
+        { cod:5520, tipo:'Casa', bairro:'Saraiva', preco:2712000, quartos:4, area:368, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/opnFdx8LGCjcup7YJmB0kiAo0h-F5xVl0buL9fmwVQ23wq4gqg7POIsEeTV8RZiCqRWE7fEWxI0F7rw09WE4Uj5l_aV_jJZwUiH5q89rT-mQ_cJtA7k4CsSg' },
+        { cod:6728, tipo:'Casa', bairro:'Gávea', preco:2790000, quartos:3, vagas:6, area:270, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/m3FvV5mZNxJv_bcgFOaAJtqg-lSre1BdV4Qv7RS7OyzydO9Ea3zdq_ebEpEWESj9CXDUIezTcA2eJpaDOGz3evmV8fga1fW0-nIHngFWmbD5HooIzcqVh8w' },
+        { cod:7940, tipo:'Terreno', bairro:'Saraiva', preco:2807000, area:1871, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/-DlGqX6gsjC8dKzGGNuBDueBBYF6YRvMQ2j2CIIZpFTVN8H1ed_egujk-CzVydPhKnt-n9h7QrxcrsWt2LqduXCQ85oAs12_UrelplegLwxzSNzyOEMUQQ' },
+        { cod:7368, tipo:'Casa', bairro:'Granja Marileusa', preco:2850000, quartos:4, vagas:3, area:218, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/TMB2gFOJ1-q_c7fnflqxRG6grre9SW7KiFFBTX3joX1Ddca5JwYXPXN2KEhD6i3Ci1dlswLEhAcO5kjRQmvHfJFMh5VTfDwi5nJ6WrWSsJH-EVE8dhRhRc7t' },
+        { cod:5883, tipo:'Apartamento', bairro:'Copacabana', preco:2865000, quartos:4, vagas:3, area:236, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/Q8RAMLBByyKtLdV4avHp--lFkyCfH0s00MzqHFPT8TRUhlWz2Bd0eUEWXllrr7eZ9y73rL23ltU102KTg_27ZCWM_yXRQXKDtD83ousqBj2dT7nxIfiTn4tz' },
+        { cod:4784, tipo:'Casa', bairro:'Cidade Jardim', preco:2950000, quartos:5, vagas:6, area:840, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/lCe5OuttS1Rj4GvpjDS2QrBXZM7NDWGd0vPsl3otbgPLB7_1PbGjrOcmfHArHsTUuOrEA_O7chCQ2ow4_qFPfgjWb11IxqdKtHZaCzkDxzR4rvHui9R7yzqJ' },
+        { cod:1856, tipo:'Casa', bairro:'Jardim Karaíba', preco:3000000, quartos:4, vagas:3, area:360, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/XuTaPug3iKfRKKcRPV58B3f3XoWLltf7AETldYCLk0tU7K4y_eTp3dcJx8r3MDV85TLKE6MP8JWYcELkDN3M2VLX8AiIjElrc9e2tQ23wAzQ5wff6JR9dg' },
+        { cod:6420, tipo:'Casa', bairro:'Granja Marileusa', preco:3000000, quartos:4, vagas:3, area:280, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/smZpVVBpwA_tEiSdzNAmF9A60wDXoU8dh781DPM-em5pSPxWv-sDqvd8uPRzaGWMtOpsMsQXBzP9Ou_62QPvVK2ChDaA-JnsrVl3ZFG2VKOSVZY0PjpzLDPU' },
+        { cod:8175, tipo:'Casa', bairro:'Jardim Karaíba', preco:3000000, quartos:4, vagas:5, area:340, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/WIFHgs-hTKVmSuf18Kqp4WMjqTgUMxiar_xmLRqnh972Byfv2T7iU1_YI8KS7MVXV5Q13HAZlfcdweNe7KCVXMiL3hokGEauA03k0B-cWWmGRqf_8jR4BQ' },
+        { cod:4822, tipo:'Casa', bairro:'Gávea', preco:3200000, quartos:3, vagas:6, area:306, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/AGWRs-q-rjUMVfthCZ8tgsiwAZ3Gwjh_xM3TqQBxsb1pfEJ-zUgNgu72kki6YmFx9NB_-yB6rcCYn2OCsm2ffTgKNZ6HEbhYCPIwWd3ZQG_XDZBdHemliprD' },
+        { cod:7839, tipo:'Casa', bairro:'Granja Marileusa', preco:3200000, quartos:4, vagas:4, area:302, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/lfgf0xm014OTqu3pNHUEmenH_CM47nqznRTFXbw2i-Z3pphrhKb2OYuv1ak15fiT49L9Jgz3ShePzc0WnQiLkdBAqz72YvpOBtYX9hAqaQLqHXrEtdjCtw' },
+        { cod:8300, tipo:'Casa', bairro:'Morada da Colina', preco:3290000, quartos:4, vagas:3, area:375, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/_Pitxd5pEWgn8FFQqA38Vi0bUmbmEji_VFlP6buEpOL0S06dTQ_kKv6rKw_SrbJj1grN796ZG7QdS5pvfPW6Q-Wup0NGcqAkizOce64mh6hVUEbCb5c9Iw' },
+        { cod:2576, tipo:'Casa', bairro:'Gávea', preco:3390000, quartos:4, vagas:2, area:285, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/C3VJzHY-opLV6Sm3r_XfKr8Q1N0QCQRnDK60BLfmowmr7x_6Dk-m4TYkfncl7yqWWPFy-Q_yIpfAoc_bro7uaWURsNt3fPCeTpmW_avEsU6i0Zym-1pQNg' },
+        { cod:7683, tipo:'Casa', bairro:'Granja Marileusa', preco:3400000, quartos:3, vagas:4, area:308, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/O7G-kmoPthytSnS2zbOGidd7lwkirqXKCXflIYjKlH4jG0EcSJFKqub_kxMjRIbYim5FS0RiUHIqnp49Ir49Zsr6RNbMMmIBc-KF7yuVyaoclJp8ewjPx0RJ' },
+        { cod:1103, tipo:'Casa', bairro:'Nova Uberlândia', preco:3500000, quartos:4, vagas:3, area:275, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/v51kY1GneU_7bw5l73_P4sNERsSDoxALkzq-iqK0yAqkiSHkt7SsJF0GwAetwRiIg2YRxa4L90KsIJCYYWSFV4HOkP5SGaZUbdzjquyy9_dd7Irs3I72nvPA' },
+        { cod:8490, tipo:'Casa', bairro:'Granja Marileusa', preco:3500000, vagas:4, area:256, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/b5b3a00b-30f3-4b6b-8a7d-2a3a048e16b4/b07e36a4-0ab9-4a70-aba9-932df54e77d5.jpeg' },
+        { cod:4106, tipo:'Terreno', bairro:'Osvaldo Rezende', preco:3600000, area:1480, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/QezRVNY8L2JQLpk0R6XvQsJcv13tu2SER_6Qth_RCv6k8sXhSCbDdg0Rt4P6qQuaJOzDlZFLmngbNDx72C_AH5dK6SnqmLFMo7bIfGw2bT4c3hIpcZbj5w' },
+        { cod:6337, tipo:'Terreno', bairro:'Mansour', preco:3650000, area:9070, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/h8BBWxm-FTuaReo8LQ6uDKMcwJydZkbe8GSmCLK2Uf74XcK9cXcW25Z30PtZMlyOuaAL4tPZ1r2CEFC41OFZ9WRikA5Vqq9Hz-rZAdCTvRb6-dBWXulPYoA' },
+        { cod:1336, tipo:'Casa', bairro:'Cond. Paradiso Ecológico', preco:3690000, quartos:4, vagas:4, area:340, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/TYCa5YG39WcCrV7OSQVy3toCsKboztuKR85enRiFlUvUjTRjwuThVLGtSvW3DZ-XMJfi7uFlYhdxMRpovjDBlukQNtFIQ5IrxCbYNqfRG3vt36q6J6CNY0M' },
+        { cod:5831, tipo:'Casa', bairro:'Morada da Colina', preco:3700000, quartos:4, vagas:3, area:375, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/6dbcwri4xVkb5qPAgXIsrWxgb8uIkzNmRohflw9jNErXHCSek3igTKo7cTKduSKAcKP515emMIFr9LR85oiHpOj2qtO227JYgnSGUQUzlW44bgr5WhXcqJo' },
+        { cod:8122, tipo:'Casa', bairro:'Jardim Inconfidencia', preco:3800000, quartos:4, vagas:3, area:292.83, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/5XdJ2FJfjPjztNSPjJvTQ3e-dhMfml1PVofE2SCcgEakTgyBMKdlL8XMdWCIe2WNZggg0Qj4-D-hEsjyvRL2icF0j8RS6SEEaTmL_Y_0t-6JXEsKy9DXx_om' },
+        { cod:8581, tipo:'Casa', bairro:'Jardim Inconfidência', preco:3800000, area:315, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/aa766ddc-e153-4a89-86b4-e383e18a0983/62e735c1-8588-4c3f-a05f-3b7a80567e87.jpeg' },
+        { cod:6930, tipo:'Casa', bairro:'Granja Marileusa', preco:3890000, quartos:4, area:379, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/SNUlJey1bXedCaOLxC4SqGwkUjigfJouX6D0ueE0uPQk81jX1gxMtvWzyJowGUITwNnkZ4D0ovSo08EJ20erVCTt4_91oGR_63kuUpwLJkn5Ker8v-fn3g' },
+        { cod:6465, tipo:'Casa', bairro:'Nova Uberlândia', preco:3900000, quartos:4, vagas:4, area:334, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/OS5KPmYFrLWJkSXCZchmcoiQKU3e9U-ebDbTSLAr-qxaR1V5hpAmmgJ6-aZn_prPiBsfEIRrexz7SAZJvU_ai2E76OgLPjn_FIR-0AUaCuvft2KaGn9Tx5Wy' },
+        { cod:5855, tipo:'Apartamento', bairro:'Morada da Colina', preco:4052528, quartos:3, vagas:4, area:299, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/WXPy5TpqT3xpRJM2V3i4Ua9nKfsAqNhtnjVVUfnafWDWbOuRWtWYEgL3aEuz5zsoUMdefJaWmVsFHRzC24I4qJcvtc1OtZbEgw7Pb6rwFxOpNskKDshGng' },
+        { cod:6306, tipo:'Terreno', bairro:'Jaraguá', preco:4211000, area:3926, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/v4DwqkiH2a928y2t_M5wMkAgJgYmyOnj51d4_a3mN4agAC762OnC55dehVMK32pKfmn1AzZa6aMRwEhKT0vmXvTSXEwQC5Gyu87idH7nmdQXxWIUTacAHNE' },
+        { cod:8576, tipo:'Casa', bairro:'Gávea', preco:4211000, vagas:3, area:257, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/property-create-v1/23e41052-d30b-403e-b14d-8f8ec428f962/c3c4d5f8-7ee4-4d68-97f0-535f54941996.webp' },
+        { cod:1676, tipo:'Terreno', bairro:'Martins', preco:4415000, area:1751, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/ra1aRDrfPeuzS_c9aZFE2Ap8DHTbSopGTbnIXyHKtf--MaKbvwkxuHAfxAPH4b27ge_SAKOHKkzkRD4pu3o2jjivStkK7T_OJTBiWm4DWcVbXc6oS69Aeus' },
+        { cod:6115, tipo:'Terreno', bairro:'Martins', preco:4422000, area:1800, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/sSHy21aPprJkeJ1DxyV0a0BJ94eMg11-IXIUTe9cE0HoC6fOu-Cw21fzARizuzdz9EDalP0WsC7B9QuwB97ookaqejNSt2JFPUGvFoFFNgNWtnP_QBB69pee' },
+        { cod:6305, tipo:'Terreno', bairro:'Cidade Jardim', preco:4422000, area:2175, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/rFZ02_5YNkRw-pBUI3QlQboeE0pf68-r8Tz3bjcMK1ydj_2adDh6zE1L1-UAxlVHXsBDMO3mtpEKx4Zy_rQnPJDOZPJxggAJcMlpphofNy3Vv3E7KZZBKg' }
+      ];
+
       var MEUS_IMOVEIS = [];
       var LANCAMENTOS = [
         /* TEASER: pré-lançamento. Sem preço de propósito — plantas, metragens
@@ -2079,6 +2265,27 @@
           desc:'15 torres com lazer completo, cerca de 85% vendido.' }
       ];
 
+
+      /* Formato compacto -> formato do card. Sem título próprio no portal,
+         então ele é montado a partir do tipo e dos quartos. */
+      function doPortal(r) {
+        var tipo = r.tipo || 'Imóvel';
+        var titulo = tipo + (r.quartos ? ' com ' + r.quartos + (r.quartos > 1 ? ' quartos' : ' quarto') : '');
+        return {
+          selo: 'Cód. ' + r.cod,
+          tipo: r.tipo,
+          titulo: titulo,
+          local: r.bairro + ', Uberlândia',
+          preco: r.preco,
+          quartos: r.quartos,
+          vagas: r.vagas,
+          area: r.area,
+          img: r.img,
+          zapCtx: 'Vi o imóvel cód. ' + r.cod + ': ' + titulo + ', no ' + r.bairro + '. Ainda está disponível?'
+        };
+      }
+      var PORTAL = CHAVE7.map(doPortal);
+
       var BRL = function (v) {
         try {
           return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
@@ -2090,7 +2297,7 @@
         a.className = 'imovel' + (classe ? ' ' + classe : '') + (p.teaser ? ' teaser' : '');
         /* Com 'link' o card leva ao guia completo (no marcotulio.pro);
            sem 'link', vai direto para o WhatsApp. */
-        a.href = p.link || zapUrl('Quero saber mais sobre: ' + p.titulo + ' — ' + p.local + '.');
+        a.href = p.link || zapUrl(p.zapCtx || ('Quero saber mais sobre: ' + p.titulo + ' — ' + p.local + '.'));
         a.target = '_blank';
         a.rel = 'noopener';
 
@@ -2158,6 +2365,23 @@
         pintar(gridId, lista, classe);
       }
 
+      /* O grid do portal tem o card do parceiro fixo no topo, então ele é
+         repintado à parte para não ser apagado pelo filtro. */
+      function pintarPortal(lista) {
+        var g = document.getElementById('gridPortal');
+        if (!g) { return; }
+        Array.prototype.slice.call(g.querySelectorAll('.imovel, .sem-resultado'))
+          .forEach(function (el) { el.remove(); });
+        if (!lista.length) {
+          var aviso = document.createElement('p');
+          aviso.className = 'sem-resultado';
+          aviso.textContent = 'Nenhum imóvel do catálogo parceiro casa com o filtro.';
+          g.appendChild(aviso);
+          return;
+        }
+        lista.forEach(function (pp) { g.appendChild(cardImovel(pp, 'portal')); });
+      }
+
       /* pintar: sempre repinta, inclusive para zero resultados (filtro). */
       function pintar(gridId, lista, classe) {
         var grid = document.getElementById(gridId);
@@ -2174,6 +2398,11 @@
       }
       render('gridMeus', MEUS_IMOVEIS, '');
       render('gridLancamentos', LANCAMENTOS, 'lancamento');
+      /* o card do parceiro fica no topo, os imóveis vêm depois */
+      PORTAL.forEach(function (pp) {
+        var g = document.getElementById('gridPortal');
+        if (g) { g.appendChild(cardImovel(pp, 'portal')); }
+      });
 
       /* ===== BUSCA DO HERO =====
          Filtra o catálogo publicado de verdade. Se nada casar (inclusive com
@@ -2243,14 +2472,16 @@
           var c = criterios();
           var meus = filtrar(MEUS_IMOVEIS, c);
           var lanc = filtrar(LANCAMENTOS, c);
-          var total = meus.length + lanc.length;
-          var temCatalogo = MEUS_IMOVEIS.length + LANCAMENTOS.length > 0;
+          var port = filtrar(PORTAL, c);
+          var total = meus.length + lanc.length + port.length;
+          var temCatalogo = MEUS_IMOVEIS.length + LANCAMENTOS.length + PORTAL.length > 0;
 
           if (temCatalogo) {
             /* pintar (e não render) porque render ignora lista vazia — ao
                filtrar até zero os cards antigos ficariam na tela. */
             pintar('gridMeus', meus, '');
             pintar('gridLancamentos', lanc, 'lancamento');
+            pintarPortal(port);
           }
 
           if (!temCatalogo) {
