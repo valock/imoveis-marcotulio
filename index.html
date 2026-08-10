@@ -1298,6 +1298,117 @@
       font-weight: 600;
     }
 
+
+    /* ========== GALERIA DO IMÓVEL ========== */
+    #galeria {
+      border: none;
+      padding: 0;
+      margin: auto;              /* centraliza: sem isto o dialog cola à esquerda */
+      max-width: min(1040px, 94vw);
+      width: 100%;
+      max-height: 92vh;
+      border-radius: var(--r-lg);
+      background: var(--superficie);
+      color: var(--tinta);
+      overflow: hidden;
+    }
+    #galeria::backdrop { background: rgba(9,14,28,.78); backdrop-filter: blur(3px); }
+    .gal { position: relative; display: flex; flex-direction: column; max-height: 92vh; overflow-y: auto; }
+    .gal-fechar {
+      position: absolute; top: 10px; right: 10px; z-index: 3;
+      width: 44px; height: 44px;
+      border: none; border-radius: 50%;
+      background: rgba(15,27,45,.62); color: #fff;
+      font-size: 1.6rem; line-height: 1; cursor: pointer;
+    }
+    .gal-fechar:hover { background: rgba(15,27,45,.85); }
+    .gal-palco {
+      position: relative;
+      flex: none;                /* sem isto o palco encolhe e a foto invade a legenda */
+      background: #0F1B2D;
+      display: grid; place-items: center;
+      min-height: 260px;
+    }
+    .gal-palco img {
+      max-width: 100%;
+      max-height: min(50vh, 500px);
+      object-fit: contain;
+    }
+    .gal-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px;
+      border: none; border-radius: 50%;
+      background: rgba(255,255,255,.86); color: var(--tinta);
+      font-size: 1.9rem; line-height: 1; cursor: pointer;
+    }
+    .gal-nav:hover { background: #fff; }
+    .gal-ant { left: 12px; }
+    .gal-prox { right: 12px; }
+    .gal-contador {
+      position: absolute; right: 14px; bottom: 12px;
+      background: rgba(15,27,45,.66); color: #fff;
+      font-size: .82rem; font-weight: 600;
+      padding: 4px 12px; border-radius: var(--r-pill);
+    }
+    .gal-legenda {
+      padding: 12px 20px 0;
+      font-size: .95rem;
+      color: var(--tinta-suave);
+    }
+    .gal-tiras {
+      display: flex; gap: 8px;
+      overflow-x: auto;
+      padding: 12px 20px;
+      scrollbar-width: thin;
+    }
+    .gal-tiras button {
+      flex: none;
+      width: 92px; height: 66px;
+      border: 2px solid transparent;
+      border-radius: var(--r-sm);
+      padding: 0; overflow: hidden; cursor: pointer;
+      background: var(--nevoa);
+    }
+    .gal-tiras button[aria-current="true"] { border-color: var(--azul); }
+    .gal-tiras img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gal-info {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      justify-content: space-between; align-items: flex-end;
+      padding: 4px 20px 20px;
+      border-top: 1px solid var(--nevoa);
+      margin-top: 4px; padding-top: 18px;
+    }
+    .gal-info h3 { font-size: 1.25rem; margin-bottom: 4px; }
+    .gal-local { font-size: .95rem; color: var(--tinta-suave); }
+    .gal-preco {
+      font-family: var(--fdisp); font-weight: 800;
+      font-size: 1.6rem; color: var(--azul);
+      letter-spacing: -.02em; margin: 8px 0 10px;
+    }
+    .gal-itens { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 20px; }
+    .gal-itens li {
+      position: relative; padding-left: 20px;
+      font-size: .93rem; color: var(--tinta-suave);
+    }
+    .gal-itens li::before {
+      content: '✓'; position: absolute; left: 0;
+      color: var(--coral-profundo); font-weight: 700; font-size: .82rem;
+    }
+    /* chamada de fotos no card */
+    .imovel .ver-fotos {
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid var(--nevoa);
+      font-size: .9rem; font-weight: 700; color: var(--azul);
+    }
+    @media (max-width: 700px) {
+      #galeria { max-width: 100vw; max-height: 100vh; border-radius: 0; }
+      .gal { max-height: 100vh; }
+      .gal-palco img { max-height: 40vh; }
+      .gal-itens { grid-template-columns: 1fr; }
+      .gal-info .btn { width: 100%; }
+      .gal-nav { width: 44px; height: 44px; }
+    }
+
     /* ========== AÇÃO FIXA ========== */
     .zap-float {
       position: fixed;
@@ -1919,6 +2030,34 @@
     <a class="btn btn-linha" href="tel:+5534996778075">Ligar agora</a>
   </div>
 
+
+  <!-- GALERIA — abre no clique do card que tem fotos.
+       <dialog> nativo: ESC fecha e o foco fica preso dentro, de graça. -->
+  <dialog id="galeria" aria-label="Fotos do imóvel">
+    <div class="gal">
+      <button class="gal-fechar" id="galFechar" aria-label="Fechar galeria">&times;</button>
+
+      <div class="gal-palco">
+        <button class="gal-nav gal-ant" id="galAnt" aria-label="Foto anterior">&#8249;</button>
+        <img id="galFoto" alt="">
+        <button class="gal-nav gal-prox" id="galProx" aria-label="Próxima foto">&#8250;</button>
+        <p class="gal-contador"><span id="galPos">1</span> / <span id="galTotal">1</span></p>
+      </div>
+      <p class="gal-legenda" id="galLegenda" aria-live="polite"></p>
+      <div class="gal-tiras" id="galTiras"></div>
+
+      <div class="gal-info">
+        <div>
+          <h3 id="galTitulo"></h3>
+          <p class="gal-local" id="galLocal"></p>
+          <p class="gal-preco" id="galPreco"></p>
+          <ul class="gal-itens" id="galItens"></ul>
+        </div>
+        <a class="btn btn-zap" id="galZap" target="_blank" rel="noopener">Falar sobre este imóvel</a>
+      </div>
+    </div>
+  </dialog>
+
   <script>
     (function () {
       'use strict';
@@ -2161,7 +2300,41 @@
         { cod:6305, tipo:'Terreno', bairro:'Cidade Jardim', preco:4422000, area:2175, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/rFZ02_5YNkRw-pBUI3QlQboeE0pf68-r8Tz3bjcMK1ydj_2adDh6zE1L1-UAxlVHXsBDMO3mtpEKx4Zy_rQnPJDOZPJxggAJcMlpphofNy3Vv3E7KZZBKg' }
       ];
 
-      var MEUS_IMOVEIS = [];
+      var MEUS_IMOVEIS = [
+        {
+          selo: 'Captação exclusiva',
+          tipo: 'Apartamento',
+          titulo: 'Apartamento 70 m² com 2 quartos',
+          local: 'Jardim Holanda, Uberlândia',
+          preco: 300000,
+          quartos: 2, vagas: 2, area: 70,
+          img: 'img/imoveis/jardim-holanda-70m/capa.jpg',
+          desc: 'Pronto para morar, com armários planejados em todos os ambientes, suíte e duas vagas de garagem.',
+          itens: [
+            'Sala de TV',
+            'Sala de jantar',
+            'Cozinha com armário',
+            'Lavanderia com armário',
+            '2 quartos (sendo 1 suíte) com armários',
+            'Banheiros com armário',
+            '2 vagas de garagem'
+          ],
+          fotos: [
+            ['img/imoveis/jardim-holanda-70m/01.jpg', 'Sala de estar e sala de jantar integradas'],
+            ['img/imoveis/jardim-holanda-70m/02.jpg', 'Sala de TV com sofá'],
+            ['img/imoveis/jardim-holanda-70m/03.jpg', 'Sala ampla com vista para a sala de jantar'],
+            ['img/imoveis/jardim-holanda-70m/04.jpg', 'Sala de jantar'],
+            ['img/imoveis/jardim-holanda-70m/05.jpg', 'Cozinha com armários planejados'],
+            ['img/imoveis/jardim-holanda-70m/06.jpg', 'Cozinha com coifa e cooktop'],
+            ['img/imoveis/jardim-holanda-70m/07.jpg', 'Suíte do casal'],
+            ['img/imoveis/jardim-holanda-70m/08.jpg', 'Segundo quarto com espaço de home office'],
+            ['img/imoveis/jardim-holanda-70m/09.jpg', 'Quarto com armário embutido'],
+            ['img/imoveis/jardim-holanda-70m/10.jpg', 'Banheiro social com box'],
+            ['img/imoveis/jardim-holanda-70m/11.jpg', 'Banheiro da suíte com armário'],
+            ['img/imoveis/jardim-holanda-70m/12.jpg', 'Lavanderia com armário']
+          ]
+        }
+      ];
       var LANCAMENTOS = [
         /* TEASER: pré-lançamento. Sem preço de propósito — plantas, metragens
            e valores ainda não são públicos. 'teaser:true' muda o visual e o CTA. */
@@ -2351,10 +2524,13 @@
           });
           body.appendChild(f);
         }
-        if (p.link) {
+        if (p.fotos && p.fotos.length) {
+          add('div', 'ver-fotos', 'Ver ' + p.fotos.length + ' fotos →');
+        } else if (p.link) {
           add('div', 'ver-guia', p.teaser ? 'Entrar na lista de prioridade →' : 'Ver o guia completo →');
         }
         a.appendChild(body);
+        if (p.fotos && p.fotos.length) { a._imovel = p; a.classList.add('tem-galeria'); }
         return a;
       }
 
@@ -2569,6 +2745,86 @@
           'itemListElement': itens
         });
         document.head.appendChild(s);
+      })();
+
+
+      /* ===== GALERIA =====
+         O card continua sendo um <a> para o WhatsApp: se o JS falhar, o
+         contato ainda funciona. Com JS, o clique abre as fotos. */
+      (function galeria() {
+        var dlg = document.getElementById('galeria');
+        if (!dlg || !dlg.showModal) { return; }
+        var elFoto = document.getElementById('galFoto');
+        var elLeg = document.getElementById('galLegenda');
+        var elPos = document.getElementById('galPos');
+        var elTotal = document.getElementById('galTotal');
+        var elTiras = document.getElementById('galTiras');
+        var atual = null, i = 0;
+
+        function mostra(n) {
+          if (!atual) { return; }
+          i = (n + atual.fotos.length) % atual.fotos.length;
+          elFoto.src = atual.fotos[i][0];
+          elFoto.alt = atual.fotos[i][1] + ' — ' + atual.titulo;
+          elLeg.textContent = atual.fotos[i][1];
+          elPos.textContent = i + 1;
+          Array.prototype.forEach.call(elTiras.children, function (b, k) {
+            b.setAttribute('aria-current', k === i ? 'true' : 'false');
+          });
+          var ativo = elTiras.children[i];
+          if (ativo && ativo.scrollIntoView) {
+            ativo.scrollIntoView({ block: 'nearest', inline: 'center' });
+          }
+        }
+
+        function abre(p) {
+          atual = p;
+          elTotal.textContent = p.fotos.length;
+          elTiras.innerHTML = '';
+          p.fotos.forEach(function (f, k) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.setAttribute('aria-label', 'Foto ' + (k + 1) + ': ' + f[1]);
+            var im = document.createElement('img');
+            im.src = f[0]; im.alt = ''; im.loading = 'lazy';
+            b.appendChild(im);
+            b.addEventListener('click', function () { mostra(k); });
+            elTiras.appendChild(b);
+          });
+          document.getElementById('galTitulo').textContent = p.titulo;
+          document.getElementById('galLocal').textContent = '📍 ' + p.local;
+          document.getElementById('galPreco').textContent = p.preco ? BRL(p.preco) : '';
+          var ul = document.getElementById('galItens');
+          ul.innerHTML = '';
+          (p.itens || []).forEach(function (t) {
+            var li = document.createElement('li');
+            li.textContent = t;
+            ul.appendChild(li);
+          });
+          document.getElementById('galZap').href =
+            zapUrl('Tenho interesse no ' + p.titulo + ', no ' + p.local + '. Podemos conversar?');
+          mostra(0);
+          dlg.showModal();
+        }
+
+        /* delegação: pega o clique de qualquer card com galeria, inclusive
+           os que forem renderizados depois pelo filtro */
+        document.addEventListener('click', function (e) {
+          var card = e.target.closest ? e.target.closest('.imovel.tem-galeria') : null;
+          if (!card || !card._imovel) { return; }
+          e.preventDefault();
+          abre(card._imovel);
+        });
+
+        document.getElementById('galFechar').addEventListener('click', function () { dlg.close(); });
+        document.getElementById('galAnt').addEventListener('click', function () { mostra(i - 1); });
+        document.getElementById('galProx').addEventListener('click', function () { mostra(i + 1); });
+        dlg.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') { e.preventDefault(); mostra(i + 1); }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); mostra(i - 1); }
+        });
+        /* clique no fundo fecha */
+        dlg.addEventListener('click', function (e) { if (e.target === dlg) { dlg.close(); } });
       })();
 
       /* Marca no nav a seção em que o visitante está */
