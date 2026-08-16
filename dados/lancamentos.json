@@ -1,29 +1,32 @@
 [
  {
-  "selo": "Em breve",
+  "selo": "RI emitido",
   "teaser": true,
+  "avisoTeaser": "Já pode ser comercializado",
   "tipo": "Apartamento",
   "construtora": "VIC Engenharia",
   "titulo": "Gran Vic",
   "local": "EcoPark (Zona Sul) — Rua Fauna",
+  "bairro": "EcoPark",
   "quartos": 2,
   "img": "https://marcotulio.pro/blog/images/gran-vic-uberlandia-capa.webp",
   "link": "https://marcotulio.pro/blog/gran-vic-uberlandia.html",
-  "desc": "Primeiro lançamento da VIC em Uberlândia: 3 torres, 352 apartamentos de 2 quartos com sacada. Valores e plantas saem em breve."
+  "desc": "Primeiro lançamento da VIC em Uberlândia: 3 torres, 352 apartamentos de 2 quartos com sacada. Com o Registro de Incorporação emitido, as unidades já podem ser vendidas. Valores e plantas saem primeiro para quem está cadastrado."
  },
  {
-  "selo": "Lançamento",
+  "selo": "Margem de negociação",
   "tipo": "Apartamento",
   "construtora": "Vitta",
   "titulo": "Matíz Residence",
   "local": "Zona Norte — Rua Ruth Rocha, 43",
+  "bairro": "Flamboyant",
   "preco": 235000,
   "precoDe": true,
   "quartos": 2,
-  "area": 78,
+  "areaTexto": "42 a 78 m²",
   "img": "https://marcotulio.pro/blog/images/matiz-residence-uberlandia-hero.webp",
   "link": "https://marcotulio.pro/blog/matiz-residence-uberlandia.html",
-  "desc": "1 e 2 dormitórios de 42 a 78 m², com garden e mais de 13 áreas de lazer."
+  "desc": "1 e 2 dormitórios de 42 a 78 m², com garden e mais de 13 áreas de lazer. Entrada em até 72x, saldo pós-chaves de no máximo R$ 35 mil e documentação grátis. A Vitta trocou de gestão e priorizou girar estoque — é a melhor margem de negociação que o produto já teve."
  },
  {
   "selo": "MCMV",
