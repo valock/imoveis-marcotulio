@@ -16,6 +16,7 @@ essencial e faz a ponte para lá. Este domínio é a vertente de **catálogo + S
 dados/imoveis.json       fonte única dos imóveis de captação própria
 dados/lancamentos.json   fonte única dos lançamentos de construtora
 tools/gerar.py           gera o site a partir dos dois arquivos acima
+tools/conferir.py        compara os lançamentos com as páginas do marcotulio.pro
 index.html               a capa (HTML/CSS/JS em arquivo único)
 imovel/<slug>/           uma página por imóvel — GERADAS, não edite à mão
 img/imoveis/<pasta>/     fotos de cada imóvel
@@ -84,6 +85,35 @@ Ele reescreve, de uma vez e sem sair de sincronia:
 4. o **`sitemap.xml`**.
 
 Nunca edite esses quatro à mão — a próxima execução sobrescreve.
+
+## Como atualizar um lançamento
+
+**A página do empreendimento no marcotulio.pro é a fonte.** Quando ela e a
+tabela de um guia de região discordam, vale a página — é ela que está sendo
+mantida. Em 16/08/2026 o guia da zona norte dizia *"a partir de R$ 252 mil"*
+para o Matíz enquanto a página dele dizia *"a partir de R$ 235 mil"*.
+
+Para descobrir o que saiu de sincronia:
+
+```
+python3 tools/conferir.py
+```
+
+Ele baixa o `link` de cada lançamento, lê o preço no `<title>` e na meta
+description, compara com o `preco` do card e mostra a data de atualização
+declarada em cada página. Sai com código 1 se achar divergência.
+
+O script **não escreve nada**. Depois de conferir, ajuste
+`dados/lancamentos.json` à mão e rode `python3 tools/gerar.py`.
+
+Dois campos existem porque lançamento é diferente de imóvel pronto:
+
+- `areaTexto` — faixa de metragem (`"42 a 78 m²"`). Lançamento raramente tem
+  uma metragem só, e escrever o teto como se fosse a unidade não é arredondar:
+  é dizer outra coisa, e quem chega esperando o teto se frustra na visita.
+- `avisoTeaser` — substitui *"Valores e plantas em breve"* quando o motivo de
+  não ter preço muda. O Gran Vic usa `"Já pode ser comercializado"` desde que
+  o Registro de Incorporação saiu.
 
 ## Por que o gerador existe
 
