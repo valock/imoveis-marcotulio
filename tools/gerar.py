@@ -144,13 +144,20 @@ def cortar(t, n):
 
 
 def caracteristicas(p):
-    """Quartos / vagas / área, só o que estiver preenchido."""
+    """Quartos / vagas / área, só o que estiver preenchido.
+
+    'areaTexto' existe para lançamento, que raramente tem uma metragem só.
+    Escrever 78 m² quando a planta vai de 42 a 78 não é arredondar: é dizer
+    outra coisa, e quem chega esperando 78 se frustra na primeira conversa.
+    """
     f = []
     if p.get('quartos'):
         f.append(plural(p['quartos'], 'quarto', 'quartos'))
     if p.get('vagas'):
         f.append(plural(p['vagas'], 'vaga', 'vagas'))
-    if p.get('area'):
+    if p.get('areaTexto'):
+        f.append(p['areaTexto'])
+    elif p.get('area'):
         f.append('%g m²' % p['area'])
     return f
 
@@ -201,7 +208,8 @@ def card_html(p, classe):
         l.append('<div class="construtora">%s</div>' % esc(p['construtora']))
     l.append('<div class="local">📍 %s</div>' % esc(p['local']))
     if p.get('teaser') and not p.get('preco'):
-        l.append('<div class="em-breve">Valores e plantas em breve</div>')
+        l.append('<div class="em-breve">%s</div>'
+                 % esc(p.get('avisoTeaser') or 'Valores e plantas em breve'))
     if p.get('preco'):
         de = '<small> a partir de</small>' if p.get('precoDe') else ''
         l.append('<div class="preco">%s%s</div>' % (de, brl(p['preco'])))
