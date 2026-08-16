@@ -176,6 +176,531 @@
   }
   </script>
 
+  <!-- Structured Data - ItemList dos imóveis.
+       Gerado por tools/gerar.py a partir de dados/imoveis.json. Antes ele era
+       montado por JavaScript e injetado no <head> em tempo de execução, o que
+       depende do rastreador executar o script. Agora sai pronto no HTML. -->
+  <!-- @gerado:schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Imóveis à venda em Uberlândia",
+    "numberOfItems": 16,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Apartamento 2 quartos com planejados",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Chácaras Tubalina, Uberlândia"
+          },
+          "url": "https://imoveis.marcotulio.pro/imovel/apartamento-2-quartos-chacaras-tubalina-uberlandia/",
+          "description": "Apartamento de 2 quartos com os móveis planejados já instalados, cooktop, bancada de mármore na cozinha e vaga coberta. Condomínio com piscina, playground e quadra.",
+          "image": "https://imoveis.marcotulio.pro/img/imoveis/chacaras-tubalina-uniplazza/capa.jpg",
+          "numberOfRooms": 2,
+          "offers": {
+            "@type": "Offer",
+            "price": 185000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Apartamento 70 m² com 2 quartos",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Jardim Holanda, Uberlândia"
+          },
+          "url": "https://imoveis.marcotulio.pro/imovel/apartamento-70m2-jardim-holanda-uberlandia/",
+          "description": "Pronto para morar, com armários planejados em todos os ambientes, suíte e duas vagas de garagem.",
+          "image": "https://imoveis.marcotulio.pro/img/imoveis/jardim-holanda-70m/capa.jpg",
+          "numberOfRooms": 2,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 70,
+            "unitCode": "MTK"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": 300000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Gran Vic",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "EcoPark (Zona Sul) — Rua Fauna"
+          },
+          "url": "https://marcotulio.pro/blog/gran-vic-uberlandia.html",
+          "description": "Primeiro lançamento da VIC em Uberlândia: 3 torres, 352 apartamentos de 2 quartos com sacada. Valores e plantas saem em breve.",
+          "image": "https://marcotulio.pro/blog/images/gran-vic-uberlandia-capa.webp",
+          "numberOfRooms": 2
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Matíz Residence",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Zona Norte — Rua Ruth Rocha, 43"
+          },
+          "url": "https://marcotulio.pro/blog/matiz-residence-uberlandia.html",
+          "description": "1 e 2 dormitórios de 42 a 78 m², com garden e mais de 13 áreas de lazer.",
+          "image": "https://marcotulio.pro/blog/images/matiz-residence-uberlandia-hero.webp",
+          "numberOfRooms": 2,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 78,
+            "unitCode": "MTK"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": 235000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Loft Pequis",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Zona Oeste — Rua da Guaracava, 450"
+          },
+          "url": "https://marcotulio.pro/blog/loft-pequis-uberlandia.html",
+          "description": "1 quarto com elevador, entrada em até 36x e documentação grátis.",
+          "image": "https://marcotulio.pro/blog/images/loft-pequis-uberlandia-capa.webp",
+          "numberOfRooms": 1,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 36,
+            "unitCode": "MTK"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": 165000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Jardim Mansour",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Mansour — Rua Celso Eugênio da Silva"
+          },
+          "url": "https://marcotulio.pro/blog/mor-jardim-mansour-uberlandia.html",
+          "description": "2 quartos com suíte, sacada e vaga, pelo Minha Casa Minha Vida.",
+          "image": "https://marcotulio.pro/blog/images/mor-jardim-mansour-hero.webp",
+          "numberOfRooms": 2,
+          "offers": {
+            "@type": "Offer",
+            "price": 238000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Park Jardim do Sol",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Novo Mundo, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/park-jardim-do-sol-novo-mundo-uberlandia.html",
+          "description": "Torre de 26 pavimentos com lazer completo, financiável pelo MCMV.",
+          "image": "https://marcotulio.pro/blog/images/park-jardim-do-sol-capa.webp",
+          "numberOfRooms": 2,
+          "offers": {
+            "@type": "Offer",
+            "price": 234500,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Horizon Residencial",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Fruta do Conde, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/horizon-residencial-fruta-do-conde.html",
+          "description": "2 quartos com varanda gourmet, sinal de R$ 2.000 e entrada em 72x.",
+          "image": "https://marcotulio.pro/blog/images/horizon-fruta-do-conde-capa.webp",
+          "numberOfRooms": 2,
+          "offers": {
+            "@type": "Offer",
+            "price": 220420,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Renault Zurique",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Presidente Roosevelt, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/renault-zurique-uberlandia.html",
+          "description": "2 quartos de 45 e 52 m² com elevador, entrada parcelada em até 100x.",
+          "image": "https://marcotulio.pro/blog/images/renault-zurique-uberlandia-capa.webp",
+          "numberOfRooms": 2,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 52,
+            "unitCode": "MTK"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Union Vista",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Grand Ville, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/union-vista-grand-ville-uberlandia.html",
+          "description": "2 quartos com suíte e sacada, condomínio clube. Entrega prevista 2027.",
+          "image": "https://marcotulio.pro/blog/images/union-vista-uberlandia-hero.webp",
+          "numberOfRooms": 2,
+          "offers": {
+            "@type": "Offer",
+            "price": 275000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Union Landscape",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Shopping Park, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/union-landscape-shopping-park-uberlandia.html",
+          "description": "2 quartos com suíte, pronto para morar e vendido abaixo da avaliação da Caixa.",
+          "image": "https://marcotulio.pro/blog/images/union-landscape-uberlandia-hero.webp",
+          "numberOfRooms": 2
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Union Vereda",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Chácaras Tubalina, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/union-vereda-tubalina-uberlandia.html",
+          "description": "2 quartos com suíte e sacada, condomínio clube, entrada em até 60x.",
+          "image": "https://marcotulio.pro/blog/images/union-vereda-uberlandia-hero.webp",
+          "numberOfRooms": 2,
+          "offers": {
+            "@type": "Offer",
+            "price": 286000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 13,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Moradas do Horizonte — Sabará",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Região do EcoPark, Zona Sul"
+          },
+          "url": "https://marcotulio.pro/blog/moradas-do-horizonte-sabara-uberlandia.html",
+          "description": "Casas de 2 quartos não geminadas em lote de 126 m², com piscina e lazer.",
+          "image": "https://marcotulio.pro/blog/images/sabara-pacaembu-capa.webp",
+          "numberOfRooms": 2,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 45,
+            "unitCode": "MTK"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Solis Residence",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Morumbi, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/solis-residence-morumbi-uberlandia.html",
+          "description": "60,92 m² e térreos garden de 93 a 103 m². Entrega jan/2029.",
+          "image": "https://marcotulio.pro/blog/img/solis-residence-morumbi.jpg",
+          "numberOfRooms": 2,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 60,
+            "unitCode": "MTK"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": 260000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Bris Residence",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Morumbi, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/bris-residence-morumbi-uberlandia.html",
+          "description": "Últimos térreos garden de 93 a 103 m² com quintal privativo. Entrega nov/2027.",
+          "image": "https://marcotulio.pro/blog/img/bris-residence-morumbi-uberlandia.jpg",
+          "numberOfRooms": 2,
+          "floorSize": {
+            "@type": "QuantitativeValue",
+            "value": 93,
+            "unitCode": "MTK"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": 295000,
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "RealEstateAgent",
+              "name": "Marco Túlio Andrade — Corretor de Imóveis",
+              "url": "https://imoveis.marcotulio.pro/"
+            }
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 16,
+        "item": {
+          "@type": [
+            "RealEstateListing",
+            "Accommodation"
+          ],
+          "name": "Prime Clube",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR",
+            "streetAddress": "Granja Marileusa, Uberlândia"
+          },
+          "url": "https://marcotulio.pro/blog/prime-clube-marileusa-uberlandia.html",
+          "description": "15 torres com lazer completo, cerca de 85% vendido.",
+          "image": "https://marcotulio.pro/blog/images/prime-clube-marileusa-uberlandia-hero.webp",
+          "numberOfRooms": 2
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- @/gerado -->
+
   <!-- Google Analytics 4 — mesma propriedade do marcotulio.pro (G-HHXMC3T24V),
        para o tráfego dos dois sites aparecer junto. Para remover, apague
        este bloco inteiro. -->
@@ -766,6 +1291,76 @@
     .checklist .btn { width: 100%; }
 
     /* ========== IMÓVEIS (abas, cards e estados vazios) ========== */
+    /* ===== AS QUATRO REGIÕES =====
+       Quatro portas de entrada para o catálogo. Cada card é um bloco de
+       texto real (nome da zona + bairros), então serve ao leitor e ao
+       buscador pelo mesmo motivo: é conteúdo, não enfeite. */
+    .regioes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin: 0 0 34px;
+    }
+    .regiao {
+      display: flex;
+      flex-direction: column;
+      background: var(--superficie);
+      border: 1px solid var(--nevoa);
+      border-radius: 18px;
+      padding: 22px 22px 18px;
+      transition: border-color .18s, box-shadow .18s;
+    }
+    .regiao:hover { border-color: var(--azul); }
+    .regiao.is-on {
+      border-color: var(--azul);
+      box-shadow: 0 0 0 2px var(--azul-claro);
+    }
+    .regiao h3 {
+      font-family: var(--fdisp);
+      font-weight: 800;
+      font-size: 1.28rem;
+      letter-spacing: -.02em;
+      margin: 0 0 6px;
+    }
+    .regiao-resumo {
+      margin: 0 0 10px;
+      font-size: .97rem;
+      color: var(--tinta-suave);
+      line-height: 1.5;
+    }
+    .regiao-bairros {
+      margin: 0 0 16px;
+      font-size: .86rem;
+      color: var(--tinta-suave);
+      line-height: 1.55;
+      opacity: .82;
+    }
+    .regiao-btn {
+      margin-top: auto;
+      background: var(--azul-claro);
+      color: var(--azul-profundo);
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--fbody);
+      font-size: .95rem;
+      font-weight: 700;
+      padding: 12px 18px;
+      min-height: 46px;
+      transition: background .18s, color .18s;
+    }
+    .regiao-btn:hover { background: var(--azul); color: #fff; }
+    .regiao.is-on .regiao-btn { background: var(--azul); color: #fff; }
+    .regiao-guia {
+      margin-top: 10px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--tinta-suave);
+      text-decoration: none;
+      text-align: center;
+    }
+    .regiao-guia:hover { color: var(--azul); text-decoration: underline; }
+
     .abas {
       display: flex;
       gap: 6px;
@@ -1308,116 +1903,6 @@
     }
 
 
-    /* ========== GALERIA DO IMÓVEL ========== */
-    #galeria {
-      border: none;
-      padding: 0;
-      margin: auto;              /* centraliza: sem isto o dialog cola à esquerda */
-      max-width: min(1040px, 94vw);
-      width: 100%;
-      max-height: 92vh;
-      border-radius: var(--r-lg);
-      background: var(--superficie);
-      color: var(--tinta);
-      overflow: hidden;
-    }
-    #galeria::backdrop { background: rgba(9,14,28,.78); backdrop-filter: blur(3px); }
-    .gal { position: relative; display: flex; flex-direction: column; max-height: 92vh; overflow-y: auto; }
-    .gal-fechar {
-      position: absolute; top: 10px; right: 10px; z-index: 3;
-      width: 44px; height: 44px;
-      border: none; border-radius: 50%;
-      background: rgba(15,27,45,.62); color: #fff;
-      font-size: 1.6rem; line-height: 1; cursor: pointer;
-    }
-    .gal-fechar:hover { background: rgba(15,27,45,.85); }
-    .gal-palco {
-      position: relative;
-      flex: none;                /* sem isto o palco encolhe e a foto invade a legenda */
-      background: #0F1B2D;
-      display: grid; place-items: center;
-      min-height: 260px;
-    }
-    .gal-palco img {
-      max-width: 100%;
-      max-height: min(50vh, 500px);
-      object-fit: contain;
-    }
-    .gal-nav {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      width: 48px; height: 48px;
-      border: none; border-radius: 50%;
-      background: rgba(255,255,255,.86); color: var(--tinta);
-      font-size: 1.9rem; line-height: 1; cursor: pointer;
-    }
-    .gal-nav:hover { background: #fff; }
-    .gal-ant { left: 12px; }
-    .gal-prox { right: 12px; }
-    .gal-contador {
-      position: absolute; right: 14px; bottom: 12px;
-      background: rgba(15,27,45,.66); color: #fff;
-      font-size: .82rem; font-weight: 600;
-      padding: 4px 12px; border-radius: var(--r-pill);
-    }
-    .gal-legenda {
-      padding: 12px 20px 0;
-      font-size: .95rem;
-      color: var(--tinta-suave);
-    }
-    .gal-tiras {
-      display: flex; gap: 8px;
-      overflow-x: auto;
-      padding: 12px 20px;
-      scrollbar-width: thin;
-    }
-    .gal-tiras button {
-      flex: none;
-      width: 92px; height: 66px;
-      border: 2px solid transparent;
-      border-radius: var(--r-sm);
-      padding: 0; overflow: hidden; cursor: pointer;
-      background: var(--nevoa);
-    }
-    .gal-tiras button[aria-current="true"] { border-color: var(--azul); }
-    .gal-tiras img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .gal-info {
-      display: flex; flex-wrap: wrap; gap: 20px;
-      justify-content: space-between; align-items: flex-end;
-      padding: 4px 20px 20px;
-      border-top: 1px solid var(--nevoa);
-      margin-top: 4px; padding-top: 18px;
-    }
-    .gal-info h3 { font-size: 1.25rem; margin-bottom: 4px; }
-    .gal-local { font-size: .95rem; color: var(--tinta-suave); }
-    .gal-preco {
-      font-family: var(--fdisp); font-weight: 800;
-      font-size: 1.6rem; color: var(--azul);
-      letter-spacing: -.02em; margin: 8px 0 10px;
-    }
-    .gal-itens { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 20px; }
-    .gal-itens li {
-      position: relative; padding-left: 20px;
-      font-size: .93rem; color: var(--tinta-suave);
-    }
-    .gal-itens li::before {
-      content: '✓'; position: absolute; left: 0;
-      color: var(--coral-profundo); font-weight: 700; font-size: .82rem;
-    }
-    /* chamada de fotos no card */
-    .imovel .ver-fotos {
-      margin-top: 12px; padding-top: 12px;
-      border-top: 1px solid var(--nevoa);
-      font-size: .9rem; font-weight: 700; color: var(--azul);
-    }
-    @media (max-width: 700px) {
-      #galeria { max-width: 100vw; max-height: 100vh; border-radius: 0; }
-      .gal { max-height: 100vh; }
-      .gal-palco img { max-height: 40vh; }
-      .gal-itens { grid-template-columns: 1fr; }
-      .gal-info .btn { width: 100%; }
-      .gal-nav { width: 44px; height: 44px; }
-    }
-
     /* ========== AÇÃO FIXA ========== */
     /* Pílula de captação: canto oposto ao WhatsApp, entra ao rolar */
     .anunciar-float {
@@ -1685,14 +2170,53 @@
   </div>
 
   <!-- CAPÍTULO 01 — IMÓVEIS: o centro de gravidade do site.
-       Os cards são gerados a partir do array IMOVEIS no script do fim da
-       página. Cada card sai com microdados schema.org para SEO. -->
+       Os cards abaixo são ESCRITOS NO HTML por tools/gerar.py — não montados
+       pelo navegador. É o que permite indexar o anúncio sem depender de o
+       rastreador executar JavaScript. O JS da página cuida da busca e do
+       filtro por região em cima desse HTML que já veio pronto. -->
   <section class="chapter secao-tom" id="imoveis">
     <div class="container">
       <div class="head">
         <div class="eyebrow"><span class="num">01</span><span class="tag">Imóveis à venda</span></div>
         <h2>Imóveis prontos para morar em Uberlândia</h2>
         <p>Imóveis de captação própria, negociados direto comigo, e o catálogo completo do portal parceiro Chave7.</p>
+      </div>
+
+      <!-- AS QUATRO REGIÕES — cada card filtra o catálogo pelos bairros da
+           zona e leva ao guia completo da região no marcotulio.pro. O texto
+           dos guias fica lá de propósito: repetir aqui faria as duas páginas
+           competirem entre si na busca. -->
+      <div class="regioes" id="regioes">
+        <!-- @gerado:regioes -->
+        <div class="regiao" data-zona="oeste">
+          <h3>Zona Oeste</h3>
+          <p class="regiao-resumo">Onde estão os preços mais baixos da cidade e o maior volume de lançamento.</p>
+          <p class="regiao-bairros">Chácaras Tubalina e Quartel · Tubalina · Jardim Holanda · Mansour · Luizote de Freitas</p>
+          <button type="button" class="regiao-btn" data-zona="oeste">Ver 19 imóveis no catálogo</button>
+          <a class="regiao-guia" href="https://marcotulio.pro/blog/apartamentos-zona-oeste-uberlandia" target="_blank" rel="noopener">Guia completo da zona oeste ↗</a>
+        </div>
+        <div class="regiao" data-zona="sul">
+          <h3>Zona Sul</h3>
+          <p class="regiao-resumo">A região mais desejada da cidade, agora ligada pelo Anel Viário Sul.</p>
+          <p class="regiao-bairros">Gávea · Gávea Sul · Jardim Karaíba · Morada da Colina · Cidade Jardim</p>
+          <button type="button" class="regiao-btn" data-zona="sul">Ver 55 imóveis no catálogo</button>
+          <a class="regiao-guia" href="https://marcotulio.pro/blog/apartamentos-zona-sul-uberlandia" target="_blank" rel="noopener">Guia completo da zona sul ↗</a>
+        </div>
+        <div class="regiao" data-zona="leste">
+          <h3>Zona Leste</h3>
+          <p class="regiao-resumo">Morumbi, Novo Mundo e Granja Marileusa — o maior número de lançamentos mapeados.</p>
+          <p class="regiao-bairros">Novo Mundo · Granja Marileusa · Tibery · Grand Ville · Santa Mônica</p>
+          <button type="button" class="regiao-btn" data-zona="leste">Ver 49 imóveis no catálogo</button>
+          <a class="regiao-guia" href="https://marcotulio.pro/blog/apartamentos-zona-leste-uberlandia" target="_blank" rel="noopener">Guia completo da zona leste ↗</a>
+        </div>
+        <div class="regiao" data-zona="norte">
+          <h3>Zona Norte</h3>
+          <p class="regiao-resumo">A região com menos lançamento da cidade — e metragem maior pelo mesmo dinheiro.</p>
+          <p class="regiao-bairros">Presidente Roosevelt · Martins · Marta Helena · Santa Rosa · Jardim Brasília</p>
+          <button type="button" class="regiao-btn" data-zona="norte">Ver 9 imóveis no catálogo</button>
+          <a class="regiao-guia" href="https://marcotulio.pro/blog/apartamentos-zona-norte-uberlandia" target="_blank" rel="noopener">Guia completo da zona norte ↗</a>
+        </div>
+      <!-- @/gerado -->
       </div>
 
       <div class="abas" role="tablist" aria-label="Frentes de imóveis">
@@ -1702,11 +2226,28 @@
 
       <div class="painel" id="painel-meus" role="tabpanel" aria-labelledby="aba-meus" tabindex="0">
         <div class="grid-imoveis" id="gridMeus">
-          <div class="vazio">
-            <h3>Nenhum imóvel publicado ainda</h3>
-            <p>Aqui entram os imóveis que eu capto direto com o proprietário. Prefiro deixar o espaço vazio a preencher com foto de banco de imagens.</p>
-            <a class="btn btn-azul" data-zap="Tenho um imóvel para vender e quero saber sobre a captação." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Quero anunciar meu imóvel</a>
-          </div>
+          <!-- @gerado:cards-meus -->
+        <a class="imovel" href="imovel/apartamento-2-quartos-chacaras-tubalina-uberlandia/">
+        <img src="img/imoveis/chacaras-tubalina-uniplazza/capa.jpg" alt="Apartamento 2 quartos com planejados — Chácaras Tubalina, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Captação exclusiva</span>
+        <h3>Apartamento 2 quartos com planejados</h3>
+        <div class="local">📍 Chácaras Tubalina, Uberlândia</div>
+        <div class="preco">R$ 185.000</div>
+        <div class="feats"><span>2 quartos</span><span>1 vaga</span></div>
+        <div class="ver-fotos">Ver o imóvel e as 19 fotos →</div>
+        </div></a>
+        <a class="imovel" href="imovel/apartamento-70m2-jardim-holanda-uberlandia/">
+        <img src="img/imoveis/jardim-holanda-70m/capa.jpg" alt="Apartamento 70 m² com 2 quartos — Jardim Holanda, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Captação exclusiva</span>
+        <h3>Apartamento 70 m² com 2 quartos</h3>
+        <div class="local">📍 Jardim Holanda, Uberlândia</div>
+        <div class="preco">R$ 300.000</div>
+        <div class="feats"><span>2 quartos</span><span>2 vagas</span><span>70 m²</span></div>
+        <div class="ver-fotos">Ver o imóvel e as 12 fotos →</div>
+        </div></a>
+      <!-- @/gerado -->
         </div>
       </div>
 
@@ -1740,11 +2281,155 @@
         <p>Empreendimentos na planta, com tabela de lançamento e condição de quem chega primeiro.</p>
       </div>
       <div class="grid-imoveis" id="gridLancamentos">
-        <div class="vazio">
-          <h3>Lançamentos em negociação</h3>
-          <p>Estou fechando parcerias com construtoras para trazer empreendimentos na planta. Quer ser avisado em primeira mão quando abrir?</p>
-          <a class="btn btn-zap" data-zap="Quero entrar na lista de avisos dos próximos lançamentos em Uberlândia." href="https://wa.me/5534996778075" target="_blank" rel="noopener">Entrar na lista de avisos</a>
-        </div>
+        <!-- @gerado:cards-lancamentos -->
+        <a class="imovel lancamento teaser" href="https://marcotulio.pro/blog/gran-vic-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/gran-vic-uberlandia-capa.webp" alt="Gran Vic — EcoPark (Zona Sul) — Rua Fauna" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Em breve</span>
+        <h3>Gran Vic</h3>
+        <div class="construtora">VIC Engenharia</div>
+        <div class="local">📍 EcoPark (Zona Sul) — Rua Fauna</div>
+        <div class="em-breve">Valores e plantas em breve</div>
+        <div class="feats"><span>2 quartos</span></div>
+        <div class="ver-guia">Entrar na lista de prioridade →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/matiz-residence-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/matiz-residence-uberlandia-hero.webp" alt="Matíz Residence — Zona Norte — Rua Ruth Rocha, 43" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Lançamento</span>
+        <h3>Matíz Residence</h3>
+        <div class="construtora">Vitta</div>
+        <div class="local">📍 Zona Norte — Rua Ruth Rocha, 43</div>
+        <div class="preco"><small> a partir de</small>R$ 235.000</div>
+        <div class="feats"><span>2 quartos</span><span>78 m²</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/loft-pequis-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/loft-pequis-uberlandia-capa.webp" alt="Loft Pequis — Zona Oeste — Rua da Guaracava, 450" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">MCMV</span>
+        <h3>Loft Pequis</h3>
+        <div class="construtora">Barbosa Amorim</div>
+        <div class="local">📍 Zona Oeste — Rua da Guaracava, 450</div>
+        <div class="preco"><small> a partir de</small>R$ 165.000</div>
+        <div class="feats"><span>1 quarto</span><span>36 m²</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/mor-jardim-mansour-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/mor-jardim-mansour-hero.webp" alt="Jardim Mansour — Mansour — Rua Celso Eugênio da Silva" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">MCMV</span>
+        <h3>Jardim Mansour</h3>
+        <div class="construtora">MOR Construtora</div>
+        <div class="local">📍 Mansour — Rua Celso Eugênio da Silva</div>
+        <div class="preco"><small> a partir de</small>R$ 238.000</div>
+        <div class="feats"><span>2 quartos</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/park-jardim-do-sol-novo-mundo-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/park-jardim-do-sol-capa.webp" alt="Park Jardim do Sol — Novo Mundo, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Lançamento</span>
+        <h3>Park Jardim do Sol</h3>
+        <div class="construtora">INC</div>
+        <div class="local">📍 Novo Mundo, Uberlândia</div>
+        <div class="preco"><small> a partir de</small>R$ 234.500</div>
+        <div class="feats"><span>2 quartos</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/horizon-residencial-fruta-do-conde.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/horizon-fruta-do-conde-capa.webp" alt="Horizon Residencial — Fruta do Conde, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">MCMV</span>
+        <h3>Horizon Residencial</h3>
+        <div class="local">📍 Fruta do Conde, Uberlândia</div>
+        <div class="preco"><small> a partir de</small>R$ 220.420</div>
+        <div class="feats"><span>2 quartos</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/renault-zurique-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/renault-zurique-uberlandia-capa.webp" alt="Renault Zurique — Presidente Roosevelt, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Entrada em 100x</span>
+        <h3>Renault Zurique</h3>
+        <div class="construtora">Renault Diniz</div>
+        <div class="local">📍 Presidente Roosevelt, Uberlândia</div>
+        <div class="feats"><span>2 quartos</span><span>52 m²</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/union-vista-grand-ville-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/union-vista-uberlandia-hero.webp" alt="Union Vista — Grand Ville, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Lançamento</span>
+        <h3>Union Vista</h3>
+        <div class="construtora">HLTS</div>
+        <div class="local">📍 Grand Ville, Uberlândia</div>
+        <div class="preco"><small> a partir de</small>R$ 275.000</div>
+        <div class="feats"><span>2 quartos</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/union-landscape-shopping-park-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/union-landscape-uberlandia-hero.webp" alt="Union Landscape — Shopping Park, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Pronto para morar</span>
+        <h3>Union Landscape</h3>
+        <div class="construtora">HLTS</div>
+        <div class="local">📍 Shopping Park, Uberlândia</div>
+        <div class="feats"><span>2 quartos</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/union-vereda-tubalina-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/union-vereda-uberlandia-hero.webp" alt="Union Vereda — Chácaras Tubalina, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Lançamento</span>
+        <h3>Union Vereda</h3>
+        <div class="construtora">HLTS</div>
+        <div class="local">📍 Chácaras Tubalina, Uberlândia</div>
+        <div class="preco"><small> a partir de</small>R$ 286.000</div>
+        <div class="feats"><span>2 quartos</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/moradas-do-horizonte-sabara-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/sabara-pacaembu-capa.webp" alt="Moradas do Horizonte — Sabará — Região do EcoPark, Zona Sul" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Casas</span>
+        <h3>Moradas do Horizonte — Sabará</h3>
+        <div class="construtora">Pacaembu</div>
+        <div class="local">📍 Região do EcoPark, Zona Sul</div>
+        <div class="feats"><span>2 quartos</span><span>45 m²</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/solis-residence-morumbi-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/img/solis-residence-morumbi.jpg" alt="Solis Residence — Morumbi, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Disponível</span>
+        <h3>Solis Residence</h3>
+        <div class="local">📍 Morumbi, Uberlândia</div>
+        <div class="preco"><small> a partir de</small>R$ 260.000</div>
+        <div class="feats"><span>2 quartos</span><span>60 m²</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/bris-residence-morumbi-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/img/bris-residence-morumbi-uberlandia.jpg" alt="Bris Residence — Morumbi, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Últimos garden</span>
+        <h3>Bris Residence</h3>
+        <div class="local">📍 Morumbi, Uberlândia</div>
+        <div class="preco"><small> a partir de</small>R$ 295.000</div>
+        <div class="feats"><span>2 quartos</span><span>93 m²</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+        <a class="imovel lancamento" href="https://marcotulio.pro/blog/prime-clube-marileusa-uberlandia.html" target="_blank" rel="noopener">
+        <img src="https://marcotulio.pro/blog/images/prime-clube-marileusa-uberlandia-hero.webp" alt="Prime Clube — Granja Marileusa, Uberlândia" loading="lazy" decoding="async" width="900" height="600">
+        <div class="imovel-body">
+        <span class="selo">Últimas unidades</span>
+        <h3>Prime Clube</h3>
+        <div class="construtora">Realiza</div>
+        <div class="local">📍 Granja Marileusa, Uberlândia</div>
+        <div class="feats"><span>2 quartos</span></div>
+        <div class="ver-guia">Ver o guia completo →</div>
+        </div></a>
+      <!-- @/gerado -->
       </div>
     </div>
   </section>
@@ -2094,33 +2779,6 @@
   </div>
 
 
-  <!-- GALERIA — abre no clique do card que tem fotos.
-       <dialog> nativo: ESC fecha e o foco fica preso dentro, de graça. -->
-  <dialog id="galeria" aria-label="Fotos do imóvel">
-    <div class="gal">
-      <button class="gal-fechar" id="galFechar" aria-label="Fechar galeria">&times;</button>
-
-      <div class="gal-palco">
-        <button class="gal-nav gal-ant" id="galAnt" aria-label="Foto anterior">&#8249;</button>
-        <img id="galFoto" alt="">
-        <button class="gal-nav gal-prox" id="galProx" aria-label="Próxima foto">&#8250;</button>
-        <p class="gal-contador"><span id="galPos">1</span> / <span id="galTotal">1</span></p>
-      </div>
-      <p class="gal-legenda" id="galLegenda" aria-live="polite"></p>
-      <div class="gal-tiras" id="galTiras"></div>
-
-      <div class="gal-info">
-        <div>
-          <h3 id="galTitulo"></h3>
-          <p class="gal-local" id="galLocal"></p>
-          <p class="gal-preco" id="galPreco"></p>
-          <ul class="gal-itens" id="galItens"></ul>
-        </div>
-        <a class="btn btn-zap" id="galZap" target="_blank" rel="noopener">Falar sobre este imóvel</a>
-      </div>
-    </div>
-  </dialog>
-
   <script>
     (function () {
       'use strict';
@@ -2176,27 +2834,21 @@
       });
 
       /* ================= PUBLICAR IMÓVEIS =================
-         ESTE É O ÚNICO LUGAR QUE VOCÊ PRECISA EDITAR PARA ANUNCIAR.
+         NÃO EDITE OS ARRAYS AQUI — eles são gerados.
 
-         Adicione objetos nos arrays abaixo. Os cards aparecem na página E o
-         schema.org de cada imóvel é gerado automaticamente (é isso que faz o
-         Google entender o anúncio e mostrar o imóvel na busca).
-         Enquanto os arrays estiverem vazios, o site mostra o aviso honesto.
+         A fonte única é dados/imoveis.json (captação própria) e
+         dados/lancamentos.json (construtoras). Depois de editar o JSON:
 
-         Campos: preco e img são opcionais; o resto vale preencher sempre.
-         'tipo' alimenta os chips da busca (Casa / Apartamento / Terreno / Comercial).
+             python3 tools/gerar.py
 
-         Exemplo:
-         {
-           selo:   'Captação exclusiva',
-           tipo:   'Casa',
-           titulo: 'Casa 3 quartos com quintal',
-           local:  'Santa Mônica, Uberlândia',
-           preco:  480000,
-           img:    'https://.../foto.jpg',
-           quartos: 3, vagas: 2, area: 180,
-           desc:   'Casa térrea reformada, a 5 minutos da UFU.'
-         }                                                                     */
+         e o script reescreve, de uma vez só e sem sair de sincronia:
+           · os cards em HTML dentro desta página (o que o Google lê sem JS)
+           · o schema.org do <head>
+           · a página individual de cada imóvel, em /imovel/<slug>/
+           · o sitemap.xml
+
+         Os dados aparecem aqui embaixo porque a busca e o filtro por região
+         precisam deles no navegador. */
       /* ===== RECORTE DO CATÁLOGO CHAVE7 (temporário) =====
          151 imóveis capturados das páginas de busca do portal parceiro em
          04/08/2026 (o robots.txt deles permite as páginas; a /api/ é
@@ -2363,143 +3015,454 @@
         { cod:6305, tipo:'Terreno', bairro:'Cidade Jardim', preco:4422000, area:2175, img:'https://chave7-photos-prod.s3.us-east-1.amazonaws.com/rFZ02_5YNkRw-pBUI3QlQboeE0pf68-r8Tz3bjcMK1ydj_2adDh6zE1L1-UAxlVHXsBDMO3mtpEKx4Zy_rQnPJDOZPJxggAJcMlpphofNy3Vv3E7KZZBKg' }
       ];
 
+      /* @gerado:dados */
       var MEUS_IMOVEIS = [
-        {
-          selo: 'Captação exclusiva',
-          tipo: 'Apartamento',
-          titulo: 'Apartamento 70 m² com 2 quartos',
-          local: 'Jardim Holanda, Uberlândia',
-          preco: 300000,
-          quartos: 2, vagas: 2, area: 70,
-          img: 'img/imoveis/jardim-holanda-70m/capa.jpg',
-          desc: 'Pronto para morar, com armários planejados em todos os ambientes, suíte e duas vagas de garagem.',
-          itens: [
-            'Sala de TV',
-            'Sala de jantar',
-            'Cozinha com armário',
-            'Lavanderia com armário',
-            '2 quartos (sendo 1 suíte) com armários',
-            'Banheiros com armário',
-            '2 vagas de garagem'
-          ],
-          fotos: [
-            ['img/imoveis/jardim-holanda-70m/01.jpg', 'Sala de estar e sala de jantar integradas'],
-            ['img/imoveis/jardim-holanda-70m/02.jpg', 'Sala de TV com sofá'],
-            ['img/imoveis/jardim-holanda-70m/03.jpg', 'Sala ampla com vista para a sala de jantar'],
-            ['img/imoveis/jardim-holanda-70m/04.jpg', 'Sala de jantar'],
-            ['img/imoveis/jardim-holanda-70m/05.jpg', 'Cozinha com armários planejados'],
-            ['img/imoveis/jardim-holanda-70m/06.jpg', 'Cozinha com coifa e cooktop'],
-            ['img/imoveis/jardim-holanda-70m/07.jpg', 'Suíte do casal'],
-            ['img/imoveis/jardim-holanda-70m/08.jpg', 'Segundo quarto com espaço de home office'],
-            ['img/imoveis/jardim-holanda-70m/09.jpg', 'Quarto com armário embutido'],
-            ['img/imoveis/jardim-holanda-70m/10.jpg', 'Banheiro social com box'],
-            ['img/imoveis/jardim-holanda-70m/11.jpg', 'Banheiro da suíte com armário'],
-            ['img/imoveis/jardim-holanda-70m/12.jpg', 'Lavanderia com armário']
-          ]
-        }
+              {
+                      "slug": "apartamento-2-quartos-chacaras-tubalina-uberlandia",
+                      "dir": "chacaras-tubalina-uniplazza",
+                      "selo": "Captação exclusiva",
+                      "tipo": "Apartamento",
+                      "titulo": "Apartamento 2 quartos com planejados",
+                      "h1": "Apartamento de 2 quartos com móveis planejados em Chácaras Tubalina",
+                      "local": "Chácaras Tubalina, Uberlândia",
+                      "bairro": "Chácaras Tubalina",
+                      "zona": "oeste",
+                      "condominio": "Uniplazza",
+                      "referencia": "entre a garagem da Sorriso e o Tem Tem",
+                      "preco": 185000,
+                      "avaliacaoCaixa": 178000,
+                      "quartos": 2,
+                      "vagas": 1,
+                      "desc": "Apartamento de 2 quartos com os móveis planejados já instalados, cooktop, bancada de mármore na cozinha e vaga coberta. Condomínio com piscina, playground e quadra.",
+                      "resumo": "É o apartamento de 2 quartos mais barato da minha carteira, e ele já vem mobiliado de planejados — armário nos quartos, cozinha inteira montada e bancada de mármore. Você entra com a mala e mora.",
+                      "itens": [
+                              "2 quartos com armário planejado",
+                              "Sala de estar integrada à cozinha americana",
+                              "Cozinha planejada com cooktop e coifa",
+                              "Bancada de mármore na cozinha",
+                              "Banheiro com box de vidro e armário",
+                              "1 vaga de garagem coberta"
+                      ],
+                      "lazer": [
+                              "Piscina",
+                              "Playground",
+                              "Quadra",
+                              "Área verde entre os blocos",
+                              "Garagem coberta"
+                      ],
+                      "fotos": [
+                              [
+                                      "01.jpg",
+                                      "Sala de estar com a cozinha americana integrada"
+                              ],
+                              [
+                                      "02.jpg",
+                                      "Sala em enfiada, do sofá até a cozinha"
+                              ],
+                              [
+                                      "03.jpg",
+                                      "Bancada de mármore separando a cozinha da sala"
+                              ],
+                              [
+                                      "04.jpg",
+                                      "Cozinha planejada com cooktop, coifa e bancada de mármore"
+                              ],
+                              [
+                                      "05.jpg",
+                                      "Corredor de acesso aos quartos e ao banheiro"
+                              ],
+                              [
+                                      "06.jpg",
+                                      "Quarto com janela ampla e persiana"
+                              ],
+                              [
+                                      "07.jpg",
+                                      "Quarto com armário planejado de porta de correr"
+                              ],
+                              [
+                                      "08.jpg",
+                                      "Armário planejado de parede a parede no quarto"
+                              ],
+                              [
+                                      "09.jpg",
+                                      "Segundo quarto, com escrivaninha"
+                              ],
+                              [
+                                      "10.jpg",
+                                      "Quarto de casal"
+                              ],
+                              [
+                                      "11.jpg",
+                                      "Banheiro com box de vidro e armário sob a pia"
+                              ],
+                              [
+                                      "12.jpg",
+                                      "Garagem coberta"
+                              ],
+                              [
+                                      "13.jpg",
+                                      "Entrada do bloco, com jardim"
+                              ],
+                              [
+                                      "14.jpg",
+                                      "Piscina do condomínio"
+                              ],
+                              [
+                                      "15.jpg",
+                                      "Playground do condomínio"
+                              ],
+                              [
+                                      "16.jpg",
+                                      "Área de lazer entre os blocos"
+                              ],
+                              [
+                                      "17.jpg",
+                                      "Quadra do condomínio"
+                              ],
+                              [
+                                      "18.jpg",
+                                      "Quadra e área verde"
+                              ],
+                              [
+                                      "19.jpg",
+                                      "Playground visto do bloco"
+                              ]
+                      ],
+                      "img": "img/imoveis/chacaras-tubalina-uniplazza/capa.jpg",
+                      "link": "imovel/apartamento-2-quartos-chacaras-tubalina-uberlandia/"
+              },
+              {
+                      "slug": "apartamento-70m2-jardim-holanda-uberlandia",
+                      "dir": "jardim-holanda-70m",
+                      "selo": "Captação exclusiva",
+                      "tipo": "Apartamento",
+                      "titulo": "Apartamento 70 m² com 2 quartos",
+                      "h1": "Apartamento de 70 m² com 2 quartos no Jardim Holanda",
+                      "local": "Jardim Holanda, Uberlândia",
+                      "bairro": "Jardim Holanda",
+                      "zona": "oeste",
+                      "preco": 300000,
+                      "quartos": 2,
+                      "vagas": 2,
+                      "area": 70,
+                      "desc": "Pronto para morar, com armários planejados em todos os ambientes, suíte e duas vagas de garagem.",
+                      "resumo": "Setenta metros quadrados bem distribuídos, com armário planejado em cada ambiente — inclusive na lavanderia e nos banheiros. Duas vagas de garagem, o que é raro nessa metragem.",
+                      "itens": [
+                              "Sala de TV",
+                              "Sala de jantar",
+                              "Cozinha com armário",
+                              "Lavanderia com armário",
+                              "2 quartos (sendo 1 suíte) com armários",
+                              "Banheiros com armário",
+                              "2 vagas de garagem"
+                      ],
+                      "fotos": [
+                              [
+                                      "01.jpg",
+                                      "Sala de estar e sala de jantar integradas"
+                              ],
+                              [
+                                      "02.jpg",
+                                      "Sala de TV com sofá"
+                              ],
+                              [
+                                      "03.jpg",
+                                      "Sala ampla com vista para a sala de jantar"
+                              ],
+                              [
+                                      "04.jpg",
+                                      "Sala de jantar"
+                              ],
+                              [
+                                      "05.jpg",
+                                      "Cozinha com armários planejados"
+                              ],
+                              [
+                                      "06.jpg",
+                                      "Cozinha com coifa e cooktop"
+                              ],
+                              [
+                                      "07.jpg",
+                                      "Suíte do casal"
+                              ],
+                              [
+                                      "08.jpg",
+                                      "Segundo quarto com espaço de home office"
+                              ],
+                              [
+                                      "09.jpg",
+                                      "Quarto com armário embutido"
+                              ],
+                              [
+                                      "10.jpg",
+                                      "Banheiro social com box"
+                              ],
+                              [
+                                      "11.jpg",
+                                      "Banheiro da suíte com armário"
+                              ],
+                              [
+                                      "12.jpg",
+                                      "Lavanderia com armário"
+                              ]
+                      ],
+                      "img": "img/imoveis/jardim-holanda-70m/capa.jpg",
+                      "link": "imovel/apartamento-70m2-jardim-holanda-uberlandia/"
+              }
       ];
       var LANCAMENTOS = [
-        /* TEASER: pré-lançamento. Sem preço de propósito — plantas, metragens
-           e valores ainda não são públicos. 'teaser:true' muda o visual e o CTA. */
-        { selo:'Em breve', teaser:true, tipo:'Apartamento', construtora:'VIC Engenharia',
-          titulo:'Gran Vic', local:'EcoPark (Zona Sul) — Rua Fauna',
-          quartos:2,
-          img:'https://marcotulio.pro/blog/images/gran-vic-uberlandia-capa.webp',
-          link:'https://marcotulio.pro/blog/gran-vic-uberlandia.html',
-          desc:'Primeiro lançamento da VIC em Uberlândia: 3 torres, 352 apartamentos de 2 quartos com sacada. Valores e plantas saem em breve.' },
-        /* Empreendimentos com guia publicado no marcotulio.pro. As fotos e os
-           dados vêm de lá (fonte única), e o card leva ao guia completo. */
-        { selo:'Lançamento', tipo:'Apartamento', construtora:'Vitta',
-          titulo:'Matíz Residence', local:'Zona Norte — Rua Ruth Rocha, 43',
-          preco:235000, precoDe:true, quartos:2, area:78,
-          img:'https://marcotulio.pro/blog/images/matiz-residence-uberlandia-hero.webp',
-          link:'https://marcotulio.pro/blog/matiz-residence-uberlandia.html',
-          desc:'1 e 2 dormitórios de 42 a 78 m², com garden e mais de 13 áreas de lazer.' },
-
-        { selo:'MCMV', tipo:'Apartamento', construtora:'Barbosa Amorim',
-          titulo:'Loft Pequis', local:'Zona Oeste — Rua da Guaracava, 450',
-          preco:165000, precoDe:true, quartos:1, area:36,
-          img:'https://marcotulio.pro/blog/images/loft-pequis-uberlandia-capa.webp',
-          link:'https://marcotulio.pro/blog/loft-pequis-uberlandia.html',
-          desc:'1 quarto com elevador, entrada em até 36x e documentação grátis.' },
-
-        { selo:'MCMV', tipo:'Apartamento', construtora:'MOR Construtora',
-          titulo:'Jardim Mansour', local:'Mansour — Rua Celso Eugênio da Silva',
-          preco:238000, precoDe:true, quartos:2,
-          img:'https://marcotulio.pro/blog/images/mor-jardim-mansour-hero.webp',
-          link:'https://marcotulio.pro/blog/mor-jardim-mansour-uberlandia.html',
-          desc:'2 quartos com suíte, sacada e vaga, pelo Minha Casa Minha Vida.' },
-
-        { selo:'Lançamento', tipo:'Apartamento', construtora:'INC',
-          titulo:'Park Jardim do Sol', local:'Novo Mundo, Uberlândia',
-          preco:234500, precoDe:true, quartos:2,
-          img:'https://marcotulio.pro/blog/images/park-jardim-do-sol-capa.webp',
-          link:'https://marcotulio.pro/blog/park-jardim-do-sol-novo-mundo-uberlandia.html',
-          desc:'Torre de 26 pavimentos com lazer completo, financiável pelo MCMV.' },
-
-        { selo:'MCMV', tipo:'Apartamento',
-          titulo:'Horizon Residencial', local:'Fruta do Conde, Uberlândia',
-          preco:220420, precoDe:true, quartos:2,
-          img:'https://marcotulio.pro/blog/images/horizon-fruta-do-conde-capa.webp',
-          link:'https://marcotulio.pro/blog/horizon-residencial-fruta-do-conde.html',
-          desc:'2 quartos com varanda gourmet, sinal de R$ 2.000 e entrada em 72x.' },
-
-        { selo:'Entrada em 100x', tipo:'Apartamento', construtora:'Renault Diniz',
-          titulo:'Renault Zurique', local:'Presidente Roosevelt, Uberlândia',
-          quartos:2, area:52,
-          img:'https://marcotulio.pro/blog/images/renault-zurique-uberlandia-capa.webp',
-          link:'https://marcotulio.pro/blog/renault-zurique-uberlandia.html',
-          desc:'2 quartos de 45 e 52 m² com elevador, entrada parcelada em até 100x.' },
-
-        { selo:'Lançamento', tipo:'Apartamento', construtora:'HLTS',
-          titulo:'Union Vista', local:'Grand Ville, Uberlândia',
-          preco:275000, precoDe:true, quartos:2,
-          img:'https://marcotulio.pro/blog/images/union-vista-uberlandia-hero.webp',
-          link:'https://marcotulio.pro/blog/union-vista-grand-ville-uberlandia.html',
-          desc:'2 quartos com suíte e sacada, condomínio clube. Entrega prevista 2027.' },
-
-        { selo:'Pronto para morar', tipo:'Apartamento', construtora:'HLTS',
-          titulo:'Union Landscape', local:'Shopping Park, Uberlândia',
-          quartos:2,
-          img:'https://marcotulio.pro/blog/images/union-landscape-uberlandia-hero.webp',
-          link:'https://marcotulio.pro/blog/union-landscape-shopping-park-uberlandia.html',
-          desc:'2 quartos com suíte, pronto para morar e vendido abaixo da avaliação da Caixa.' },
-
-        { selo:'Lançamento', tipo:'Apartamento', construtora:'HLTS',
-          titulo:'Union Vereda', local:'Chácaras Tubalina, Uberlândia',
-          preco:286000, precoDe:true, quartos:2,
-          img:'https://marcotulio.pro/blog/images/union-vereda-uberlandia-hero.webp',
-          link:'https://marcotulio.pro/blog/union-vereda-tubalina-uberlandia.html',
-          desc:'2 quartos com suíte e sacada, condomínio clube, entrada em até 60x.' },
-
-        { selo:'Casas', tipo:'Casa', construtora:'Pacaembu',
-          titulo:'Moradas do Horizonte — Sabará', local:'Região do EcoPark, Zona Sul',
-          quartos:2, area:45,
-          img:'https://marcotulio.pro/blog/images/sabara-pacaembu-capa.webp',
-          link:'https://marcotulio.pro/blog/moradas-do-horizonte-sabara-uberlandia.html',
-          desc:'Casas de 2 quartos não geminadas em lote de 126 m², com piscina e lazer.' },
-
-        { selo:'Disponível', tipo:'Apartamento',
-          titulo:'Solis Residence', local:'Morumbi, Uberlândia',
-          preco:260000, precoDe:true, quartos:2, area:60,
-          img:'https://marcotulio.pro/blog/img/solis-residence-morumbi.jpg',
-          link:'https://marcotulio.pro/blog/solis-residence-morumbi-uberlandia.html',
-          desc:'60,92 m² e térreos garden de 93 a 103 m². Entrega jan/2029.' },
-
-        { selo:'Últimos garden', tipo:'Apartamento',
-          titulo:'Bris Residence', local:'Morumbi, Uberlândia',
-          preco:295000, precoDe:true, quartos:2, area:93,
-          img:'https://marcotulio.pro/blog/img/bris-residence-morumbi-uberlandia.jpg',
-          link:'https://marcotulio.pro/blog/bris-residence-morumbi-uberlandia.html',
-          desc:'Últimos térreos garden de 93 a 103 m² com quintal privativo. Entrega nov/2027.' },
-
-        { selo:'Últimas unidades', tipo:'Apartamento', construtora:'Realiza',
-          titulo:'Prime Clube', local:'Granja Marileusa, Uberlândia',
-          quartos:2,
-          img:'https://marcotulio.pro/blog/images/prime-clube-marileusa-uberlandia-hero.webp',
-          link:'https://marcotulio.pro/blog/prime-clube-marileusa-uberlandia.html',
-          desc:'15 torres com lazer completo, cerca de 85% vendido.' }
+              {
+                      "selo": "Em breve",
+                      "teaser": true,
+                      "tipo": "Apartamento",
+                      "construtora": "VIC Engenharia",
+                      "titulo": "Gran Vic",
+                      "local": "EcoPark (Zona Sul) — Rua Fauna",
+                      "quartos": 2,
+                      "img": "https://marcotulio.pro/blog/images/gran-vic-uberlandia-capa.webp",
+                      "link": "https://marcotulio.pro/blog/gran-vic-uberlandia.html",
+                      "desc": "Primeiro lançamento da VIC em Uberlândia: 3 torres, 352 apartamentos de 2 quartos com sacada. Valores e plantas saem em breve."
+              },
+              {
+                      "selo": "Lançamento",
+                      "tipo": "Apartamento",
+                      "construtora": "Vitta",
+                      "titulo": "Matíz Residence",
+                      "local": "Zona Norte — Rua Ruth Rocha, 43",
+                      "preco": 235000,
+                      "precoDe": true,
+                      "quartos": 2,
+                      "area": 78,
+                      "img": "https://marcotulio.pro/blog/images/matiz-residence-uberlandia-hero.webp",
+                      "link": "https://marcotulio.pro/blog/matiz-residence-uberlandia.html",
+                      "desc": "1 e 2 dormitórios de 42 a 78 m², com garden e mais de 13 áreas de lazer."
+              },
+              {
+                      "selo": "MCMV",
+                      "tipo": "Apartamento",
+                      "construtora": "Barbosa Amorim",
+                      "titulo": "Loft Pequis",
+                      "local": "Zona Oeste — Rua da Guaracava, 450",
+                      "preco": 165000,
+                      "precoDe": true,
+                      "quartos": 1,
+                      "area": 36,
+                      "img": "https://marcotulio.pro/blog/images/loft-pequis-uberlandia-capa.webp",
+                      "link": "https://marcotulio.pro/blog/loft-pequis-uberlandia.html",
+                      "desc": "1 quarto com elevador, entrada em até 36x e documentação grátis."
+              },
+              {
+                      "selo": "MCMV",
+                      "tipo": "Apartamento",
+                      "construtora": "MOR Construtora",
+                      "titulo": "Jardim Mansour",
+                      "local": "Mansour — Rua Celso Eugênio da Silva",
+                      "preco": 238000,
+                      "precoDe": true,
+                      "quartos": 2,
+                      "img": "https://marcotulio.pro/blog/images/mor-jardim-mansour-hero.webp",
+                      "link": "https://marcotulio.pro/blog/mor-jardim-mansour-uberlandia.html",
+                      "desc": "2 quartos com suíte, sacada e vaga, pelo Minha Casa Minha Vida."
+              },
+              {
+                      "selo": "Lançamento",
+                      "tipo": "Apartamento",
+                      "construtora": "INC",
+                      "titulo": "Park Jardim do Sol",
+                      "local": "Novo Mundo, Uberlândia",
+                      "preco": 234500,
+                      "precoDe": true,
+                      "quartos": 2,
+                      "img": "https://marcotulio.pro/blog/images/park-jardim-do-sol-capa.webp",
+                      "link": "https://marcotulio.pro/blog/park-jardim-do-sol-novo-mundo-uberlandia.html",
+                      "desc": "Torre de 26 pavimentos com lazer completo, financiável pelo MCMV."
+              },
+              {
+                      "selo": "MCMV",
+                      "tipo": "Apartamento",
+                      "titulo": "Horizon Residencial",
+                      "local": "Fruta do Conde, Uberlândia",
+                      "preco": 220420,
+                      "precoDe": true,
+                      "quartos": 2,
+                      "img": "https://marcotulio.pro/blog/images/horizon-fruta-do-conde-capa.webp",
+                      "link": "https://marcotulio.pro/blog/horizon-residencial-fruta-do-conde.html",
+                      "desc": "2 quartos com varanda gourmet, sinal de R$ 2.000 e entrada em 72x."
+              },
+              {
+                      "selo": "Entrada em 100x",
+                      "tipo": "Apartamento",
+                      "construtora": "Renault Diniz",
+                      "titulo": "Renault Zurique",
+                      "local": "Presidente Roosevelt, Uberlândia",
+                      "quartos": 2,
+                      "area": 52,
+                      "img": "https://marcotulio.pro/blog/images/renault-zurique-uberlandia-capa.webp",
+                      "link": "https://marcotulio.pro/blog/renault-zurique-uberlandia.html",
+                      "desc": "2 quartos de 45 e 52 m² com elevador, entrada parcelada em até 100x."
+              },
+              {
+                      "selo": "Lançamento",
+                      "tipo": "Apartamento",
+                      "construtora": "HLTS",
+                      "titulo": "Union Vista",
+                      "local": "Grand Ville, Uberlândia",
+                      "preco": 275000,
+                      "precoDe": true,
+                      "quartos": 2,
+                      "img": "https://marcotulio.pro/blog/images/union-vista-uberlandia-hero.webp",
+                      "link": "https://marcotulio.pro/blog/union-vista-grand-ville-uberlandia.html",
+                      "desc": "2 quartos com suíte e sacada, condomínio clube. Entrega prevista 2027."
+              },
+              {
+                      "selo": "Pronto para morar",
+                      "tipo": "Apartamento",
+                      "construtora": "HLTS",
+                      "titulo": "Union Landscape",
+                      "local": "Shopping Park, Uberlândia",
+                      "quartos": 2,
+                      "img": "https://marcotulio.pro/blog/images/union-landscape-uberlandia-hero.webp",
+                      "link": "https://marcotulio.pro/blog/union-landscape-shopping-park-uberlandia.html",
+                      "desc": "2 quartos com suíte, pronto para morar e vendido abaixo da avaliação da Caixa."
+              },
+              {
+                      "selo": "Lançamento",
+                      "tipo": "Apartamento",
+                      "construtora": "HLTS",
+                      "titulo": "Union Vereda",
+                      "local": "Chácaras Tubalina, Uberlândia",
+                      "preco": 286000,
+                      "precoDe": true,
+                      "quartos": 2,
+                      "img": "https://marcotulio.pro/blog/images/union-vereda-uberlandia-hero.webp",
+                      "link": "https://marcotulio.pro/blog/union-vereda-tubalina-uberlandia.html",
+                      "desc": "2 quartos com suíte e sacada, condomínio clube, entrada em até 60x."
+              },
+              {
+                      "selo": "Casas",
+                      "tipo": "Casa",
+                      "construtora": "Pacaembu",
+                      "titulo": "Moradas do Horizonte — Sabará",
+                      "local": "Região do EcoPark, Zona Sul",
+                      "quartos": 2,
+                      "area": 45,
+                      "img": "https://marcotulio.pro/blog/images/sabara-pacaembu-capa.webp",
+                      "link": "https://marcotulio.pro/blog/moradas-do-horizonte-sabara-uberlandia.html",
+                      "desc": "Casas de 2 quartos não geminadas em lote de 126 m², com piscina e lazer."
+              },
+              {
+                      "selo": "Disponível",
+                      "tipo": "Apartamento",
+                      "titulo": "Solis Residence",
+                      "local": "Morumbi, Uberlândia",
+                      "preco": 260000,
+                      "precoDe": true,
+                      "quartos": 2,
+                      "area": 60,
+                      "img": "https://marcotulio.pro/blog/img/solis-residence-morumbi.jpg",
+                      "link": "https://marcotulio.pro/blog/solis-residence-morumbi-uberlandia.html",
+                      "desc": "60,92 m² e térreos garden de 93 a 103 m². Entrega jan/2029."
+              },
+              {
+                      "selo": "Últimos garden",
+                      "tipo": "Apartamento",
+                      "titulo": "Bris Residence",
+                      "local": "Morumbi, Uberlândia",
+                      "preco": 295000,
+                      "precoDe": true,
+                      "quartos": 2,
+                      "area": 93,
+                      "img": "https://marcotulio.pro/blog/img/bris-residence-morumbi-uberlandia.jpg",
+                      "link": "https://marcotulio.pro/blog/bris-residence-morumbi-uberlandia.html",
+                      "desc": "Últimos térreos garden de 93 a 103 m² com quintal privativo. Entrega nov/2027."
+              },
+              {
+                      "selo": "Últimas unidades",
+                      "tipo": "Apartamento",
+                      "construtora": "Realiza",
+                      "titulo": "Prime Clube",
+                      "local": "Granja Marileusa, Uberlândia",
+                      "quartos": 2,
+                      "img": "https://marcotulio.pro/blog/images/prime-clube-marileusa-uberlandia-hero.webp",
+                      "link": "https://marcotulio.pro/blog/prime-clube-marileusa-uberlandia.html",
+                      "desc": "15 torres com lazer completo, cerca de 85% vendido."
+              }
       ];
+      var ZONAS = {
+              "Aclimação": "leste",
+              "Alto Umuarama": "leste",
+              "Alvorada": "leste",
+              "Bosque dos Buritis": "sul",
+              "Chácaras Tubalina e Quartel": "oeste",
+              "Cidade Jardim": "sul",
+              "City Uberlândia": "oeste",
+              "Cond. Paradiso Ecológico": "sul",
+              "Copacabana": "oeste",
+              "Custódio Pereira": "leste",
+              "Distrito Industrial": "norte",
+              "Dom Almir": "leste",
+              "Dona Zulmira": "oeste",
+              "Flamboyant": "norte",
+              "Fruta do Conde": "oeste",
+              "Grand Ville": "leste",
+              "Granja Marileusa": "leste",
+              "Gsp": "sul",
+              "Guarani": "oeste",
+              "Gávea": "sul",
+              "Gávea Sul": "sul",
+              "Integração": "leste",
+              "Jaraguá": "oeste",
+              "Jardim América": "oeste",
+              "Jardim Botânico": "sul",
+              "Jardim Brasília": "norte",
+              "Jardim Canaã": "oeste",
+              "Jardim Europa": "sul",
+              "Jardim Holanda": "oeste",
+              "Jardim Inconfidencia": "sul",
+              "Jardim Inconfidência": "sul",
+              "Jardim Ipanema": "oeste",
+              "Jardim Karaíba": "sul",
+              "Jardim Patricia": "oeste",
+              "Jardim Patrícia": "oeste",
+              "Jardim Sul": "sul",
+              "Jardim Veneza": "sul",
+              "Jardim das Palmeiras": "oeste",
+              "Joana D’Arc": "leste",
+              "Laranjeiras": "sul",
+              "Loteamento Residencial Pequis": "oeste",
+              "Luizote de Freitas": "oeste",
+              "Mansour": "oeste",
+              "Marta Helena": "norte",
+              "Martins": "norte",
+              "Minas Gerais": "norte",
+              "Morada Nova": "sul",
+              "Morada da Colina": "sul",
+              "Morada do Sol": "oeste",
+              "Morada dos Pássaros": "sul",
+              "Morumbi": "leste",
+              "Nova Uberlândia": "sul",
+              "Novo Mundo": "leste",
+              "Pacaembu": "norte",
+              "Pampulha": "oeste",
+              "Planalto": "oeste",
+              "Portal do Vale": "sul",
+              "Presidente Roosevelt": "norte",
+              "Prosperidade": "leste",
+              "Quinta Alto Umuarama": "leste",
+              "Santa Mônica": "leste",
+              "Santa Rosa": "norte",
+              "Segismundo Pereira": "leste",
+              "Shopping Park": "sul",
+              "São Gabriel": "leste",
+              "São Jorge": "sul",
+              "São José": "norte",
+              "Taiaman": "oeste",
+              "Tibery": "leste",
+              "Tubalina": "oeste",
+              "Umuarama": "leste",
+              "Vida Nova": "sul"
+      };
+      /* @/gerado */
 
 
       /* Formato compacto -> formato do card. Sem título próprio no portal,
@@ -2587,21 +3550,15 @@
           });
           body.appendChild(f);
         }
-        if (p.fotos && p.fotos.length) {
+        if (p.slug) {
+          add('div', 'ver-fotos', 'Ver o imóvel e as ' + ((p.fotos || []).length) + ' fotos →');
+        } else if (p.fotos && p.fotos.length) {
           add('div', 'ver-fotos', 'Ver ' + p.fotos.length + ' fotos →');
         } else if (p.link) {
           add('div', 'ver-guia', p.teaser ? 'Entrar na lista de prioridade →' : 'Ver o guia completo →');
         }
         a.appendChild(body);
-        if (p.fotos && p.fotos.length) { a._imovel = p; a.classList.add('tem-galeria'); }
         return a;
-      }
-
-      /* render: carga inicial. Com lista vazia preserva o estado vazio
-         honesto que já está escrito no HTML. */
-      function render(gridId, lista, classe) {
-        if (!lista.length) { return; }
-        pintar(gridId, lista, classe);
       }
 
       /* O grid do portal tem o card do parceiro fixo no topo, então ele é
@@ -2635,9 +3592,16 @@
         }
         lista.forEach(function (p) { grid.appendChild(cardImovel(p, classe)); });
       }
-      render('gridMeus', MEUS_IMOVEIS, '');
-      render('gridLancamentos', LANCAMENTOS, 'lancamento');
-      /* o card do parceiro fica no topo, os imóveis vêm depois */
+      /* Os cards de captação própria e de lançamento NÃO são montados aqui:
+         eles já vieram escritos no HTML por tools/gerar.py. Repintá-los na
+         carga jogaria fora justamente o que o rastreador precisa ler, e
+         ainda causaria um piscar na tela. O JS só volta a mexer neles
+         quando alguém filtra de fato.
+
+         O catálogo do Chave7 continua sendo montado aqui, de propósito: são
+         imóveis de terceiro, que já têm página no portal deles. Publicar o
+         mesmo texto como conteúdo próprio criaria duplicidade com a fonte —
+         o que atrapalha as duas. O card do parceiro fica fixo no topo. */
       PORTAL.forEach(function (pp) {
         var g = document.getElementById('gridPortal');
         if (g) { g.appendChild(cardImovel(pp, 'portal')); }
@@ -2657,6 +3621,11 @@
         var elTexto = document.getElementById('fTexto');
         var chips = Array.prototype.slice.call(document.querySelectorAll('#chipsTipo .chip'));
         var tipo = '';
+        var zona = '';
+        /* A primeira passada só escreve o texto de status: os cards de
+           captação própria e de lançamento já estão no HTML e não devem ser
+           repintados até alguém filtrar de fato. */
+        var primeira = true;
 
         /* Sem acento e sem caixa: quem digita "karaiba" no celular
            precisa achar "Jardim Karaíba". */
@@ -2668,15 +3637,30 @@
         function criterios() {
           return {
             tipo: tipo,
+            zona: zona,
             quartos: parseInt(elQuartos.value, 10) || 0,
             valor: parseInt(elValor.value, 10) || 0,
             texto: normal(elTexto.value.trim())
           };
         }
 
+        /* Em que zona cai um imóvel. O bairro é o dado confiável; quando ele
+           não existe (lançamento com endereço escrito à mão), cai para o
+           texto do 'local', onde costuma estar "Zona Oeste" ou o bairro. */
+        function zonaDe(p) {
+          if (p.bairro && ZONAS[p.bairro]) { return ZONAS[p.bairro]; }
+          var alvo = normal(p.local || '');
+          for (var b in ZONAS) {
+            if (alvo.indexOf(normal(b)) !== -1) { return ZONAS[b]; }
+          }
+          var m = alvo.match(/zona (norte|sul|leste|oeste)/);
+          return m ? m[1] : '';
+        }
+
         function filtrar(lista, c) {
           var r = lista.filter(function (p) {
             if (c.tipo && (p.tipo || '') !== c.tipo) { return false; }
+            if (c.zona && zonaDe(p) !== c.zona) { return false; }
             if (c.quartos && (p.quartos || 0) < c.quartos) { return false; }
             if (c.valor && (!p.preco || p.preco > c.valor)) { return false; }
             if (c.texto) {
@@ -2700,6 +3684,7 @@
           var partes = [];
           if (c.tipo) { partes.push(c.tipo.toLowerCase()); }
           else if (comSubstantivo) { partes.push('imóvel'); }
+          if (c.zona) { partes.push('na zona ' + c.zona); }
           if (c.texto) { partes.push('em ' + elTexto.value.trim()); }
           if (c.quartos) { partes.push(c.quartos + '+ quartos'); }
           if (c.valor) { partes.push('até ' + BRL(c.valor)); }
@@ -2715,13 +3700,14 @@
           var total = meus.length + lanc.length + port.length;
           var temCatalogo = MEUS_IMOVEIS.length + LANCAMENTOS.length + PORTAL.length > 0;
 
-          if (temCatalogo) {
-            /* pintar (e não render) porque render ignora lista vazia — ao
-               filtrar até zero os cards antigos ficariam na tela. */
+          if (temCatalogo && !primeira) {
+            /* pintar (e não hidratar) porque aqui a lista mudou: ao filtrar
+               até zero, os cards antigos não podem ficar na tela. */
             pintar('gridMeus', meus, '');
             pintar('gridLancamentos', lanc, 'lancamento');
             pintarPortal(port);
           }
+          primeira = false;
 
           if (!temCatalogo) {
             status.innerHTML = 'Ainda não há imóvel publicado no site. Diga o que procura e eu busco na minha rede — inclusive o que não está anunciado.';
@@ -2745,6 +3731,22 @@
             aplicar();
           });
         });
+
+        /* Regiões: clicar de novo na mesma região desliga o filtro, senão a
+           pessoa fica presa numa zona sem um botão óbvio de voltar. */
+        Array.prototype.slice.call(document.querySelectorAll('.regiao-btn'))
+          .forEach(function (bt) {
+            bt.addEventListener('click', function () {
+              var alvo = bt.getAttribute('data-zona');
+              zona = (zona === alvo) ? '' : alvo;
+              document.querySelectorAll('.regiao').forEach(function (r) {
+                r.classList.toggle('is-on', r.getAttribute('data-zona') === zona);
+              });
+              aplicar();
+              document.getElementById('imoveis')
+                .scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          });
         [elQuartos, elValor, elOrdem].forEach(function (el) {
           el.addEventListener('change', aplicar);
         });
@@ -2764,131 +3766,9 @@
         aplicar();
       })();
 
-      /* SEO: publica um ItemList com cada imóvel como Accommodation/Offer.
-         Sem imóvel cadastrado nada é emitido — schema vazio é pior que nenhum. */
-      (function schemaImoveis() {
-        var todos = MEUS_IMOVEIS.concat(LANCAMENTOS);
-        if (!todos.length) { return; }
-        var itens = todos.map(function (p, i) {
-          var acc = {
-            '@type': 'Accommodation',
-            'name': p.titulo,
-            'address': {
-              '@type': 'PostalAddress',
-              'addressLocality': 'Uberlândia',
-              'addressRegion': 'MG',
-              'addressCountry': 'BR',
-              'streetAddress': p.local
-            }
-          };
-          if (p.desc) { acc.description = p.desc; }
-          if (p.img) { acc.image = p.img; }
-          if (p.quartos) { acc.numberOfRooms = p.quartos; }
-          if (p.area) {
-            acc.floorSize = { '@type': 'QuantitativeValue', 'value': p.area, 'unitCode': 'MTK' };
-          }
-          if (p.preco) {
-            acc.offers = {
-              '@type': 'Offer',
-              'price': p.preco,
-              'priceCurrency': 'BRL',
-              'availability': 'https://schema.org/InStock',
-              'seller': { '@type': 'RealEstateAgent', 'name': 'Marco Túlio - Corretor de Imóveis' }
-            };
-          }
-          return { '@type': 'ListItem', 'position': i + 1, 'item': acc };
-        });
-        var s = document.createElement('script');
-        s.type = 'application/ld+json';
-        s.textContent = JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'ItemList',
-          'name': 'Imóveis à venda em Uberlândia',
-          'numberOfItems': itens.length,
-          'itemListElement': itens
-        });
-        document.head.appendChild(s);
-      })();
-
-
-      /* ===== GALERIA =====
-         O card continua sendo um <a> para o WhatsApp: se o JS falhar, o
-         contato ainda funciona. Com JS, o clique abre as fotos. */
-      (function galeria() {
-        var dlg = document.getElementById('galeria');
-        if (!dlg || !dlg.showModal) { return; }
-        var elFoto = document.getElementById('galFoto');
-        var elLeg = document.getElementById('galLegenda');
-        var elPos = document.getElementById('galPos');
-        var elTotal = document.getElementById('galTotal');
-        var elTiras = document.getElementById('galTiras');
-        var atual = null, i = 0;
-
-        function mostra(n) {
-          if (!atual) { return; }
-          i = (n + atual.fotos.length) % atual.fotos.length;
-          elFoto.src = atual.fotos[i][0];
-          elFoto.alt = atual.fotos[i][1] + ' — ' + atual.titulo;
-          elLeg.textContent = atual.fotos[i][1];
-          elPos.textContent = i + 1;
-          Array.prototype.forEach.call(elTiras.children, function (b, k) {
-            b.setAttribute('aria-current', k === i ? 'true' : 'false');
-          });
-          var ativo = elTiras.children[i];
-          if (ativo && ativo.scrollIntoView) {
-            ativo.scrollIntoView({ block: 'nearest', inline: 'center' });
-          }
-        }
-
-        function abre(p) {
-          atual = p;
-          elTotal.textContent = p.fotos.length;
-          elTiras.innerHTML = '';
-          p.fotos.forEach(function (f, k) {
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.setAttribute('aria-label', 'Foto ' + (k + 1) + ': ' + f[1]);
-            var im = document.createElement('img');
-            im.src = f[0]; im.alt = ''; im.loading = 'lazy';
-            b.appendChild(im);
-            b.addEventListener('click', function () { mostra(k); });
-            elTiras.appendChild(b);
-          });
-          document.getElementById('galTitulo').textContent = p.titulo;
-          document.getElementById('galLocal').textContent = '📍 ' + p.local;
-          document.getElementById('galPreco').textContent = p.preco ? BRL(p.preco) : '';
-          var ul = document.getElementById('galItens');
-          ul.innerHTML = '';
-          (p.itens || []).forEach(function (t) {
-            var li = document.createElement('li');
-            li.textContent = t;
-            ul.appendChild(li);
-          });
-          document.getElementById('galZap').href =
-            zapUrl('Tenho interesse no ' + p.titulo + ', no ' + p.local + '. Podemos conversar?');
-          mostra(0);
-          dlg.showModal();
-        }
-
-        /* delegação: pega o clique de qualquer card com galeria, inclusive
-           os que forem renderizados depois pelo filtro */
-        document.addEventListener('click', function (e) {
-          var card = e.target.closest ? e.target.closest('.imovel.tem-galeria') : null;
-          if (!card || !card._imovel) { return; }
-          e.preventDefault();
-          abre(card._imovel);
-        });
-
-        document.getElementById('galFechar').addEventListener('click', function () { dlg.close(); });
-        document.getElementById('galAnt').addEventListener('click', function () { mostra(i - 1); });
-        document.getElementById('galProx').addEventListener('click', function () { mostra(i + 1); });
-        dlg.addEventListener('keydown', function (e) {
-          if (e.key === 'ArrowRight') { e.preventDefault(); mostra(i + 1); }
-          if (e.key === 'ArrowLeft') { e.preventDefault(); mostra(i - 1); }
-        });
-        /* clique no fundo fecha */
-        dlg.addEventListener('click', function (e) { if (e.target === dlg) { dlg.close(); } });
-      })();
+      /* O ItemList do schema.org saiu daqui. Agora ele é escrito direto no
+         <head> por tools/gerar.py: montado em tempo de execução, ele só
+         existia para quem executasse o JavaScript da página. */
 
 
       /* A pílula de captação entra depois que a pessoa passa do hero: lá em
