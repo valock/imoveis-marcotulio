@@ -1,17 +1,20 @@
 [
  {
-  "selo": "RI emitido",
+  "selo": "Pré-lançamento",
   "teaser": true,
-  "avisoTeaser": "Já pode ser comercializado",
   "tipo": "Apartamento",
   "construtora": "VIC Engenharia",
-  "titulo": "Gran Vic",
-  "local": "EcoPark (Zona Sul) — Rua Fauna",
+  "titulo": "Gran Vic Essenza",
+  "local": "Eco Park (Zona Sul) — Rua Fauna, Quadra 2",
   "bairro": "EcoPark",
   "quartos": 2,
-  "img": "https://marcotulio.pro/blog/images/gran-vic-uberlandia-capa.webp",
-  "link": "https://marcotulio.pro/blog/gran-vic-uberlandia.html",
-  "desc": "Primeiro lançamento da VIC em Uberlândia: 3 torres, 352 apartamentos de 2 quartos com sacada. Com o Registro de Incorporação emitido, as unidades já podem ser vendidas. Valores e plantas saem primeiro para quem está cadastrado."
+  "areaTexto": "cerca de 39 m²",
+  "preco": 220000,
+  "precoDe": true,
+  "notaPreco": "condição preliminar de pré-lançamento, não é tabela oficial",
+  "img": "https://marcotulio.pro/blog/images/gran-vic-essenza-uberlandia-og.jpg",
+  "link": "https://marcotulio.pro/blog/gran-vic-essenza-uberlandia",
+  "desc": "Primeiro lançamento da VIC Engenharia em Uberlândia: 3 torres de 16 pavimentos, 8 apartamentos por andar e 100% das unidades com sacada. Registro de Incorporação emitido. Condições iniciais divulgadas no pré-lançamento: sinal de R$ 500, 60x de R$ 870 durante a obra e possibilidade de negociação sem fiador. Lazer de condomínio clube com piscina, fitness, quiosque, bicicletário e redário."
  },
  {
   "selo": "Margem de negociação",

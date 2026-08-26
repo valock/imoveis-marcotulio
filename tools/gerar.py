@@ -6,6 +6,7 @@ Gera o site a partir de uma fonte única de dados.
 
 Entradas   dados/imoveis.json      imóveis de captação própria
            dados/lancamentos.json  lançamentos de construtora
+           dados/faq.json          perguntas e respostas
 
 Saídas     index.html              cards e schema.org escritos DENTRO do HTML
            imovel/<slug>/          uma página por imóvel
@@ -42,6 +43,7 @@ Só entre marcadores. Tudo que estiver fora deles nunca é tocado:
 Se um marcador sumir, o script para e avisa em vez de adivinhar onde escrever.
 """
 
+import datetime
 import json
 import os
 import re
@@ -50,7 +52,10 @@ import sys
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://imoveis.marcotulio.pro'
 ZAP = '5534996778075'
-HOJE = '2026-08-16'
+# lastmod do sitemap. Chumbar a data faz o sitemap envelhecer sozinho e
+# mentir para o buscador na próxima publicação. DATA=2026-01-31 no ambiente
+# força um valor, para reproduzir uma geração antiga.
+HOJE = os.environ.get('DATA') or datetime.date.today().isoformat()
 
 # As quatro regiões, na ordem em que aparecem na página. O guia de cada uma
 # mora no marcotulio.pro — aqui a gente lista e manda para lá, em vez de
@@ -213,6 +218,10 @@ def card_html(p, classe):
     if p.get('preco'):
         de = '<small> a partir de</small>' if p.get('precoDe') else ''
         l.append('<div class="preco">%s%s</div>' % (de, brl(p['preco'])))
+        # pré-lançamento divulga número antes de existir tabela. Mostrar o
+        # valor sem dizer isso transforma referência em promessa.
+        if p.get('notaPreco'):
+            l.append('<div class="preco-nota">%s</div>' % esc(p['notaPreco']))
     f = caracteristicas(p)
     if f:
         l.append('<div class="feats">%s</div>' % ''.join('<span>%s</span>' % esc(t) for t in f))
@@ -296,6 +305,45 @@ def bloco_json(dado, indent=2):
     txt = json.dumps(dado, ensure_ascii=False, indent=indent)
     return ('\n  <script type="application/ld+json">\n  %s\n  </script>\n  '
             % txt.replace('\n', '\n  '))
+
+
+# --------------------------------------------------------------------------
+# FAQ
+#
+# As perguntas saem do relatório de termos de pesquisa do Google Ads, na
+# língua em que as pessoas digitam. O que a campanha comprou em agosto/2026,
+# em 473 impressões, foi quase tudo dúvida sobre o Minha Casa Minha Vida:
+# faixa de renda (~38 impressões), quanto de subsídio (~19), quem tem direito
+# (~19), lista de contemplados (~11) e teto do imóvel (~9). Nenhuma das cinco
+# perguntas que estavam aqui antes respondia a qualquer uma delas.
+#
+# Cada resposta fecha o assunto e manda para o guia completo no marcotulio.pro,
+# que é onde a resposta longa mora.
+
+def secao_faq(faq):
+    l = []
+    for q in faq:
+        guia = ''
+        if q.get('guia'):
+            guia = ('\n            <a class="faq-guia" href="%s" target="_blank" rel="noopener">%s ↗</a>'
+                    % (esc(q['guia']), esc(q.get('guiaTexto') or 'Ver o guia completo')))
+        l.append('<details class="faq-item">\n'
+                 '          <summary>%s</summary>\n'
+                 '          <div class="resp">%s%s</div>\n'
+                 '        </details>' % (esc(q['p']), esc(q['r']), guia))
+    return '\n        ' + '\n        '.join(l) + '\n      '
+
+
+def schema_faq(faq):
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [{
+            '@type': 'Question',
+            'name': q['p'],
+            'acceptedAnswer': {'@type': 'Answer', 'text': q['r']},
+        } for q in faq],
+    }
 
 
 # --------------------------------------------------------------------------
@@ -784,6 +832,7 @@ def main():
     os.chdir(RAIZ)
     meus = json.load(open('dados/imoveis.json', encoding='utf-8'))
     lancamentos = json.load(open('dados/lancamentos.json', encoding='utf-8'))
+    faq = json.load(open('dados/faq.json', encoding='utf-8'))
 
     # A capa de cada imóvel próprio é sempre capa.jpg da pasta dele. O link do
     # card é relativo de propósito: assim a página abre igual em produção, em
@@ -809,8 +858,13 @@ def main():
             bairros[b] = bairros.get(b, 0) + 1
     html = substituir(html, 'regioes', secao_regioes(bairros), 'index.html')
 
-    # 3. schema.org no <head>, sem depender de execução de JS
-    html = substituir(html, 'schema', bloco_json(schema_lista(meus, lancamentos)), 'index.html')
+    # 3. FAQ: a lista visível e o schema saem da mesma fonte, para não
+    #    divergirem — o Google trata schema que não confere com a página
+    #    como motivo para ignorar o rich result inteiro.
+    html = substituir(html, 'faq', secao_faq(faq), 'index.html')
+    html = substituir(html, 'schema',
+                      bloco_json(schema_lista(meus, lancamentos))
+                      + bloco_json(schema_faq(faq)).rstrip(' '), 'index.html')
 
     # 4. os mesmos dados para busca, filtro e galeria no navegador
     dados_js = (
@@ -847,7 +901,9 @@ def main():
     print('lançamentos      : %d' % len(lancamentos))
     print('bairros no mapa  : %d de %d com imóvel no catálogo'
           % (sum(1 for b in bairros if any(b in r['bairros'] for r in REGIOES)), len(bairros)))
-    print('URLs no sitemap  : %d' % len(urls))
+    print('perguntas na FAQ : %d  (%d com guia no marcotulio.pro)'
+          % (len(faq), sum(1 for q in faq if q.get('guia'))))
+    print('URLs no sitemap  : %d  (lastmod %s)' % (len(urls), HOJE))
 
 
 if __name__ == '__main__':
