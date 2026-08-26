@@ -15,6 +15,7 @@ essencial e faz a ponte para lá. Este domínio é a vertente de **catálogo + S
 ```
 dados/imoveis.json       fonte única dos imóveis de captação própria
 dados/lancamentos.json   fonte única dos lançamentos de construtora
+dados/faq.json           perguntas e respostas (vira HTML + FAQPage schema)
 tools/gerar.py           gera o site a partir dos dois arquivos acima
 tools/conferir.py        compara os lançamentos com as páginas do marcotulio.pro
 index.html               a capa (HTML/CSS/JS em arquivo único)
@@ -106,14 +107,46 @@ declarada em cada página. Sai com código 1 se achar divergência.
 O script **não escreve nada**. Depois de conferir, ajuste
 `dados/lancamentos.json` à mão e rode `python3 tools/gerar.py`.
 
-Dois campos existem porque lançamento é diferente de imóvel pronto:
+Três campos existem porque lançamento é diferente de imóvel pronto:
 
 - `areaTexto` — faixa de metragem (`"42 a 78 m²"`). Lançamento raramente tem
   uma metragem só, e escrever o teto como se fosse a unidade não é arredondar:
   é dizer outra coisa, e quem chega esperando o teto se frustra na visita.
-- `avisoTeaser` — substitui *"Valores e plantas em breve"* quando o motivo de
-  não ter preço muda. O Gran Vic usa `"Já pode ser comercializado"` desde que
-  o Registro de Incorporação saiu.
+- `notaPreco` — linha pequena sob o valor. Pré-lançamento divulga número antes
+  de existir tabela; mostrar o valor sem dizer isso transforma referência em
+  promessa. O Gran Vic Essenza usa
+  `"condição preliminar de pré-lançamento, não é tabela oficial"`.
+- `avisoTeaser` — substitui *"Valores e plantas em breve"* num card `teaser`
+  **sem preço**, quando o motivo de não ter valor mudou. Com `preco` definido
+  ele não aparece: aí quem cumpre o papel é o `notaPreco`.
+
+## Como manter a FAQ
+
+As perguntas de `dados/faq.json` viram **duas coisas ao mesmo tempo**: a lista
+visível na página e o `FAQPage` do schema.org. Saem da mesma fonte de
+propósito — quando o schema não confere com o texto visível, o Google descarta
+o rich result inteiro.
+
+**Escreva a pergunta na língua em que a pessoa digita, não na sua.** As nove
+atuais vieram do relatório de termos de pesquisa do Google Ads. Em agosto/2026,
+473 impressões compradas foram quase todas dúvida sobre o Minha Casa Minha
+Vida, nesta ordem:
+
+| o que perguntam | impressões | pergunta na FAQ |
+|---|---|---|
+| faixa de renda | ~38 | Qual a faixa de renda do MCMV em 2026? |
+| quem tem direito / requisitos | ~19 | Quem tem direito ao Minha Casa Minha Vida? |
+| quanto de subsídio | ~19 | Quanto eu recebo de subsídio? |
+| lista de contemplados | ~11 | Existe lista de contemplados em Uberlândia? |
+| valor máximo do imóvel | ~9 | Qual o valor máximo do imóvel em Uberlândia? |
+
+Nenhuma das cinco perguntas que estavam aqui antes respondia a qualquer uma
+delas. Para atualizar, exporte um relatório novo em **Google Ads → Estatísticas
+e relatórios → Termos de pesquisa** e me mande.
+
+Cada resposta fecha o assunto em um parágrafo e manda para o guia completo no
+marcotulio.pro (campo `guia`). O texto longo mora lá; repetir aqui faria as
+duas páginas competirem.
 
 ## Por que o gerador existe
 
