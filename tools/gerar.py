@@ -52,7 +52,13 @@ import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://imoveis.marcotulio.pro'
-ZAP = '5534996778075'
+# Dois números, de propósito. ZAP é o WhatsApp Business do Meta: é para onde
+# vai toda conversa iniciada pelo site, e é o único usado em wa.me. FONE é o
+# telefone padrão, que fica nos links tel:, no schema.org e no texto visível.
+# Não unifique: separar a conversa do site do telefone pessoal é o motivo de
+# existir a conta business.
+ZAP = '5534920017016'          # (34) 92001-7016 — WhatsApp Business
+FONE = '+55-34-99677-8075'     # (34) 99677-8075 — telefone padrão
 # lastmod do sitemap. Chumbar a data faz o sitemap envelhecer sozinho e
 # mentir para o buscador na próxima publicação. DATA=2026-01-31 no ambiente
 # força um valor, para reproduzir uma geração antiga.
@@ -530,6 +536,8 @@ def pagina_imovel(p, vizinhos):
         lazer=lista_ul('lazer', 'O condomínio'),
         contexto=contexto,
         outros=outros,
+        fone=esc(FONE.replace('+55-34-', '(34) ')),
+        fone_tel=esc(FONE.replace('-', '').replace('+55', '+55')),
         zap=esc(zap(msg)),
         zap_visita=esc(zap('Quero agendar uma visita ao %s em %s.' % (p['titulo'].lower(), p['bairro']))),
         json_imovel=json.dumps(dados[0], ensure_ascii=False, indent=2).replace('\n', '\n  '),
@@ -798,6 +806,7 @@ TEMPLATE_IMOVEL = '''<!DOCTYPE html>
   <footer>
     <p><strong>Marco Túlio Andrade Freitas</strong> — corretor parceiro da Torrano Negócios
        Imobiliários, CRECI/MG 7469 · CNPJ 51.647.689/0001-81</p>
+    <p>Telefone: <a href="tel:{fone_tel}">{fone}</a></p>
     <p><a href="/">Ver todos os imóveis</a> ·
        <a href="https://www.marcotulio.pro" target="_blank" rel="noopener">marcotulio.pro ↗</a></p>
   </footer>
