@@ -9,10 +9,22 @@ região discordam, vale a página — é ela que está sendo mantida. (Em 16/08/
 o guia da zona norte dizia "a partir de R$ 252 mil" para o Matíz enquanto a
 página dele dizia "a partir de R$ 235 mil". Um dos dois estava velho.)
 
-O que o script faz: baixa o `link` de cada lançamento, lê o <title> e a
-meta description — que é onde ele coloca o número atual — e compara com o
-`preco` do card. Também mostra a data de atualização declarada na página,
-para você ver de relance o que mexeu desde a última vez.
+O que o script faz: baixa o `link` de cada lançamento e procura o `preco` do
+card na página, em duas passadas:
+
+  1. no <title> e na meta description, que é onde o número de entrada costuma
+     estar. Se bater, está alinhado;
+  2. se ali não houver preço, procura o valor exato no corpo — é de lá que
+     vêm os preços de empreendimento que só têm tabela por tipologia (Arsen
+     Sabiá, Bit 580, Vila Vert).
+
+Só é divergência quando o valor do card não aparece em lugar nenhum da página.
+Sem a segunda passada o script acusava cinco falsos positivos e ensinava a
+ignorar o resultado — que é a pior coisa que uma ferramenta de conferência
+pode fazer.
+
+Também mostra a data de atualização declarada na página, para você ver de
+relance o que mexeu desde a última vez.
 
 Saída: sai com código 1 se achou divergência, 0 se está tudo alinhado.
 
@@ -87,15 +99,21 @@ def main():
         corpo = re.sub(r'\s+', ' ', html.unescape(re.sub(r'(?s)<[^>]+>', ' ', s)))
         data = RE_DATA.search(corpo)
 
-        na_pagina = precos(cabeca)
+        na_cabeca = precos(cabeca)
+        no_corpo = precos(corpo)
         meu = c.get('preco')
-        menor = na_pagina[0] if na_pagina else None
+        menor = na_cabeca[0] if na_cabeca else None
 
-        if meu and menor and meu != menor:
+        if meu and menor and meu == menor:
+            estado, ruim = 'ok', False
+        elif meu and meu in no_corpo:
+            # veio da tabela por tipologia, não do título
+            estado, ruim, menor = 'ok (corpo)', False, meu
+        elif meu and menor:
             estado, ruim = 'DIVERGE', True
-        elif meu and not menor:
-            estado, ruim = 'só o card', True
-        elif menor and not meu:
+        elif meu:
+            estado, ruim = 'SUMIU DA PÁGINA', True
+        elif menor:
             estado, ruim = 'só a página', True
         else:
             estado, ruim = 'ok', False
