@@ -7,6 +7,7 @@ Gera o site a partir de uma fonte única de dados.
 Entradas   dados/imoveis.json      imóveis de captação própria
            dados/lancamentos.json  lançamentos de construtora
            dados/faq.json          perguntas e respostas
+           dados/torrano.json      exclusivos da Torrano (link para o site deles)
 
 Saídas     index.html              cards e schema.org escritos DENTRO do HTML
            imovel/<slug>/          uma página por imóvel
@@ -69,6 +70,7 @@ REGIOES = [
             'Chácaras Tubalina e Quartel', 'Tubalina', 'Jardim Holanda', 'Mansour',
             'Luizote de Freitas', 'Loteamento Residencial Pequis', 'Planalto',
             'Jardim Patrícia', 'Jardim Patricia', 'Fruta do Conde', 'Jardim Canaã',
+            'Monte Hebron',
             'Jardim das Palmeiras', 'Jardim América', 'Jardim Ipanema', 'Guarani',
             'Dona Zulmira', 'Taiaman', 'Morada do Sol', 'City Uberlândia',
             'Copacabana', 'Jaraguá', 'Pampulha',
@@ -84,6 +86,7 @@ REGIOES = [
             'Jardim Inconfidencia', 'Jardim Botânico', 'Nova Uberlândia', 'Morada Nova',
             'Laranjeiras', 'Portal do Vale', 'Vida Nova', 'Jardim Europa', 'Jardim Veneza',
             'Cond. Paradiso Ecológico', 'Morada dos Pássaros', 'Bosque dos Buritis', 'Gsp',
+            'EcoPark', 'Eco Park', 'Jardim Espanha', 'Parque Una',
         ],
     },
     {
@@ -197,6 +200,11 @@ def card_html(p, classe):
     """Um card, com o mesmo desenho que o JS produz ao filtrar — se o card
     mudasse de forma depois de um filtro, a página pareceria quebrada."""
     cls = 'imovel' + (' ' + classe if classe else '') + (' teaser' if p.get('teaser') else '')
+    # 'destaque' tira o card da fileira: ele ocupa a largura toda, em duas
+    # colunas, e é o único que mostra a descrição. Um por seção — dois
+    # destaques lado a lado deixam de ser destaque.
+    if p.get('destaque'):
+        cls += ' destaque'
     destino = p.get('link') or (url_imovel(p) if p.get('slug') else
                                 zap('Quero saber mais sobre: %s — %s.' % (p['titulo'], p['local'])))
     externo = destino.startswith('http') and 'imoveis.marcotulio.pro' not in destino
@@ -225,6 +233,10 @@ def card_html(p, classe):
     f = caracteristicas(p)
     if f:
         l.append('<div class="feats">%s</div>' % ''.join('<span>%s</span>' % esc(t) for t in f))
+    # Só o destaque mostra a descrição: no card normal ela dobraria a altura
+    # e quebraria o alinhamento da grade.
+    if p.get('destaque') and p.get('desc'):
+        l.append('<p class="imovel-desc">%s</p>' % esc(p['desc']))
     if p.get('slug'):
         l.append('<div class="ver-fotos">Ver o imóvel e as %d fotos →</div>' % len(p.get('fotos') or []))
     elif p.get('fotos'):
@@ -240,6 +252,18 @@ def cards(lista, classe):
     if not lista:
         return ''
     return '\n        ' + '\n        '.join(card_html(p, classe) for p in lista) + '\n      '
+
+
+def ordenar_lancamentos(lista):
+    """Destaque primeiro, depois quem tem preço (do menor ao maior), e por
+    último quem ainda não tem tabela. Sem isso, a ordem do JSON vira a ordem
+    da página e o que entrou por último aparece no fim, mesmo sendo o mais
+    relevante."""
+    def chave(p):
+        return (0 if p.get('destaque') else 1,
+                0 if p.get('preco') else 1,
+                p.get('preco') or 0)
+    return sorted(lista, key=chave)
 
 
 # --------------------------------------------------------------------------
@@ -833,6 +857,7 @@ def main():
     meus = json.load(open('dados/imoveis.json', encoding='utf-8'))
     lancamentos = json.load(open('dados/lancamentos.json', encoding='utf-8'))
     faq = json.load(open('dados/faq.json', encoding='utf-8'))
+    torrano = json.load(open('dados/torrano.json', encoding='utf-8'))
 
     # A capa de cada imóvel próprio é sempre capa.jpg da pasta dele. O link do
     # card é relativo de propósito: assim a página abre igual em produção, em
@@ -846,13 +871,15 @@ def main():
 
     # 1. cards no HTML, legíveis sem JavaScript
     html = substituir(html, 'cards-meus', cards(meus, ''), 'index.html')
-    html = substituir(html, 'cards-lancamentos', cards(lancamentos, 'lancamento'), 'index.html')
+    html = substituir(html, 'cards-lancamentos',
+                      cards(ordenar_lancamentos(lancamentos), 'lancamento'), 'index.html')
+    html = substituir(html, 'cards-torrano', cards(torrano, 'torrano'), 'index.html')
 
     # 2. as quatro regiões
     bairros = {}
     for m in re.finditer(r"bairro:'([^']+)'", html):
         bairros[m.group(1)] = bairros.get(m.group(1), 0) + 1
-    for p in meus + lancamentos:
+    for p in meus + lancamentos + torrano:
         b = p.get('bairro')
         if b:
             bairros[b] = bairros.get(b, 0) + 1
@@ -870,9 +897,11 @@ def main():
     dados_js = (
         '\n      var MEUS_IMOVEIS = %s;\n'
         '      var LANCAMENTOS = %s;\n'
+        '      var TORRANO = %s;\n'
         '      %s\n      ' % (
             json.dumps(meus, ensure_ascii=False, indent=8).replace('\n', '\n      '),
-            json.dumps(lancamentos, ensure_ascii=False, indent=8).replace('\n', '\n      '),
+            json.dumps(ordenar_lancamentos(lancamentos), ensure_ascii=False, indent=8).replace('\n', '\n      '),
+            json.dumps(torrano, ensure_ascii=False, indent=8).replace('\n', '\n      '),
             mapa_zonas_js().replace('\n', '\n      ')))
     html = substituir(html, 'dados', dados_js, 'index.html')
 
@@ -899,6 +928,7 @@ def main():
 
     print('imóveis próprios : %d  (%d páginas geradas)' % (len(meus), len(meus)))
     print('lançamentos      : %d' % len(lancamentos))
+    print('exclusivos Torrano: %d' % len(torrano))
     print('bairros no mapa  : %d de %d com imóvel no catálogo'
           % (sum(1 for b in bairros if any(b in r['bairros'] for r in REGIOES)), len(bairros)))
     print('perguntas na FAQ : %d  (%d com guia no marcotulio.pro)'

@@ -16,6 +16,7 @@ essencial e faz a ponte para lá. Este domínio é a vertente de **catálogo + S
 dados/imoveis.json       fonte única dos imóveis de captação própria
 dados/lancamentos.json   fonte única dos lançamentos de construtora
 dados/faq.json           perguntas e respostas (vira HTML + FAQPage schema)
+dados/torrano.json       exclusivos da Torrano (o card leva ao site deles)
 tools/gerar.py           gera o site a partir dos dois arquivos acima
 tools/conferir.py        compara os lançamentos com as páginas do marcotulio.pro
 index.html               a capa (HTML/CSS/JS em arquivo único)
@@ -100,14 +101,23 @@ Para descobrir o que saiu de sincronia:
 python3 tools/conferir.py
 ```
 
-Ele baixa o `link` de cada lançamento, lê o preço no `<title>` e na meta
-description, compara com o `preco` do card e mostra a data de atualização
-declarada em cada página. Sai com código 1 se achar divergência.
+Ele baixa o `link` de cada lançamento e procura o `preco` do card na página,
+em duas passadas: primeiro no `<title>` e na meta description, onde costuma
+estar o valor de entrada; se não houver preço ali, procura o valor exato no
+corpo — é de lá que vêm os preços de quem só tem tabela por tipologia (Arsen
+Sabiá, Bit 580, Vila Vert), e esses aparecem como `ok (corpo)`.
+
+Só é divergência quando o valor do card não aparece em lugar nenhum da página.
+Sai com código 1 nesse caso, e mostra a data de atualização de cada página.
 
 O script **não escreve nada**. Depois de conferir, ajuste
 `dados/lancamentos.json` à mão e rode `python3 tools/gerar.py`.
 
-Três campos existem porque lançamento é diferente de imóvel pronto:
+Quatro campos existem porque lançamento é diferente de imóvel pronto:
+
+- `destaque` — tira o card da fileira: ele ocupa a largura toda, em duas
+  colunas, e é o único que mostra a `desc`. Use **um por seção**; dois
+  destaques lado a lado deixam de ser destaque. Hoje é o Gran Vic Essenza.
 
 - `areaTexto` — faixa de metragem (`"42 a 78 m²"`). Lançamento raramente tem
   uma metragem só, e escrever o teto como se fosse a unidade não é arredondar:
@@ -119,6 +129,34 @@ Três campos existem porque lançamento é diferente de imóvel pronto:
 - `avisoTeaser` — substitui *"Valores e plantas em breve"* num card `teaser`
   **sem preço**, quando o motivo de não ter valor mudou. Com `preco` definido
   ele não aparece: aí quem cumpre o papel é o `notaPreco`.
+
+## Os exclusivos da Torrano
+
+`dados/torrano.json` traz a captação exclusiva da imobiliária de que ele é
+corretor parceiro. Cada card leva para `torrano.com.br/imovel/<id>` — o
+atendimento cai no sistema deles, que é o combinado.
+
+Os dados vêm das páginas públicas da Torrano (o `robots.txt` deles é
+`Allow: /`), do JSON que o Next.js embute na própria página. O campo que
+separa o que é deles do que é repasse do Chave7 é `source`: `own` = exclusivo,
+`chave7` = catálogo do portal. Só os `own` entram aqui.
+
+Dois cuidados que valem repetir na próxima atualização:
+
+- **Título montado dos campos, não do texto livre.** O cadastro deles é
+  escrito à mão e vem com "à venda", emoji e nome de condomínio no meio.
+  O card usa `{tipo} de {N} quartos no {bairro}`, e os treze ficam
+  consistentes entre si.
+- **Deduplicar contra `dados/imoveis.json`.** O apartamento de Chácaras
+  Tubalina está nos dois lugares: é captação dele, cadastrada lá também.
+  Publicar o mesmo imóvel duas vezes confunde o visitante e divide o sinal
+  de SEO entre duas URLs. Ele fica só em `/imovel/`, com página inteira.
+
+**A API-Key do Chave7 não está no site da Torrano, e isso está certo.** Eles
+ingerem o Chave7 no próprio backend (Supabase) e o site lê de lá; a chave vive
+no servidor deles, nunca no navegador — exatamente o que a documentação do
+Chave7 exige. Uma chave que desse para achar num site público seria uma falha
+de segurança, não um atalho.
 
 ## Como manter a FAQ
 

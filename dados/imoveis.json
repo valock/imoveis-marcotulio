@@ -4,8 +4,8 @@
   "dir": "chacaras-tubalina-uniplazza",
   "selo": "Captação exclusiva",
   "tipo": "Apartamento",
-  "titulo": "Apartamento 2 quartos com planejados",
-  "h1": "Apartamento de 2 quartos com móveis planejados em Chácaras Tubalina",
+  "titulo": "Apartamento 43 m² com 2 quartos e planejados",
+  "h1": "Apartamento de 43 m² com 2 quartos e móveis planejados em Chácaras Tubalina",
   "local": "Chácaras Tubalina, Uberlândia",
   "bairro": "Chácaras Tubalina",
   "zona": "oeste",
@@ -33,26 +33,84 @@
    "Garagem coberta"
   ],
   "fotos": [
-   ["01.jpg", "Sala de estar com a cozinha americana integrada"],
-   ["02.jpg", "Sala em enfiada, do sofá até a cozinha"],
-   ["03.jpg", "Bancada de mármore separando a cozinha da sala"],
-   ["04.jpg", "Cozinha planejada com cooktop, coifa e bancada de mármore"],
-   ["05.jpg", "Corredor de acesso aos quartos e ao banheiro"],
-   ["06.jpg", "Quarto com janela ampla e persiana"],
-   ["07.jpg", "Quarto com armário planejado de porta de correr"],
-   ["08.jpg", "Armário planejado de parede a parede no quarto"],
-   ["09.jpg", "Segundo quarto, com escrivaninha"],
-   ["10.jpg", "Quarto de casal"],
-   ["11.jpg", "Banheiro com box de vidro e armário sob a pia"],
-   ["12.jpg", "Garagem coberta"],
-   ["13.jpg", "Entrada do bloco, com jardim"],
-   ["14.jpg", "Piscina do condomínio"],
-   ["15.jpg", "Playground do condomínio"],
-   ["16.jpg", "Área de lazer entre os blocos"],
-   ["17.jpg", "Quadra do condomínio"],
-   ["18.jpg", "Quadra e área verde"],
-   ["19.jpg", "Playground visto do bloco"]
-  ]
+   [
+    "01.jpg",
+    "Sala de estar com a cozinha americana integrada"
+   ],
+   [
+    "02.jpg",
+    "Sala em enfiada, do sofá até a cozinha"
+   ],
+   [
+    "03.jpg",
+    "Bancada de mármore separando a cozinha da sala"
+   ],
+   [
+    "04.jpg",
+    "Cozinha planejada com cooktop, coifa e bancada de mármore"
+   ],
+   [
+    "05.jpg",
+    "Corredor de acesso aos quartos e ao banheiro"
+   ],
+   [
+    "06.jpg",
+    "Quarto com janela ampla e persiana"
+   ],
+   [
+    "07.jpg",
+    "Quarto com armário planejado de porta de correr"
+   ],
+   [
+    "08.jpg",
+    "Armário planejado de parede a parede no quarto"
+   ],
+   [
+    "09.jpg",
+    "Segundo quarto, com escrivaninha"
+   ],
+   [
+    "10.jpg",
+    "Quarto de casal"
+   ],
+   [
+    "11.jpg",
+    "Banheiro com box de vidro e armário sob a pia"
+   ],
+   [
+    "12.jpg",
+    "Garagem coberta"
+   ],
+   [
+    "13.jpg",
+    "Entrada do bloco, com jardim"
+   ],
+   [
+    "14.jpg",
+    "Piscina do condomínio"
+   ],
+   [
+    "15.jpg",
+    "Playground do condomínio"
+   ],
+   [
+    "16.jpg",
+    "Área de lazer entre os blocos"
+   ],
+   [
+    "17.jpg",
+    "Quadra do condomínio"
+   ],
+   [
+    "18.jpg",
+    "Quadra e área verde"
+   ],
+   [
+    "19.jpg",
+    "Playground visto do bloco"
+   ]
+  ],
+  "area": 43.43
  },
  {
   "slug": "apartamento-70m2-jardim-holanda-uberlandia",
@@ -80,18 +138,54 @@
    "2 vagas de garagem"
   ],
   "fotos": [
-   ["01.jpg", "Sala de estar e sala de jantar integradas"],
-   ["02.jpg", "Sala de TV com sofá"],
-   ["03.jpg", "Sala ampla com vista para a sala de jantar"],
-   ["04.jpg", "Sala de jantar"],
-   ["05.jpg", "Cozinha com armários planejados"],
-   ["06.jpg", "Cozinha com coifa e cooktop"],
-   ["07.jpg", "Suíte do casal"],
-   ["08.jpg", "Segundo quarto com espaço de home office"],
-   ["09.jpg", "Quarto com armário embutido"],
-   ["10.jpg", "Banheiro social com box"],
-   ["11.jpg", "Banheiro da suíte com armário"],
-   ["12.jpg", "Lavanderia com armário"]
+   [
+    "01.jpg",
+    "Sala de estar e sala de jantar integradas"
+   ],
+   [
+    "02.jpg",
+    "Sala de TV com sofá"
+   ],
+   [
+    "03.jpg",
+    "Sala ampla com vista para a sala de jantar"
+   ],
+   [
+    "04.jpg",
+    "Sala de jantar"
+   ],
+   [
+    "05.jpg",
+    "Cozinha com armários planejados"
+   ],
+   [
+    "06.jpg",
+    "Cozinha com coifa e cooktop"
+   ],
+   [
+    "07.jpg",
+    "Suíte do casal"
+   ],
+   [
+    "08.jpg",
+    "Segundo quarto com espaço de home office"
+   ],
+   [
+    "09.jpg",
+    "Quarto com armário embutido"
+   ],
+   [
+    "10.jpg",
+    "Banheiro social com box"
+   ],
+   [
+    "11.jpg",
+    "Banheiro da suíte com armário"
+   ],
+   [
+    "12.jpg",
+    "Lavanderia com armário"
+   ]
   ]
  }
 ]
