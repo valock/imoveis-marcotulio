@@ -26,6 +26,24 @@ sitemap.xml              GERADO
 robots.txt               diretrizes de indexação
 ```
 
+## Os dois números
+
+| onde | número | por quê |
+|---|---|---|
+| todo link `wa.me` | **(34) 92001-7016** | WhatsApp Business do Meta — é para onde vai toda conversa iniciada pelo site |
+| links `tel:`, schema.org, texto visível | **(34) 99677-8075** | telefone padrão, para ligação e contato geral |
+
+**Não unifique os dois.** Separar a conversa do site do telefone pessoal é o
+motivo de existir a conta business: é ela que dá catálogo, respostas rápidas,
+etiquetas e as métricas do Meta.
+
+Cada número tem um lugar só no código:
+
+- `index.html` → `var ZAP` (o JS reescreve o `href` de todo `[data-zap]`; os
+  `href` escritos no HTML são o fallback para quem não executa JS, e precisam
+  ser trocados junto)
+- `tools/gerar.py` → `ZAP` e `FONE`, no topo do arquivo
+
 ## Como publicar um imóvel
 
 **1.** Coloque as fotos em `img/imoveis/<pasta-do-imovel>/`, numeradas
