@@ -52,11 +52,25 @@ import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = 'https://imoveis.marcotulio.pro'
+# A MESMA PESSOA NOS TRÊS DOMÍNIOS.
+# Este @id identifica o Marco Túlio no schema.org e já existe no marcotulio.pro,
+# que é onde mora o nó completo — nome, endereço, telefone, knowsAbout e os 13
+# sameAs. Aqui e no simulador entra só uma REFERÊNCIA a ele, nunca uma segunda
+# cópia dos dados.
+#
+# Por que referência e não cópia: cópia envelhece. No dia em que ele trocar o
+# telefone no marcotulio.pro, os outros dois passam a contradizê-lo — e duas
+# fichas divergentes com o mesmo nome é pior do que uma só.
+#
+# A string tem que ser IDÊNTICA, caractere por caractere, nos três domínios.
+# É só por ela que o Google entende que é a mesma pessoa.
+ENTIDADE = 'https://marcotulio.pro/#marcotulio'
+
 # Dois números, de propósito. ZAP é o WhatsApp Business do Meta: é para onde
 # vai toda conversa iniciada pelo site, e é o único usado em wa.me. FONE é o
-# telefone padrão, que fica nos links tel:, no schema.org e no texto visível.
-# Não unifique: separar a conversa do site do telefone pessoal é o motivo de
-# existir a conta business.
+# telefone padrão, que fica nos links tel: e no texto visível. Não unifique:
+# separar a conversa do site do telefone pessoal é o motivo de existir a conta
+# business.
 ZAP = '5534920017016'          # (34) 92001-7016 — WhatsApp Business
 FONE = '+55-34-99677-8075'     # (34) 99677-8075 — telefone padrão
 # lastmod do sitemap. Chumbar a data faz o sitemap envelhecer sozinho e
@@ -309,13 +323,27 @@ def schema_imovel(p, com_url):
             'price': p['preco'],
             'priceCurrency': 'BRL',
             'availability': 'https://schema.org/InStock',
-            'seller': {
-                '@type': 'RealEstateAgent',
-                'name': 'Marco Túlio Andrade — Corretor de Imóveis',
-                'url': SITE + '/',
-            },
+            # Referência ao mesmo @id, e não um RealEstateAgent novo por
+            # oferta. Sem isto, 23 ofertas viravam 23 corretores diferentes.
+            'seller': {'@id': ENTIDADE},
         }
     return d
+
+
+def schema_corretor():
+    """Referência ao nó completo que vive no marcotulio.pro.
+
+    Só o @id e o mínimo para o bloco fazer sentido isolado. Todo o resto
+    (endereço, telefone, knowsAbout, sameAs) fica no domínio de autoridade,
+    em um lugar só.
+    """
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'RealEstateAgent',
+        '@id': ENTIDADE,
+        'name': 'Marco Túlio Andrade Freitas',
+        'url': 'https://marcotulio.pro',
+    }
 
 
 def schema_lista(meus, lancamentos):
@@ -899,7 +927,8 @@ def main():
     #    como motivo para ignorar o rich result inteiro.
     html = substituir(html, 'faq', secao_faq(faq), 'index.html')
     html = substituir(html, 'schema',
-                      bloco_json(schema_lista(meus, lancamentos))
+                      bloco_json(schema_corretor()).rstrip(' ')
+                      + bloco_json(schema_lista(meus, lancamentos)).rstrip(' ')
                       + bloco_json(schema_faq(faq)).rstrip(' '), 'index.html')
 
     # 4. os mesmos dados para busca, filtro e galeria no navegador
