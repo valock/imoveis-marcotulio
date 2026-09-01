@@ -17,6 +17,7 @@ dados/imoveis.json       fonte única dos imóveis de captação própria
 dados/lancamentos.json   fonte única dos lançamentos de construtora
 dados/faq.json           perguntas e respostas (vira HTML + FAQPage schema)
 dados/torrano.json       exclusivos da Torrano (o card leva ao site deles)
+docs/schema-tres-dominios.md  o que colar no marcotulio.pro e no simulador
 tools/gerar.py           gera o site a partir dos dois arquivos acima
 tools/conferir.py        compara os lançamentos com as páginas do marcotulio.pro
 index.html               a capa (HTML/CSS/JS em arquivo único)
@@ -25,6 +26,24 @@ img/imoveis/<pasta>/     fotos de cada imóvel
 sitemap.xml              GERADO
 robots.txt               diretrizes de indexação
 ```
+
+## O mesmo corretor nos três domínios
+
+O que faz o Google entender que `marcotulio.pro`, `imoveis.marcotulio.pro` e
+`simulador.marcotulio.pro` são a mesma pessoa é um `@id` de schema.org repetido
+nos três, **idêntico caractere por caractere**:
+
+```
+https://marcotulio.pro/#marcotulio
+```
+
+O nó completo (endereço, telefone, `knowsAbout`, os 13 `sameAs`) mora no
+`marcotulio.pro`. Aqui entra só uma **referência** — cópia envelhece, referência
+não. No código, a constante `ENTIDADE`, no topo de `tools/gerar.py`, é o único
+lugar onde o identificador aparece.
+
+O que fazer nos outros dois domínios está em
+[`docs/schema-tres-dominios.md`](docs/schema-tres-dominios.md).
 
 ## Os dois números
 
