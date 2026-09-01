@@ -9,41 +9,100 @@ repetido nos três, idêntico caractere por caractere:
 https://marcotulio.pro/#marcotulio
 ```
 
-Esse `@id` **já existe** no `marcotulio.pro`. Não invente outro, não troque a
-barra final, não use `www`, não use `imoveis.` no lugar. Um caractere diferente
-e o Google volta a ver duas pessoas.
+## Como está hoje (conferido em 01/09/2026)
 
-## Como está dividido
+| domínio | identificador que ele usa | situação |
+|---|---|---|
+| `marcotulio.pro` | `https://marcotulio.pro/#marcotulio` | ✅ correto — é o dono do nó completo |
+| `marcotulio.pro/sobre` | `https://marcotulio.pro/#marcotulio` | ✅ correto |
+| `imoveis.marcotulio.pro` | `https://marcotulio.pro/#marcotulio` | ✅ corrigido |
+| `simulador.marcotulio.pro` | `https://marcotulio.pro/**sobre**#marcotulio` | ❌ **aponta para o vazio** |
 
-| domínio | o que carrega |
-|---|---|
-| `marcotulio.pro` | o **nó completo**: nome, endereço, telefone, `knowsAbout` e os 13 `sameAs`. É o domínio de autoridade. |
-| `imoveis.marcotulio.pro` | uma **referência** ao `@id` — já aplicado |
-| `simulador.marcotulio.pro` | uma **referência** ao `@id` — falta aplicar |
+O simulador **tem** identificador — só que é outro. E não é "outro" no sentido
+de apontar para uma segunda ficha: **ninguém declara `/sobre#marcotulio`**.
+Nem a página `/sobre`, que usa `/#marcotulio` como todas as outras.
 
-**Referência, e não cópia.** Cópia envelhece: no dia em que você trocar o
-telefone no `marcotulio.pro`, os outros dois passam a contradizê-lo, e duas
-fichas divergentes com o mesmo nome são piores do que uma só. A referência não
-tem como ficar desatualizada, porque não guarda dado nenhum.
-
----
-
-## 1. `marcotulio.pro` — não mexa
-
-Já está certo. O nó completo está lá, com o `@id` e os 13 `sameAs` (Google
-Maps, Instagram, LinkedIn, Facebook, Threads, TikTok, YouTube, Pinterest, X,
-WhatsApp e os dois subdomínios). É a base de tudo.
-
-Só confira que `imoveis.marcotulio.pro` e `simulador.marcotulio.pro` continuam
-na lista de `sameAs` — eles estão, e é isso que fecha o triângulo.
+É um ponteiro para um endereço que não existe. Do ponto de vista do Google, o
+simulador não está ligado a você.
 
 ---
 
-## 2. `simulador.marcotulio.pro` — colar isto
+## O conserto no `simulador.marcotulio.pro`
 
-Hoje o simulador tem quatro blocos (`WebApplication`, `FAQPage`, `Article`,
-`BreadcrumbList`) e **nenhum** liga a página a você. Cole este bloco no
-`<head>`, junto dos outros:
+São **quatro trocas**, todas no JSON-LD do `<head>`. Nenhuma muda o que aparece
+na tela.
+
+### Bloco `Article` — trocar `author` e `publisher`
+
+Está assim:
+
+```json
+"author": {
+  "@type": "Person",
+  "@id": "https://marcotulio.pro/sobre#marcotulio",
+  "name": "Marco Túlio Andrade Freitas",
+  "jobTitle": "Corretor de Imóveis",
+  "url": "https://marcotulio.pro/sobre",
+  "sameAs": ["https://marcotulio.pro/", "https://imoveis.marcotulio.pro/"]
+},
+"publisher": {
+  "@type": "Person",
+  "@id": "https://marcotulio.pro/sobre#marcotulio",
+  "name": "Marco Túlio Andrade Freitas"
+}
+```
+
+Troque pelas duas linhas:
+
+```json
+"author":    { "@id": "https://marcotulio.pro/#marcotulio" },
+"publisher": { "@id": "https://marcotulio.pro/#marcotulio" }
+```
+
+### Bloco `WebApplication` — trocar `author` e `publisher`
+
+Está assim (sem `@id` nenhum — dois nós anônimos):
+
+```json
+"author": {
+  "@type": "Person",
+  "name": "Marco Túlio Andrade Freitas",
+  "url": "https://marcotulio.pro/sobre",
+  "jobTitle": "Corretor de Imóveis"
+},
+"publisher": {
+  "@type": "Person",
+  "name": "Marco Túlio Andrade Freitas",
+  "url": "https://marcotulio.pro"
+}
+```
+
+Troque pelas mesmas duas linhas:
+
+```json
+"author":    { "@id": "https://marcotulio.pro/#marcotulio" },
+"publisher": { "@id": "https://marcotulio.pro/#marcotulio" }
+```
+
+### Por que jogar fora nome, `jobTitle` e `sameAs`
+
+Porque tudo isso já está no nó completo do `marcotulio.pro`, e lá está mais
+completo: endereço, telefone, `knowsAbout` e **treze** `sameAs`, contra os dois
+que o simulador lista.
+
+**Referência não envelhece, cópia sim.** No dia em que você trocar o telefone
+no `marcotulio.pro`, uma cópia passa a contradizê-lo — e duas fichas
+divergentes com o mesmo nome são piores do que uma só. A referência não tem
+como ficar desatualizada, porque não guarda dado nenhum.
+
+Tem ainda um detalhe: o simulador declara `"@type": "Person"` e o
+`marcotulio.pro` declara `"@type": "RealEstateAgent"`. Trocando pela referência
+pura, esse conflito de tipo desaparece junto.
+
+### Se preferir também um bloco próprio
+
+Opcional. As quatro trocas acima já resolvem. Se quiser deixar explícito no
+`<head>` do simulador:
 
 ```html
 <script type="application/ld+json">
@@ -57,26 +116,22 @@ Hoje o simulador tem quatro blocos (`WebApplication`, `FAQPage`, `Article`,
 </script>
 ```
 
-E, no bloco `WebApplication` que já existe lá, acrescente estas duas linhas
-para dizer quem oferece a ferramenta:
+---
 
-```json
-  "provider": { "@id": "https://marcotulio.pro/#marcotulio" },
-  "author":   { "@id": "https://marcotulio.pro/#marcotulio" }
-```
+## `marcotulio.pro` — não mexa
 
-Se o `FAQPage` do simulador também for seu conteúdo, vale acrescentar nele:
+Está certo. O nó completo mora lá, com o `@id` e os treze `sameAs` (Maps,
+Instagram, LinkedIn, Facebook, Threads, TikTok, YouTube, Pinterest, X, WhatsApp
+e os dois subdomínios). É a base de tudo.
 
-```json
-  "author": { "@id": "https://marcotulio.pro/#marcotulio" }
-```
+Só confira que `imoveis.marcotulio.pro` e `simulador.marcotulio.pro` continuam
+na lista de `sameAs` — eles estão, e é isso que fecha o triângulo.
 
 ---
 
-## 3. `imoveis.marcotulio.pro` — já aplicado
+## `imoveis.marcotulio.pro` — já aplicado
 
-Fica registrado o que foi feito aqui, porque o mesmo raciocínio vale para o
-simulador.
+Fica registrado, porque o mesmo raciocínio vale para o simulador.
 
 **O problema era maior do que o bloco do `<head>`.** A página declarava um
 `RealEstateAgent` completo **sem `@id`** — uma segunda ficha, competindo com a
@@ -100,8 +155,20 @@ topo de `tools/gerar.py`.
 ## Como conferir depois de publicar
 
 1. **Teste de Resultados Aprimorados** do Google
-   (`search.google.com/test/rich-results`) em cada um dos três domínios. O
-   `RealEstateAgent` tem que aparecer nos três com o mesmo `@id`.
-2. Nenhum dos três pode mostrar **dois** `RealEstateAgent` na mesma página.
-3. No Search Console, a consolidação leva semanas para aparecer — é o Google
-   reprocessando as três propriedades. Não é mudança de um dia para o outro.
+   (`search.google.com/test/rich-results`), nos três domínios. O identificador
+   tem que ser o mesmo nos três.
+2. Nenhuma página pode declarar **dois** nós de pessoa com identificadores
+   diferentes.
+3. No Search Console, a consolidação leva semanas — é o Google reprocessando as
+   três propriedades. Não é mudança de um dia para o outro.
+
+Comando rápido para conferir os três de uma vez:
+
+```sh
+for u in https://marcotulio.pro/ https://imoveis.marcotulio.pro/ https://simulador.marcotulio.pro/; do
+  echo "$u"
+  curl -sSL "$u" | grep -o '"@id": *"[^"]*marcotulio[^"]*"' | sort -u
+done
+```
+
+O esperado é `https://marcotulio.pro/#marcotulio` nos três, e mais nada.
